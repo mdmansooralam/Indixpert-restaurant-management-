@@ -1,6 +1,6 @@
 import os
 import json
-from src.models.user import UserModel
+from src.models.user_model import UserModel
 
 USER_FILE = 'src/database/user.json'
 
@@ -26,3 +26,5 @@ class User:
                 json.dump(users, file, indent=4)
         except Exception as error:
             print(error)
+
+

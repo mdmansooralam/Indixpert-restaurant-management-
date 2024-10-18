@@ -1,7 +1,7 @@
 import uuid
 
 
-from src.user_management.user import User
+from src.models.user_model import UserModel
 from src.utility.check_user import check_user
 
 
@@ -17,12 +17,21 @@ class ManageUser:
             else:
                 id = str(uuid.uuid4())[:10]
                 role = 'staff'
-                new_user = User(id, name, email, password, role)
+                new_user = UserModel(id, name, email, password, role)
                 self.user.users.append(new_user)
                 self.user.save_user()
                 print(f'signup successful, please login')
         except Exception as error:
             print(error)
 
+    def user_login(self, email, password):
+        for user in self.user.users:
+            if(user.email == email):
+                if(user.password == password):
+                    #update state and send to dashboard management
+                    pass
+                else:
+                    print('wrong credential please try with correct data')
+                    break
 
 

@@ -1,0 +1,30 @@
+[
+    {
+        "id": "857a7c13-0",
+        "name": "rahul singh",
+        "email": "rahul@gmail.com",
+        "password": "Rahul@123",
+        "role": "staff"
+    },
+    {
+        "id": "7f2abcc5-0",
+        "name": "staff",
+        "email": "staff@gmail.com",
+        "password": "Staff@123",
+        "role": "staff"
+    },
+    {
+        "id": "6063d215-0",
+        "name": "md mansoor alam",
+        "email": "mansoor@gmail.com",
+        "password": "Mansoor@123",
+        "role": "admin"
+    },
+    {
+        "id": "9c8f4e26-e",
+        "name": "mansoor",
+        "email": "alam@gmail.com",
+        "password": "Alam@123",
+        "role": "staff"
+    }
+]

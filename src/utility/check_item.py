@@ -1,6 +1,6 @@
 
 
-from src.manage_files.item import Item
+from src.database.collections.item import Item
 
 def check_item(name):
     item_found = False

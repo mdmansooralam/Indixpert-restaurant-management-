@@ -2,9 +2,9 @@ import uuid
 
 
 from src.models.reservation_model import ReservationModel
-from src.manage_files.reservation import Reservation
+from src.database.collections.reservation import Reservation
 from src.models.table_model import TableModel
-from src.manage_files.table import Table
+from src.database.collections.table import Table
 
 from src.utility.validate_date import validate_date
 from src.utility.time_slot import validate_time_slot

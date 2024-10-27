@@ -5,9 +5,9 @@
 
 
 
-from src.manage_files.order import Order
+from src.database.collections.order import Order
 from src.controllers.order_controller.take_order import take_order
-from src.manage_files.item import Item
+from src.database.collections.item import Item
 from src.utility.check_order import check_order
 from src.controllers.order_controller.payment_proceed import payment_proceed
 from src.utility.validation import validate_id

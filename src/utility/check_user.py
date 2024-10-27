@@ -1,5 +1,5 @@
 
-from src.manage_files.user import User
+from src.database.collections.user import User
 
 def check_user(email):
     user = User()

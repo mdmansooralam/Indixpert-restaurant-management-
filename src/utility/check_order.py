@@ -1,6 +1,6 @@
 
 
-from src.manage_files.order import Order
+from src.database.collections.order import Order
 
 def check_order(id):
     orders = Order().orders

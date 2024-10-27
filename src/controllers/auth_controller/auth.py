@@ -1,6 +1,6 @@
 import uuid
 
-from src.manage_files.user import User
+from src.database.collections.user import User
 from src.models.user_model import UserModel
 from src.utility.check_user import check_user
 from src.controllers.user_controller.super_admin import super_admin

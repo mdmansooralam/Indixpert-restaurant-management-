@@ -1,5 +1,5 @@
 
-from src.manage_files.item import Item
+from src.database.collections.item import Item
 
 def get_item(name):
     for item in Item().items:

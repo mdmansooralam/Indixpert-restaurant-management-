@@ -2,7 +2,7 @@ import uuid
 
 from src.controllers.user_controller.user_state import UserState
 from src.models.item_model import ItemModel
-from src.manage_files.item import Item
+from src.database.collections.item import Item
 
 def create_item(name, category, cost_price, sale_price, quantity):
     try:
@@ -34,25 +34,14 @@ def remove_item(id):
 def get_item_by_category(category):
     try:
         items = Item().items
-        print('\n')
-        print('{:<20}{:<20}{:<10}'.format('NAME','CATEGORY', 'RATE'))
-        print('-'*50)
+        print('{:<20}{:<20}'.format('NAME', 'RATE'))
+        print('-'*40)
         for item in items:
             if(item['category'] == category):
-                print('{:<20}{:<20}{:<10}'.format(item['name'], item['category'], item['sale_price']))
+                print('{:<20}{:<20}'.format(item['name'], item['sale_price']))
     except Exception as error:
         print(error)
 
-def get_all_item():
-    try:
-        items = Item().items
-        print('\n')
-        print('{:<20}{:<20}{:<10}'.format('NAME','CATEGORY', 'RATE'))
-        print('-'*50)
-        for item in items:
-            print('{:<20}{:<20}{:<10}'.format(item['name'], item['category'], item['sale_price']))
-    except Exception as error:
-        print(error)
 
 def update_item(id, name, category, cost_price, sale_price, quantity):
 

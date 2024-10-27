@@ -1,11 +1,12 @@
 
 
-from src.dashboard.UI.order_ui.display_menu_feature import display_menu
+from src.dashboard.UI.item_ui.menu import menu
 from src.dashboard.UI.order_ui.order_system  import order_system
 from src.controllers.order_controller.update_order import update_order
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.validation import validate_int
 from src.dashboard.UI.reservation_ui.reserve_table import table_reserve
+from src.dashboard.UI.reservation_ui.cancel_reservation import cancel
 
 def staff_dashboard():
 
@@ -15,12 +16,15 @@ def staff_dashboard():
         print('2 Create Order')
         print('3 update order')
         print('4 Reserve Table')
-        print('5 Logout')
+        print('5 Cancel Reservation')
+        print('6 View Reservation')
+        print('7 View All Rerservation')
+        print('8 Logout')
 
         choice = validate_int(input("please choose a option : "))
         
         if(choice == 1):
-            display_menu()
+            menu()
             if(ask_for_dashboard()):
                 continue
             else:
@@ -45,6 +49,24 @@ def staff_dashboard():
             else:
                 break
         elif(choice == 5):
+            cancel()
+            if(ask_for_dashboard()):
+                continue
+            else:
+                break
+        elif(choice == 6):
+            pass
+            if(ask_for_dashboard()):
+                continue
+            else:
+                break
+        elif(choice == 7):
+            pass
+            if(ask_for_dashboard()):
+                continue
+            else:
+                break
+        elif(choice == 8):
             break
         else:
             print('please choose a valid option ')

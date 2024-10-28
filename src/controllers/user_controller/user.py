@@ -46,7 +46,7 @@ def remove_user(email):
         for user in USER.users:
             if(user['email'] == email):
                 if(user['role'] == 'staff'):
-                    USER.users.remove(user)
+                    user['status'] = 'deactive'
                     USER.save_user()
                     print(f'{user['name']} removed successful')
                     break
@@ -57,10 +57,65 @@ def remove_user(email):
     elif(user_state['role'] == 'super_admin'):
         for user in USER.users:
             if(user['email'] == email):
-                USER.users.remove(user)
+                user['status'] = 'deactive'
                 USER.save_user()
                 print(f'{user['name']} removed successful')
                   
     else:
         print('you are not authorized')
 
+def get_current_user():
+    user_state = UserState().get_state()
+    users = User().users
+
+    for user in users:
+        if(user['email'] == user_state['email']):
+            print('\n***********PROFILE**************')
+            for name, value in user.items():
+                if(name == 'password'):
+                    continue
+                if(name == 'benefits'):
+                    benefits = ", ".join(value)
+                    print('{:<20}{:<10}{:<20}'.format('Benefits', ':', benefits))
+                    continue
+                print('{:<20}{:<10}{:<20}'.format(name.capitalize().replace('_', ' '), ':', value))
+            return None   
+    else:
+        print('current user not available')
+
+def get_user_by_email(email):
+    user_state = UserState().get_state()
+    users = User().users
+
+    if(user_state['role'] == 'admin'):
+        for user in users:
+            if(user['email'] == email and user['role'] == 'staff'):
+                print('\n***********PROFILE**************')
+                for name, value in user.items():
+                    if(name == 'password'):
+                        continue
+                    if(name == 'benefits'):
+                        benefits = ", ".join(value)
+                        print('{:<20}{:<10}{:<20}'.format('Benefits', ':', benefits))
+                        continue
+                    print('{:<20}{:<10}{:<20}'.format(name.capitalize().replace('_', ' '), ':', value))
+                return None
+        else:
+            print('user not found')
+    elif(user_state['role'] == 'super_admin'):
+        for user in users:
+            if(user['email'] == email):
+                print('\n***********PROFILE**************')
+                for name, value in user.items():
+                    if(name == 'password'):
+                        continue
+                    if(name == 'benefits'):
+                        benefits = ", ".join(value)
+                        print('{:<20}{:<10}{:<20}'.format('Benefits', ':', benefits))
+                        continue
+                    print('{:<20}{:<10}{:<20}'.format(name.capitalize().replace('_', ' '), ':', value))
+                return None
+        else:
+            print('user not found')
+    else:
+        print('you are not authorized ')

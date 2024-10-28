@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 def validate_email(email):
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
@@ -59,6 +60,19 @@ def validate_int(number):
         return int(number)
     else:
         return False
-    
-    
-    
+
+def validate_dob(dob):
+    try:
+        current_year = datetime.today().year
+        birth_year = datetime.strptime(dob, '%d-%m-%Y').year
+
+        age = current_year - birth_year
+
+        if(age >= 18 and age <=95):
+            return dob
+        else:
+            return False
+        
+
+    except Exception as error:
+        return False

@@ -1,7 +1,5 @@
 
 
-
-
 USER_STATE = None
 
 class UserState:

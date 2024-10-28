@@ -7,6 +7,7 @@ from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.validation import validate_int
 from src.dashboard.UI.reservation_ui.reserve_table import table_reserve
 from src.dashboard.UI.reservation_ui.cancel_reservation import cancel
+from src.controllers.user_controller.user import get_current_user
 
 def staff_dashboard():
 
@@ -19,7 +20,8 @@ def staff_dashboard():
         print('5 Cancel Reservation')
         print('6 View Reservation')
         print('7 View All Rerservation')
-        print('8 Logout')
+        print('8 My Profile')
+        print('9 Logout')
 
         choice = validate_int(input("please choose a option : "))
         
@@ -67,6 +69,12 @@ def staff_dashboard():
             else:
                 break
         elif(choice == 8):
+            get_current_user()
+            if(ask_for_dashboard()):
+                continue
+            else:
+                break
+        elif(choice == 9):
             break
         else:
             print('please choose a valid option ')

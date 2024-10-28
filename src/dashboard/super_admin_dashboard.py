@@ -5,13 +5,15 @@ from src.utility.validation import validate_int
 
 def super_admin_dashboard():
 
-    print('\n*****************welcome to super admin dashboard*******************')
-    print('1 Make Admin')
-    print('2 View all users')
-    print('3 REMOVE USER')
-    print('4 Logout')
 
     while True:
+        print('\n*****************welcome to super admin dashboard*******************')
+        print('1 Make Admin')
+        print('2 View all users')
+        print('3 REMOVE USER')
+        print('4 Logout')
+
+        
         choice = validate_int(input('choose a option : '))
         if(not choice):
             print('please enter a valid integer option')

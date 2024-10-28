@@ -1,4 +1,5 @@
 import uuid
+from datetime import date
 
 from src.database.collections.user import User
 from src.models.user_model import UserModel
@@ -10,7 +11,7 @@ from src.dashboard.manage_dashboard import dashboard
 
 
 
-def user_signup(name, email, password):
+def user_signup(name, email, password, date_of_birth, mobile_number, address):
         try:
             USER = User()
             user = check_user(email)
@@ -19,7 +20,31 @@ def user_signup(name, email, password):
             else:
                 id = str(uuid.uuid4())[:10]
                 role = 'staff'
-                new_user = UserModel(id, name, email, password, role).__dict__
+                employment_type = 'full time'
+                shift_preferences = 'day'
+                benefits = ['health insurance', 'meals']
+                date_of_joining = date.today().strftime("%d-%m-%Y")
+                status = 'active'
+                salary = 18000
+                
+
+                new_user = UserModel(
+                     id,
+                     name,
+                     email,
+                     password,
+                     date_of_birth,
+                     mobile_number,
+                     address,
+                     salary,
+                     date_of_joining,
+                     role,
+                     employment_type,
+                     shift_preferences,
+                     status,
+                     benefits
+                     
+                ).__dict__
                 USER.users.append(new_user)
                 USER.save_user()
                 print('signup successful please login ....')
@@ -39,11 +64,14 @@ def user_login(email, password):
                 else:
                     for user in USER.users:
                         if(user['email'] == email):
-                            if(user['password'] == password):
-                                UserState().update_state(user)
-                                dashboard()
+                            if(user['status'] == 'active'):
+                                if(user['password'] == password):
+                                    UserState().update_state(user)
+                                    dashboard()
 
+                                else:
+                                    print('wrong credential pleae try again.....')
                             else:
-                                print('wrong credential pleae try again.....')
+                                 print('Your account is deactive please contact to admin')
         except Exception as error:
              print(error)

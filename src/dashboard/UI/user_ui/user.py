@@ -3,6 +3,7 @@
 from src.controllers.user_controller.user import make_admin, remove_user, get_all_user
 from src.utility.validation import validate_email
 from src.utility.check_user import check_user
+from src.controllers.user_controller.user import get_user_by_email
 
 
 def admin():
@@ -44,4 +45,17 @@ def remove():
 
 def view_all_user():
     get_all_user()
+
+
+def display_staff_profile():
+    try:
+        email = validate_email(input('Enter Email Id : '))
+        if(not email):
+            raise Exception('Invalid email please enter a valid email')
+        get_user_by_email(email)
+
+    except Exception as error:
+        print(error)
+    
+
 

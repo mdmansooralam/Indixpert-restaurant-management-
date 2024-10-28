@@ -1,6 +1,6 @@
 
 from src.controllers.auth_controller.auth import user_login, user_signup
-from src.utility.validation import validate_email, validate_password, validate_name
+from src.utility.validation import validate_email, validate_password, validate_name, validate_mobile, validate_dob
 
 def login():    
         try:
@@ -30,7 +30,19 @@ def signup():
             if(not password):
                  raise Exception('please enter a valid password')
             
-            user_signup(name, email, password)
+            date_of_birth = validate_dob(input('Date of Birth (dd-mm-yyyy) : '))
+            if(not date_of_birth):
+                 raise Exception('invalid date, age should be 18 or above')
+
+            mobile_number = validate_mobile(input('Mobile Number : '))
+            if(not mobile_number):
+                 raise Exception('Invalid Mobile Number')
+            
+            address = input('Address : ')
+            if(len(address) <4):
+                 raise Exception('Invalid address please enter a valid address')
+
+            user_signup(name, email, password, date_of_birth, mobile_number, address)
 
         except Exception as error:
-            print(password)
+            print(error)

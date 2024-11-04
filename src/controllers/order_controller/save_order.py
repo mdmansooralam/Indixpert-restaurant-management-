@@ -5,19 +5,23 @@ from src.models.order_model import OrderModel
 from src.database.collections.item import Item
 from src.controllers.user_controller.user_state import UserState
 from src.database.collections.order import Order
-from src.utility.validation import validate_mobile
+from src.utility.validation import validate_mobile, validate_name
 from src.constant import TAX
 
 
 def finalize_order(order):
     ORDER = Order()
     ITEM = Item()
-
+    name = validate_name(input('Customer Name : '))
+    if(not name):
+        print('please enter a valid name')
+        return
+    
     mobile_no = validate_mobile(input('Customer Mobile Number : '))
 
     if(not mobile_no):
         print('please enter a valid mobile number')
-
+        return
     else:
         total = 0
         if order:
@@ -33,11 +37,12 @@ def finalize_order(order):
             order_date = date.today().strftime('%d-%m-%Y')
             create_by = UserState().get_state()['email']
             status = 'process'
+            tax_percent = TAX
             tax = total / 100 * TAX
             discount = 0
             grand_total = total + tax - discount
 
-            new_order = OrderModel(id, mobile_no, order_date, order, total, create_by, status, tax, discount, grand_total).__dict__
+            new_order = OrderModel(id,name, mobile_no, order_date, order, total, create_by, status, tax, tax_percent discount, grand_total).__dict__
             ORDER.orders.append(new_order)
             ORDER.save_order()
             print('order save successful')

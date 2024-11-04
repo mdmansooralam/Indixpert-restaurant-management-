@@ -11,7 +11,7 @@ from src.dashboard.manage_dashboard import dashboard
 
 
 
-def user_signup(name, email, password, date_of_birth, mobile_number, address):
+def user_signup(name, email, password, date_of_birth, mobile_number, address, gender):
         try:
             USER = User()
             user = check_user(email)
@@ -42,7 +42,8 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address):
                      employment_type,
                      shift_preferences,
                      status,
-                     benefits
+                     benefits,
+                     gender
                      
                 ).__dict__
                 USER.users.append(new_user)

@@ -33,6 +33,7 @@ def remove_item(id):
 
 def get_item_by_category(category):
     try:
+        print(f'\n**************{category}************\n')
         items = Item().items
         print('{:<20}{:<20}'.format('NAME', 'RATE'))
         print('-'*40)
@@ -41,6 +42,34 @@ def get_item_by_category(category):
                 print('{:<20}{:<20}'.format(item['name'], item['sale_price']))
     except Exception as error:
         print(error)
+
+def get_all_items():
+    items = Item().items
+    user_state = UserState().get_state()
+    if(user_state['role'] == 'admin'):
+        print('{:<20}{:<20}{:<10}'.format('ID', 'NAME', 'STOCK'))
+        print('-'*50)
+        for item in items:
+            print('{:<20}{:<20}{:<10}'.format(item['id'], item['name'], item['quantity']))
+    else:
+        print('you are not authorized')
+
+def add_stock(item_id, qty):
+    ITEM = Item()
+    user_state = UserState().get_state()
+
+    if(user_state['role'] == 'admin'):
+
+        for item in ITEM.items:
+            if(item['id'] == item_id):
+                item['quantity'] += qty
+                ITEM.save_item()
+                print('stock added')
+                return
+        else:
+            print('item not found')
+    else:
+        print('You are not authorized')
 
 
 def update_item(id, name, category, cost_price, sale_price, quantity):

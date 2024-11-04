@@ -28,7 +28,7 @@ def validate_quantity(qty):
         return int(qty)
     
 def validate_price(price):
-    pattern = r'^[1-9]\d*$'
+    pattern = r"^\d+(\.\d+)?$"
     if(re.match(pattern, price)):
         return float(price)
     else:
@@ -76,3 +76,4 @@ def validate_dob(dob):
 
     except Exception as error:
         return False
+

@@ -22,4 +22,5 @@ class OrderModel:
             "create_by":{self.create_by},
             "tax":{self.tax},
             "discount":{self.discount},
-            "grand_total":{self.grand_total},
+            "grand_total":{self.grand_total}
+        }

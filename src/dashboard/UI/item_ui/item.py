@@ -4,6 +4,7 @@
 from src.controllers.item_controller.item import create_item, remove_item, get_item_by_category, update_item
 from src.utility.validation import validate_name, validate_category, validate_price, validate_quantity, validate_id
 from src.utility.check_item import check_item
+from src.controllers.item_controller.item import add_stock
 
 
 def create():
@@ -90,4 +91,14 @@ def update():
     except Exception as error:
         print(error)
 
-
+def stock():
+    item_id = validate_id(input('Item Id : '))
+    if(not item_id):
+        print('Invalid item id ')
+        return
+    qty = validate_quantity(input('Quantity : '))
+    if(not qty):
+        print('Invalid quantity you entered')
+        return
+    
+    add_stock(item_id, qty)

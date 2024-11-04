@@ -17,32 +17,35 @@ def login():
             print(error)
 
 def signup():
-        try:
-            name = validate_name(input('Enter Your Name : '))
-            if(not name):
-                 raise Exception('please enter a valid name')
+     try:
+          name = validate_name(input('Enter Your Name : '))
+          if(not name):
+               raise Exception('please enter a valid name')
+          gender = input('Gender (Male / Female) :')
+          if(not (gender.lower() == 'male' or gender.lower() == 'female')):
+               raise Exception('Invalid gender ')
             
-            email = validate_email(input('Enter Your Email : '))
-            if(not email):
-                 raise Exception('Please enter a valid email')
+          email = validate_email(input('Enter Your Email : '))
+          if(not email):
+               raise Exception('Please enter a valid email')
             
-            password = validate_password(input('Create Password : '))
-            if(not password):
-                 raise Exception('please enter a valid password')
+          password = validate_password(input('Create Password : '))
+          if(not password):
+               raise Exception('please enter a valid password')
             
-            date_of_birth = validate_dob(input('Date of Birth (dd-mm-yyyy) : '))
-            if(not date_of_birth):
-                 raise Exception('invalid date, age should be 18 or above')
+          date_of_birth = validate_dob(input('Date of Birth (dd-mm-yyyy) : '))
+          if(not date_of_birth):
+               raise Exception('invalid date, age should be 18 or above')
 
-            mobile_number = validate_mobile(input('Mobile Number : '))
-            if(not mobile_number):
-                 raise Exception('Invalid Mobile Number')
+          mobile_number = validate_mobile(input('Mobile Number : '))
+          if(not mobile_number):
+               raise Exception('Invalid Mobile Number')
             
-            address = input('Address : ')
-            if(len(address) <4):
-                 raise Exception('Invalid address please enter a valid address')
+          address = input('Address : ')
+          if(len(address) <4):
+               raise Exception('Invalid address please enter a valid address')
 
-            user_signup(name, email, password, date_of_birth, mobile_number, address)
+          user_signup(name, email, password, date_of_birth, mobile_number, address, gender)
 
-        except Exception as error:
-            print(error)
+     except Exception as error:
+          print(error)

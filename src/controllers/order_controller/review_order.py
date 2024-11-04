@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 def review_order(order):
     if(order):
         total = 0

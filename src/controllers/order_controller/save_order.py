@@ -6,6 +6,7 @@ from src.database.collections.item import Item
 from src.controllers.user_controller.user_state import UserState
 from src.database.collections.order import Order
 from src.utility.validation import validate_mobile
+from src.constant import TAX
 
 
 def finalize_order(order):
@@ -29,14 +30,18 @@ def finalize_order(order):
                         ITEM.save_item()  
 
             id = str(uuid.uuid4())[:4].upper()
-            order_date = str(date.today())
+            order_date = date.today().strftime('%d-%m-%Y')
             create_by = UserState().get_state()['email']
             status = 'process'
+            tax = total / 100 * TAX
+            discount = 0
+            grand_total = total + tax - discount
 
-            new_order = OrderModel(id, mobile_no, order_date, order, total, create_by, status).__dict__
+            new_order = OrderModel(id, mobile_no, order_date, order, total, create_by, status, tax, discount, grand_total).__dict__
             ORDER.orders.append(new_order)
             ORDER.save_order()
-            print('order finalize successful')
+            print('order save successful')
+            return new_order['id']
     
         else:
-            print('No items in your order to finalize')
+            print('No items in your order to save')

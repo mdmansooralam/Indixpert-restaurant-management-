@@ -42,7 +42,7 @@ def finalize_order(order):
             discount = 0
             grand_total = total + tax - discount
 
-            new_order = OrderModel(id,name, mobile_no, order_date, order, total, create_by, status, tax, tax_percent discount, grand_total).__dict__
+            new_order = OrderModel(id,name, mobile_no, order_date, order, total, create_by, status, tax, tax_percent, discount, grand_total).__dict__
             ORDER.orders.append(new_order)
             ORDER.save_order()
             print('order save successful')

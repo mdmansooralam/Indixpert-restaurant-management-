@@ -1,17 +1,11 @@
-
-
-
-
-
-
-
-from src.manage_files.order import Order
+from src.database.collections.order import Order
 from src.controllers.order_controller.take_order import take_order
-from src.manage_files.item import Item
+from src.database.collections.item import Item
 from src.utility.check_order import check_order
-from controllers.order_controller.payment_proceed import payment_proceed
+from src.controllers.order_controller.payment_proceed import payment_proceed
 from src.utility.validation import validate_id
 from src.utility.get_order import get_order
+from src.constant import TAX
 
 
 def update_order():
@@ -36,19 +30,28 @@ def update_order():
                 if(order['id'] == id):
                     order['items'].extend(new_items)
                     order['total'] += total
+                    order['tax'] += total / 100 * TAX
+                    order['grand_total'] = order['total'] + order['tax'] - order['discount']
                     ORDER.save_order()
                     break
 
-            pay = input('1 proceed to pay')
+            action = input('would you like to "save" or "pay" ')
 
-            if(pay == '1'):
+            if(action == 'pay'):
                 payment_proceed(id)
             else:
-                print('your order in process')
+                print('your order has been saved and  in process')
         else:
             print('order already completed now you cannot update')
     else:
         print('please enter a valid order id')
+
+
+
+
+
+
+
 
 
 

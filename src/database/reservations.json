@@ -1,0 +1,38 @@
+[
+    {
+        "id": "4FEC",
+        "name": "alam",
+        "table_id": "dk65",
+        "date": "24-10-2024",
+        "time_slot": "01-02 PM",
+        "persons": 4,
+        "status": "cancelled"
+    },
+    {
+        "id": "79DC",
+        "name": "rehan",
+        "table_id": "gf20",
+        "date": "27-10-2024",
+        "time_slot": "11-12 PM",
+        "persons": 8,
+        "status": "cancelled"
+    },
+    {
+        "id": "D0A0",
+        "name": "mansoor",
+        "table_id": "gf20",
+        "date": "27-10-2024",
+        "time_slot": "11-12 PM",
+        "persons": 8,
+        "status": "reserved"
+    },
+    {
+        "id": "898C",
+        "name": "rinku",
+        "table_id": "gf20",
+        "date": "27-10-2024",
+        "time_slot": "10-11 AM",
+        "persons": 8,
+        "status": "reserved"
+    }
+]

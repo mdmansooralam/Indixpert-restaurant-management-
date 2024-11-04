@@ -1,0 +1,59 @@
+[
+    {
+        "id": "8e44c851-2",
+        "name": "md mansoor alam",
+        "date_of_birth": "16-06-2000",
+        "email": "mansoor@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "Quilaghat Darbhanga",
+        "role": "admin",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "28-10-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Mansoor@123"
+    },
+    {
+        "id": "76856294-a",
+        "name": "admin",
+        "date_of_birth": "01-01-1999",
+        "email": "admin@admin.com",
+        "mobile_number": "7979941442",
+        "address": "Darbhanga Bihar",
+        "role": "admin",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "28-10-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Admin@123"
+    },
+    {
+        "id": "bafe9bfa-3",
+        "name": "staff",
+        "date_of_birth": "01-01-1995",
+        "email": "staff@gmail.com",
+        "mobile_number": "8936049838",
+        "address": "Darbhanga Bihar",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "28-10-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Staff@123"
+    }
+]

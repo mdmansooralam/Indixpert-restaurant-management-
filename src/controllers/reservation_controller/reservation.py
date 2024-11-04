@@ -6,6 +6,8 @@ from src.database.collections.reservation import Reservation
 from src.database.collections.table import Table
 from src.utility.validation import validate_id
 from src.constant import RESTAURANT_STATUS
+from src.models.table_model import TableModel
+from src.database.collections.table import Table
 
 
 def find_table(reservaitons, date, time_slot, persons):

@@ -51,4 +51,5 @@ class UserModel:
             "benefits":{self.benefits},
             "password":{self.password},
             "gender":{self.gender}
+
         }

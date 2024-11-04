@@ -23,4 +23,3 @@ class OrderModel:
             "tax":{self.tax},
             "discount":{self.discount},
             "grand_total":{self.grand_total},
-        }

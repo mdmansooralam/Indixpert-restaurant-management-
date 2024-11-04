@@ -15,6 +15,18 @@ def make_admin(email):
         else:
             print('your are not authorized for this operation')
 
+def make_staff(email):
+        USER = User()
+        state = UserState().get_state()
+        if(state['role'] == 'super_admin'):
+            for user in USER.users:
+                if(user['email'] == email):
+                    user['role'] = 'staff'
+                    USER.save_user()
+                    print(f'{user['name']} role has been changed to staff')
+        else:
+            print('your are not authorized for this operation')
+
 def get_all_user():
         USER = User()
         user_state = UserState().get_state()
@@ -119,3 +131,25 @@ def get_user_by_email(email):
             print('user not found')
     else:
         print('you are not authorized ')
+
+def update_user(
+        name,
+        date_of_birth,
+        mobile_number,
+        address,
+        gender
+):
+    USER = User()
+    user_state = UserState().get_state()
+
+    for user in USER.users:
+        if(user['email'] == user_state['email']):
+            user['name'] = name
+            user['date_of_birth'] = date_of_birth
+            user['mobile_number'] = mobile_number
+            user['address'] = address
+            user['gender'] = gender
+            USER.save_user()
+            print('profile updated')
+            return
+        

@@ -14,7 +14,8 @@ class UserModel:
             employment_type,
             shift_preferences,
             status,
-            benefits
+            benefits,
+            gender
     ):
         self.id = id
         self.name = name
@@ -30,6 +31,7 @@ class UserModel:
         self.status = status
         self.benefits = benefits
         self.password = password
+        self.gender = gender
 
 
     def __str__(self):
@@ -48,4 +50,6 @@ class UserModel:
             "status":{self.status},
             "benefits":{self.benefits},
             "password":{self.password},
+            "gender":{self.gender}
+
         }

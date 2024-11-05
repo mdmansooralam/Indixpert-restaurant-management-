@@ -1,0 +1,10 @@
+{
+    "tax_percent":18,
+    "restaurant_status":"open",
+    "role":"staff",
+    "salary":18000,
+    "employment_type":"full time",
+    "shift_preferences":"day",
+    "benefits":["health insurance", "meals"],
+    "user_status":"active"
+}

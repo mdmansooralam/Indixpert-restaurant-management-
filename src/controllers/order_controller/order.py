@@ -123,7 +123,7 @@ def view_invoice(order_id):
                     print('{:<15}{:<25}{:<10}{:<10}'.format('Status :', order['status'], 'Order Id :', order['id']))
 
                     print('_'*65)
-                    print('{:<30}{:<10}{:<10}{:<10}'.format('ITEM', 'RATE', 'QTY', 'TOTAL'))
+                    print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format('S.No.', 'ITEM', 'RATE', 'QTY', 'TOTAL'))
                     print('_'*65)
                     item_count = 1
                     for item in order['items']:
@@ -157,7 +157,7 @@ def get_order_details(order_id):
                     print('{:<15}{:<25}{:<10}{:<10}'.format('Status :', order['status'], 'Order Id :', order['id']))
 
                     print('_'*60)
-                    print('{:<30}{:<10}{:<10}{:<10}'.format('ITEM', 'RATE', 'QTY', 'TOTAL'))
+                    print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format('S.No.', 'ITEM', 'RATE', 'QTY', 'TOTAL'))
                     print('_'*60)
                     item_count = 1
                     for item in order['items']:

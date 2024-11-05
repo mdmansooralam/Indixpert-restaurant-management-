@@ -1,22 +1,82 @@
 [
     {
-        "id": "ab49",
+        "id": "AB49",
         "seating_capacity": 2
     },
     {
-        "id": "dk65",
+        "id": "DK65",
         "seating_capacity": 4
     },
     {
-        "id": "de85",
+        "id": "DE85",
         "seating_capacity": 6
     },
     {
-        "id": "gf20",
+        "id": "GF20",
         "seating_capacity": 8
     },
     {
-        "id": "ge63",
+        "id": "GE63",
+        "seating_capacity": 2
+    },
+    {
+        "id": "YN49",
+        "seating_capacity": 2
+    },
+    {
+        "id": "YS65",
+        "seating_capacity": 4
+    },
+    {
+        "id": "LY85",
+        "seating_capacity": 6
+    },
+    {
+        "id": "FT20",
+        "seating_capacity": 8
+    },
+    {
+        "id": "GS63",
+        "seating_capacity": 2
+    },
+    {
+        "id": "GP49",
+        "seating_capacity": 2
+    },
+    {
+        "id": "OD65",
+        "seating_capacity": 4
+    },
+    {
+        "id": "VI85",
+        "seating_capacity": 6
+    },
+    {
+        "id": "GR20",
+        "seating_capacity": 8
+    },
+    {
+        "id": "TR63",
+        "seating_capacity": 2
+    },
+    {
+        "id": "PQ49",
+        "seating_capacity": 2
+    },
+    {
+        "id": "OP65",
+        "seating_capacity": 4
+    },
+    {
+        "id": "LK85",
+        "seating_capacity": 6
+    },
+    {
+        "id": "MN20",
+        "seating_capacity": 8
+    },
+    {
+        "id": "XZ36",
         "seating_capacity": 2
     }
 ]

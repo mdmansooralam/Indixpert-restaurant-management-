@@ -1,11 +1,9 @@
 
 
-
-
-from src.constant import RESTAURANT_STATUS
+from src.database.collections.default import Default
 
 def restaurant_status():
-    if(RESTAURANT_STATUS == 'open'):
+    if(Default().restaurant_status == 'open'):
         return True
     else:
         print('Restaurant is close.....')

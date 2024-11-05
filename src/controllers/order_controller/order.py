@@ -131,7 +131,7 @@ def view_invoice(order_id):
                         item_count += 1
                     print('_'*65)
                     print('{:<35}{:<15}{:<10}'.format(' ', 'TOTAL', order['total']))
-                    print('{:<35}{:<15}{:<10}'.format(' ', f'TAX({order['tax_percent']})', order['tax']))
+                    print('{:<35}{:<15}{:<10}'.format(' ', f'TAX({order['tax_percent']}%)', order['tax']))
                     print('\n')
                     print('{:<35}{:<15}{:<10}'.format(' ', 'GRAND TOTAL', order['grand_total']))
                     print('\n')
@@ -165,7 +165,7 @@ def get_order_details(order_id):
                         item_count += 1
                     print('_'*60)
                     print('{:<35}{:<15}{:<10}'.format(' ', 'TOTAL', order['total']))
-                    print('{:<35}{:<15}{:<10}'.format(' ', 'TAX', order['tax']))
+                    print('{:<35}{:<15}{:<10}'.format(' ', f'TAX({order['tax_percent']}%)', order['tax']))
                     print('\n')
                     print('{:<35}{:<15}{:<10}'.format(' ', 'GRAND TOTAL', order['grand_total']))
                     print('\n')

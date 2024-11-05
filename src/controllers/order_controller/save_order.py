@@ -6,7 +6,8 @@ from src.database.collections.item import Item
 from src.controllers.user_controller.user_state import UserState
 from src.database.collections.order import Order
 from src.utility.validation import validate_mobile, validate_name
-from src.constant import TAX
+
+from src.database.collections.default import Default
 
 
 def finalize_order(order):
@@ -37,8 +38,8 @@ def finalize_order(order):
             order_date = date.today().strftime('%d-%m-%Y')
             create_by = UserState().get_state()['email']
             status = 'process'
-            tax_percent = TAX
-            tax = total / 100 * TAX
+            tax_percent = Default().tax_percent
+            tax = total / 100 * tax_percent
             discount = 0
             grand_total = total + tax - discount
 

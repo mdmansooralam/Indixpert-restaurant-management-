@@ -12,7 +12,7 @@ from src.utility.check_order import check_order
 from src.controllers.order_controller.payment_proceed import payment_proceed
 from src.utility.validation import validate_id
 from src.utility.get_order import get_order
-from src.constant import TAX
+from src.database.collections.default import Default
 
 
 def update_order():
@@ -37,7 +37,7 @@ def update_order():
                 if(order['id'] == id):
                     order['items'].extend(new_items)
                     order['total'] += total
-                    order['tax'] += total / 100 * TAX
+                    order['tax'] += total / 100 * Default().tax_percent
                     order['grand_total'] = order['total'] + order['tax'] - order['discount']
                     ORDER.save_order()
                     break

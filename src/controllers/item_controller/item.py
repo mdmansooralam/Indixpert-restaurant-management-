@@ -35,11 +35,13 @@ def get_item_by_category(category):
     try:
         print(f'\n**************{category}************\n')
         items = Item().items
-        print('{:<20}{:<20}'.format('NAME', 'RATE'))
+        print('{:<10}{:<20}{:<20}'.format('S NO.', 'NAME', 'RATE'))
         print('-'*40)
+        items_count = 1
         for item in items:
             if(item['category'] == category):
-                print('{:<20}{:<20}'.format(item['name'], item['sale_price']))
+                print('{:<10}{:<20}{:<20}'.format(items_count, item['name'], item['sale_price']))
+                items_count += 1
     except Exception as error:
         print(error)
 

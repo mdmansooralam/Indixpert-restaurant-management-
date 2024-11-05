@@ -105,19 +105,21 @@ def view_invoice(order_id):
             elif(order['status'] == 'cancel' or order['status'] == 'paid'):
                 print('__________________________INVOICE___________________________')
                 print('\n')
+                print('{:<15}{:<25}'.format('Name :', order['name']))
                 print('{:<15}{:<25}{:<10}{:<10}'.format('Mobile Number :', order['mobile_no'], 'Date :',order['date']))
                 print('{:<15}{:<25}{:<10}{:<10}'.format('Status :', order['status'], 'Order Id :', order['id']))
 
-                print('_'*60)
+                print('_'*65)
                 print('{:<30}{:<10}{:<10}{:<10}'.format('ITEM', 'RATE', 'QTY', 'TOTAL'))
-                print('_'*60)
-                # print('{:<30}{:<10}{:<10}{:<10}'.format('PANEER', '150', '5', '750'))
+                print('_'*65)
+                item_count = 1
                 for item in order['items']:
-                    print('{:<30}{:<10}{:<10}{:<10}'.format(item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
-                    
-                print('_'*60)
+                    print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format(item_count, item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
+                    item_count += 1
+                print('_'*65)
                 print('{:<35}{:<15}{:<10}'.format(' ', 'TOTAL', order['total']))
-                print('{:<35}{:<15}{:<10}'.format(' ', 'TAX', order['tax']))
+                print('{:<35}{:<15}{:<10}'.format(' ', f'TAX({order['tax_percent']})', order['tax']))
+                print('\n')
                 print('{:<35}{:<15}{:<10}'.format(' ', 'GRAND TOTAL', order['grand_total']))
                 print('\n')
                 return
@@ -134,19 +136,21 @@ def get_order_details(order_id):
         if(order['id'] == order_id):
                 print('__________________________ORDER DETAILS___________________________')
                 print('\n')
+                print('{:<15}{:<25}'.format('Name :', order['name']))
                 print('{:<15}{:<25}{:<10}{:<10}'.format('Mobile Number :', order['mobile_no'], 'Date :',order['date']))
                 print('{:<15}{:<25}{:<10}{:<10}'.format('Status :', order['status'], 'Order Id :', order['id']))
 
                 print('_'*60)
                 print('{:<30}{:<10}{:<10}{:<10}'.format('ITEM', 'RATE', 'QTY', 'TOTAL'))
                 print('_'*60)
-                # print('{:<30}{:<10}{:<10}{:<10}'.format('PANEER', '150', '5', '750'))
+                item_count = 1
                 for item in order['items']:
-                    print('{:<30}{:<10}{:<10}{:<10}'.format(item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
-                    
+                    print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format(item_count, item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
+                    item_count += 1
                 print('_'*60)
                 print('{:<35}{:<15}{:<10}'.format(' ', 'TOTAL', order['total']))
                 print('{:<35}{:<15}{:<10}'.format(' ', 'TAX', order['tax']))
+                print('\n')
                 print('{:<35}{:<15}{:<10}'.format(' ', 'GRAND TOTAL', order['grand_total']))
                 print('\n')
 

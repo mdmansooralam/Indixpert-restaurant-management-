@@ -26,7 +26,7 @@ def staff_dashboard():
         print('6 VIEW INVOICE')
         print('7 RESERVE TABLE')
         print('8 CANCEL RESERVATION')
-        print('9 CANCEL RESERVATION')
+        print('9 VIEW RESERVATION')
         print('10 VIEW ALL RESERVATION')
         print('11 MY PROFILE')
         print('12 UPDATE PROFILE')

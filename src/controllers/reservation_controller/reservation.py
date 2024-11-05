@@ -5,7 +5,6 @@ from src.models.reservation_model import ReservationModel
 from src.database.collections.reservation import Reservation
 from src.database.collections.table import Table
 from src.utility.validation import validate_id
-from src.constant import RESTAURANT_STATUS
 
 
 def find_table(reservaitons, date, time_slot, persons):
@@ -17,7 +16,6 @@ def find_table(reservaitons, date, time_slot, persons):
     return None
 
 def reserved_table(name, date, time_slot, persons):
-    if(RESTAURANT_STATUS == 'open'):
         RESERVATION = Reservation()
         table = find_table(RESERVATION.reservations, date, time_slot, persons)
         if(not table):
@@ -29,8 +27,6 @@ def reserved_table(name, date, time_slot, persons):
             RESERVATION.reservations.append(new_reservation)
             RESERVATION.save_reservation()
             print(f'table reserved successful table Id : {table['id']}')
-    else:
-        print('Restaurant is close you cannot reserve a table')
 
 def cancel_reservaiton(id):
     RESERVATION = Reservation()

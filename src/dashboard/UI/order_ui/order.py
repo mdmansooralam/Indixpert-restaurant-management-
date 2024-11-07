@@ -4,10 +4,10 @@
 
 
 
-from src.controllers.order_controller.order import get_order_by_date, get_order_by_day
+from src.controllers.order_controller.order_report import get_order_by_date, get_order_by_day
 from src.utility.validation import validate_id
-from src.controllers.order_controller.payment_proceed import payment_proceed
-from src.controllers.order_controller.order import view_invoice, get_order_details
+from src.controllers.order_controller.order import payment_proceed
+from src.controllers.order_controller.order_report import view_invoice, get_order_details
 
 def display_order_by_date():
     date = input('Order Date : ')

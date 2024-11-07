@@ -1,5 +1,5 @@
 
-
+from datetime import date
 
 
 DEFAULT_FILE = 'src/database/default.json'
@@ -9,3 +9,5 @@ PAYMENT_FILE = 'src/database/payments.json'
 RESERVATION_FILE = 'src/database/reservations.json'
 TABLE_FILE = 'src/database/tables.json'
 USER_FILE = 'src/database/users.json'
+
+LOG_FILE = f'src/database/log/{date.today()}.txt'

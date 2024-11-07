@@ -3,10 +3,10 @@
 from src.utility.validation import validate_int
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.dashboard.UI.order_ui.order_system import order_system
-from src.controllers.order_controller.order import get_unpaid_order
-from src.controllers.order_controller.update_order import update_order 
+from src.controllers.order_controller.order_report import get_unpaid_order
+from src.controllers.order_controller.order import update_order 
 from src.controllers.order_controller.cancel_order import cancel_order
-from src.controllers.order_controller.order import get_all_order, get_order_details
+from src.controllers.order_controller.order_report import get_all_order, get_order_details
 from src.utility.error_message import ErrorMessage
 from src.controllers.user_controller.user_state import UserState
 

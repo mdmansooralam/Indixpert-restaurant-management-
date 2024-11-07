@@ -1,6 +1,7 @@
 
 from src.controllers.auth_controller.auth import user_login, user_signup
 from src.utility.validation import validate_email, validate_password, validate_name, validate_mobile, validate_dob
+from src.utility.log_error import log_error
 
 def login():    
         try:
@@ -14,6 +15,7 @@ def login():
             
             user_login(email, password)
         except Exception as error:
+            log_error(error, 'from auth :: login')
             print(error)
 
 def signup():

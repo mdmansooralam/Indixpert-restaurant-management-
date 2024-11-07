@@ -1,10 +1,10 @@
 
 
 
-from src.controllers.order_controller.take_order import take_order
-from src.controllers.order_controller.save_order import finalize_order
-from src.controllers.order_controller.review_order import review_order
-from src.controllers.order_controller.payment_proceed import payment_proceed
+from src.controllers.order_controller.order import take_order
+from src.controllers.order_controller.order import finalize_order
+from src.controllers.order_controller.order import review_order
+from src.controllers.order_controller.order import payment_proceed
 
 from src.utility.validation import validate_name
 

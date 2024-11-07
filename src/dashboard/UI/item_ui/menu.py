@@ -11,5 +11,5 @@ def menu():
 
     get_item_by_category('MAIN COURSE')
     
-    get_item_by_category('DRINKS')
+    get_item_by_category('DRINK')
 

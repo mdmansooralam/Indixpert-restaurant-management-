@@ -33,15 +33,36 @@ def remove_item(id):
 
 def get_item_by_category(category):
     try:
-        print(f'\n**************{category}************\n')
-        items = Item().items
-        print('{:<10}{:<20}{:<20}'.format('S NO.', 'NAME', 'RATE'))
-        print('-'*40)
-        items_count = 1
-        for item in items:
-            if(item['category'] == category):
-                print('{:<10}{:<20}{:<20}'.format(items_count, item['name'], item['sale_price']))
-                items_count += 1
+        if(category=='DRINK'):
+            print(f'\n**************{category}************\n')
+            items = Item().items
+            fm_str = '{:<5}{:<10}{:<20}{:<20}'
+            print(fm_str.format('S NO.','ID' ,'NAME', 'RATE'))
+            print('-'*40)
+            items_count = 1
+            for item in items:
+                if(item['category'] == category):
+                    print(fm_str.format(items_count, item['id'], item['name'], item['sale_price']))
+                    items_count += 1
+        else:
+            print(f'\n**************{category}************\n')
+            items = Item().items
+            fm_str = '{:<5}{:<10}{:<20}{:<10}{:<10}{:<10}'
+            print(fm_str.format('S NO.','ID', 'NAME', 'FULL', 'HALF', 'QUARTER'))
+            print('-'*65)
+            items_count = 1
+            for item in items:
+                if(item['category'] == category):
+                    print(fm_str.format(
+                        items_count,
+                        item['id'],
+                        item['name'],
+                        item['sale_price']['full_price'],
+                        item['sale_price']['half_price'],
+                        item['sale_price']['quarter_price'],
+                    ))
+                    items_count += 1
+
     except Exception as error:
         print(error)
 

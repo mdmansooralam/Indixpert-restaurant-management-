@@ -38,7 +38,7 @@ def update_order():
                     if(order['id'] == id):
                         order['items'].extend(new_items)
                         order['total'] += total
-                        order['tax'] += total / 100 * Default().tax_percent
+                        order['tax'] += round((total / 100 * Default().tax_percent), 2)
                         order['grand_total'] = order['total'] + order['tax'] - order['discount']
                         ORDER.save_order()
                         break

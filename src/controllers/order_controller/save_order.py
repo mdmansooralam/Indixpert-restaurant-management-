@@ -40,7 +40,7 @@ def finalize_order(order):
                 create_by = UserState().get_state()['email']
                 status = 'process'
                 tax_percent = Default().tax_percent
-                tax = total / 100 * tax_percent
+                tax = round((total / 100 * tax_percent), 2)
                 discount = 0
                 grand_total = total + tax - discount
 

@@ -6,6 +6,7 @@ from src.dashboard.UI.user_ui.user import update_user_profile
 from src.dashboard.UI.pages.item_page import item_page
 from src.dashboard.UI.pages.stock_page import stock_page
 from src.dashboard.UI.pages.order_page import order_page
+from src.dashboard.UI.pages.staff_page import staff_page
 from src.utility.error_message import ErrorMessage
 
 def admin_dashboard():
@@ -17,7 +18,7 @@ def admin_dashboard():
         print('2 STOCK')
         print('3 ORDER')
         print('4 REPORTS')#all orders, orders by date, order by days
-        print('5 STAFF')#view all staff, remove staff, staff profile
+        print('5 STAFF')
         print('6 MY PROFILE')
         print('7 UPDATE PROFILE')
         print('8 LOGOUT')
@@ -36,7 +37,7 @@ def admin_dashboard():
         elif(choice == 4):
             pass
         elif(choice == 5):
-            pass
+            staff_page()
         elif(choice == 6):
             get_current_user()
             if(ask_for_dashboard()):

@@ -11,3 +11,5 @@ class ErrorMessage:
         self.item_exist = 'Item already exist in item list'
         self.invalid_id = 'You entered an invalid id. Please enter a valid id'
         self.invalid_price = 'You entered an invalid price. please enter a valid price'
+        self.invalid_email = 'You enterd an invalid email. Please enter a valid email'
+        self.not_authorized = 'You are not authorized to do this'

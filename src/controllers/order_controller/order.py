@@ -122,8 +122,8 @@ def get_order_details():
     try:
         orders = Order().orders
         err_msg = ErrorMessage()
-        id = validate_id(input('Enter Order Id : '))
-        if(not id):
+        order_id = validate_id(input('Enter Order Id : '))
+        if(not order_id):
             raise Exception(err_msg.invalid_id)
         
         for order in orders:

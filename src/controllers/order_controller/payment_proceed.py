@@ -1,12 +1,7 @@
 
-
-
 from src.database.collections.order import Order
 from src.utility.check_order import check_order
 from src.controllers.payment_gateway_controller.payment_gateway import pay
-
-
-
 
 def payment_proceed(order_id):
     try:

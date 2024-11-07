@@ -1,7 +1,7 @@
 
-from src.dashboard.UI.user_ui.user import admin, remove, view_all_user, staff
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.validation import validate_int
+from src.controllers.user_controller.user import make_admin, make_staff, get_all_user, remove_user
 
 def super_admin_dashboard():
 
@@ -20,25 +20,25 @@ def super_admin_dashboard():
             print('please enter a valid integer option')
         else:
             if(choice == 1):
-                admin()
+                make_admin()
                 if(ask_for_dashboard()):
                     continue
                 else:
                     break
             if(choice == 2):
-                staff()
+                make_staff()
                 if(ask_for_dashboard()):
                     continue
                 else:
                     break
             elif(choice == 3):
-                view_all_user()
+                get_all_user()
                 if(ask_for_dashboard()):
                     continue
                 else:
                     break
             elif(choice == 4):
-                remove()
+                remove_user()
                 if(ask_for_dashboard()):
                     continue
                 else:

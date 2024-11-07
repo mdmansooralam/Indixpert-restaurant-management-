@@ -1,0 +1,22 @@
+[
+    {
+        "id": "7CF3",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "table_id": "DE85",
+        "date": "07-11-2024",
+        "time_slot": "10:00 AM TO 11:00 AM",
+        "persons": 5,
+        "status": "cancelled"
+    },
+    {
+        "id": "0D33",
+        "name": "kaleem",
+        "mobile_no": "8936049838",
+        "table_id": "DE85",
+        "date": "07-11-2024",
+        "time_slot": "10:00 AM TO 11:00 AM",
+        "persons": 5,
+        "status": "reserved"
+    }
+]

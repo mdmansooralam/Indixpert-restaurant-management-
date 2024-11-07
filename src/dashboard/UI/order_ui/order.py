@@ -7,7 +7,7 @@
 from src.controllers.order_controller.order import get_order_by_date, get_order_by_day
 from src.utility.validation import validate_id
 from src.controllers.order_controller.payment_proceed import payment_proceed
-from src.controllers.order_controller.order import view_invoice, cancel_order, get_order_details
+from src.controllers.order_controller.order import view_invoice, get_order_details
 
 def display_order_by_date():
     date = input('Order Date : ')
@@ -30,13 +30,6 @@ def invoice():
         print('invalid order id')
         return
     view_invoice(order_id)
-
-def cancel():
-    order_id = validate_id(input('Order Id : '))
-    if(not order_id):
-        print('invalid order id')
-        return
-    cancel_order(order_id)
 
 def view_order_details():
     try:

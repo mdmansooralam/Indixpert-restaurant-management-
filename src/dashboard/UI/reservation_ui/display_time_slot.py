@@ -1,9 +1,12 @@
 
+from src.database.collections.default import Default
 
-TIME_SLOT = ['10-11 AM', '11-12 PM', '12-01 PM', '01-02 PM']
+
 
 def display_time_slot():
-    time_slot = TIME_SLOT
-    
-    for slot in time_slot:
-        print(slot)
+    time_slot = Default().time_slot
+    if(time_slot):
+        print('{:<5}{:<25}'.format('ID', 'TIME SLOT'))
+        for ts in time_slot:
+            print('{:<5}{:<25}'.format(ts['id'], ts['slot']))
+

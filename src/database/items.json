@@ -1,0 +1,30 @@
+[
+    {
+        "id": "5CB4",
+        "name": "paneer",
+        "category": "MAIN COURSE",
+        "sale_price": 5000.0,
+        "quantity": 45,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "8A6C",
+        "name": "chicken tandoori",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 280.0,
+            "half_price": 160.0,
+            "quarter_price": 90.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "7562",
+        "name": "coffee",
+        "category": "DRINK",
+        "sale_price": 50.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    }
+]

@@ -1,35 +1,9 @@
+
 from datetime import datetime
-
-
-
-
 from src.database.collections.order import Order
-from src.controllers.user_controller.user_state import UserState
+from src.utility.validation import validate_id
+from src.utility.error_message import ErrorMessage
 
-
-def cancel_order(order_id):
-    try:
-        ORDER = Order()
-        user_state = UserState().get_state()
-
-        if(user_state['role'] == 'admin'):
-            for order in ORDER.orders:
-                if(order['id'] == order_id):
-                    if(order['status'] == 'process'):
-                        order['status'] = 'cancel'
-                        ORDER.save_order()
-                        print('Order cancel successful ')
-                        return
-                    elif(order['status']  == 'cancel'):
-                        print('order already cancelled')
-                        return
-                    elif(order['status'] == 'paid'):
-                        print('complete order can not be cancel')
-                        return
-            else:
-                print('order not found')
-    except Exception as error:
-        print(error)
 
 def get_order_by_date(date):
     try:
@@ -144,10 +118,14 @@ def view_invoice(order_id):
     except Exception as error:
         print(error)
 
-def get_order_details(order_id):
+def get_order_details():
     try:
         orders = Order().orders
-
+        err_msg = ErrorMessage()
+        id = validate_id(input('Enter Order Id : '))
+        if(not id):
+            raise Exception(err_msg.invalid_id)
+        
         for order in orders:
             if(order['id'] == order_id):
                     print('__________________________ORDER DETAILS___________________________')

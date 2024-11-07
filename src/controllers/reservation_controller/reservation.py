@@ -15,7 +15,7 @@ def find_table(reservaitons, date, time_slot, persons):
             return table
     return None
 
-def reserved_table(name, date, time_slot, persons):
+def reserved_table(name, mobile_no, date, time_slot, persons):
         RESERVATION = Reservation()
         table = find_table(RESERVATION.reservations, date, time_slot, persons)
         if(not table):
@@ -23,7 +23,7 @@ def reserved_table(name, date, time_slot, persons):
         elif(table):
             id = str(uuid.uuid4())[:4].upper()
             status = 'reserved'
-            new_reservation = ReservationModel(id, table['id'], date, time_slot, persons, name, status).__dict__
+            new_reservation = ReservationModel(id, table['id'], date, time_slot, persons, name, mobile_no, status).__dict__
             RESERVATION.reservations.append(new_reservation)
             RESERVATION.save_reservation()
             print(f'table reserved successful table Id : {table['id']}')

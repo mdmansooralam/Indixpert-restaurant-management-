@@ -1,7 +1,7 @@
 import os
 import json
 
-RESERVATION_FILE = 'src/database/reservations.json'
+from src.database.collections.path import RESERVATION_FILE
 
 class Reservation:
     def __init__(self):

@@ -1,7 +1,7 @@
 import os
 import json
 
-ITEM_FILE = 'src/database/items.json'
+from src.database.collections.path import ITEM_FILE
 
 class Item:
     def __init__(self):

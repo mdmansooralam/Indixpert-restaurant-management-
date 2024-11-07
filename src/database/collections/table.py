@@ -1,7 +1,7 @@
 import os
 import json
 
-TABLE_FILE = 'src/database/tables.json'
+from src.database.collections.path import TABLE_FILE
 
 
 class Table:

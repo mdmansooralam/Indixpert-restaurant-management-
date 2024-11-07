@@ -1,7 +1,7 @@
 import os
 import json
 
-DEFAULT_FILE = 'src/database/default.json'
+from src.database.collections.path import DEFAULT_FILE
 
 class Default:
     def __init__(self):
@@ -56,3 +56,11 @@ class Default:
     @property
     def user_status(self):
         return self.__default['user_status']
+    
+    @property
+    def time_slot(self):
+        return self.__default['time_slot']
+    
+    @property
+    def item_category(self):
+        return self.__default['item_category']

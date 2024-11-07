@@ -1,7 +1,7 @@
 import os
 import json
 
-PAYMENT_FILE = 'src/database/payments.json'
+from src.database.collections.path import PAYMENT_FILE
 
 class Payment:
     def __init__(self):

@@ -1,8 +1,7 @@
 import os
 import json
-from src.models.user_model import UserModel
 
-USER_FILE = 'src/database/users.json'
+from src.database.collections.path import USER_FILE
 
 class User:
     def __init__(self):

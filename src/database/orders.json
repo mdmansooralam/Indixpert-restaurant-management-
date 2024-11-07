@@ -1,0 +1,25 @@
+[
+    {
+        "id": "28EE",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "06-11-2024",
+        "items": [
+            {
+                "id": "5CB4",
+                "name": "paneer",
+                "category": "MAIN COURSE",
+                "sale_price": 5000.0,
+                "quantity": 5,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 25000.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 4500.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 29500.0
+    }
+]

@@ -2,7 +2,7 @@ import os
 import json
 
 
-ORDER_FILE = 'src/database/orders.json'
+from src.database.collections.path import ORDER_FILE
 
 class Order:
     def __init__(self):

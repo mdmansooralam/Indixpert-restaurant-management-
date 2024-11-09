@@ -7,6 +7,7 @@ from src.utility.check_user import check_user
 from src.controllers.user_controller.super_admin import super_admin
 from src.controllers.user_controller.user_state import UserState
 from src.dashboard.manage_dashboard import dashboard
+from src.utility.log_error import log_error
 
 
 
@@ -50,6 +51,7 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address, ge
                 USER.save_user()
                 print('signup successful please login ....')
         except Exception as error:
+             log_error(error, 'from authcontroller :: auth :: user_signup')
              print(error)
 
 
@@ -69,10 +71,11 @@ def user_login(email, password):
                                 if(user['password'] == password):
                                     UserState().update_state(user)
                                     dashboard()
-
                                 else:
                                     print('wrong credential pleae try again.....')
                             else:
                                  print('Your account is deactive please contact to admin')
         except Exception as error:
-             print(error)
+            log_error(error, __name__)
+            print(error)
+             

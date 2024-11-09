@@ -1,22 +1,42 @@
 [
     {
-        "id": "7CF3",
+        "id": "C058",
         "name": "mansoor",
         "mobile_no": "7979941442",
-        "table_id": "DE85",
-        "date": "07-11-2024",
-        "time_slot": "10:00 AM TO 11:00 AM",
-        "persons": 5,
-        "status": "cancelled"
+        "table_id": "AB49",
+        "date": "09-11-2024",
+        "time_slot": "12:30 PM TO 01:30 PM",
+        "persons": 2,
+        "status": "reserved"
     },
     {
-        "id": "0D33",
-        "name": "kaleem",
-        "mobile_no": "8936049838",
-        "table_id": "DE85",
-        "date": "07-11-2024",
-        "time_slot": "10:00 AM TO 11:00 AM",
-        "persons": 5,
+        "id": "85EA",
+        "name": "rahul singh",
+        "mobile_no": "7979941442",
+        "table_id": "AB49",
+        "date": "09-11-2024",
+        "time_slot": "01:45 PM TO 02:45 PM",
+        "persons": 2,
         "status": "reserved"
+    },
+    {
+        "id": "14B7",
+        "name": "rahul",
+        "mobile_no": "8936049838",
+        "table_id": "AB49",
+        "date": "09-11-2024",
+        "time_slot": "08:00 PM TO 09:00 PM",
+        "persons": 2,
+        "status": "reserved"
+    },
+    {
+        "id": "DAD7",
+        "name": "alam",
+        "mobile_no": "7979941442",
+        "table_id": "DK65",
+        "date": "09-11-2024",
+        "time_slot": "08:00 PM TO 09:00 PM",
+        "persons": 1,
+        "status": "cancelled"
     }
 ]

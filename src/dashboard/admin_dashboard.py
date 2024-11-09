@@ -7,6 +7,7 @@ from src.dashboard.UI.pages.item_page import item_page
 from src.dashboard.UI.pages.stock_page import stock_page
 from src.dashboard.UI.pages.order_page import order_page
 from src.dashboard.UI.pages.staff_page import staff_page
+from src.dashboard.UI.pages.report_page import report_page
 from src.utility.error_message import ErrorMessage
 
 def admin_dashboard():
@@ -35,7 +36,7 @@ def admin_dashboard():
         elif(choice == 3):
             order_page()
         elif(choice == 4):
-            pass
+            report_page()
         elif(choice == 5):
             staff_page()
         elif(choice == 6):

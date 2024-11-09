@@ -3,6 +3,7 @@ import uuid
 from src.controllers.user_controller.user_state import UserState
 from src.models.item_model import ItemModel
 from src.database.collections.item import Item
+from src.utility.log_error import log_error
 
 def create_item(name, category, sale_price, quantity):
     try:
@@ -13,8 +14,9 @@ def create_item(name, category, sale_price, quantity):
         ITEM.items.append(new_item)
         ITEM.save_item()
         print('item created successful')
-    except Exception as errro:
-        print(errro)
+    except Exception as error:
+        print(error)
+        log_error(error, "controllers::item_controller::item::create_item")
 
 def remove_item(id):
     try:
@@ -33,7 +35,7 @@ def remove_item(id):
 
 def get_item_by_category(category):
     try:
-        if(category=='DRINK'):
+        if(category=='DRINK' or category== 'STARTER'):
             print(f'\n**************{category}************\n')
             items = Item().items
             fm_str = '{:<5}{:<10}{:<20}{:<20}'

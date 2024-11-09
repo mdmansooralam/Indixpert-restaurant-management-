@@ -20,9 +20,9 @@ def table_reserve():
         if(not mobile_no):
             raise Exception('please enter a valid mobile number')
         
-        date = validate_date(input('Date ( DD-MM-YYYY ) : '))
-        if(not date):
-            raise Exception('please enter a valid date (DD-MM-YYYY)')
+        # date = validate_date(input('Date ( DD-MM-YYYY ) : '))
+        # if(not date):
+        #     raise Exception('please enter a valid date (DD-MM-YYYY)')
         
         display_time_slot()
 
@@ -35,6 +35,6 @@ def table_reserve():
             print('please enter a valid number of persons')
 
 
-        reserved_table(name, mobile_no, date, time_slot, persons)
+        reserved_table(name, mobile_no, time_slot, persons)
     except Exception as error:
         print(error)

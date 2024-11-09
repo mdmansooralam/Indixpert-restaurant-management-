@@ -1,14 +1,15 @@
 
 from datetime import datetime
 from src.database.collections.order import Order
-from src.utility.validation import validate_id
+from src.utility.validation import validate_id, validate_int
 from src.utility.error_message import ErrorMessage
+from src.database.collections.user import User
 
 
-def get_order_by_date(date):
+def get_order_by_date():
     try:
         orders = Order().orders
-
+        date = input('Enter Date (DD-MM-YYYY): ')
         order_found = False
         print('_'*60)
         print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
@@ -31,11 +32,14 @@ def get_order_by_date(date):
     except Exception as error:
         print(error)
 
-def get_order_by_day(days):
+def get_order_by_day():
     try:
         orders = Order().orders
         current_date = datetime.today()
-
+        days = validate_int(input('Enter Days : '))
+        if(not days):
+            raise Exception('invalid days')
+        
         if(orders):
             print('_'*60)
             print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
@@ -157,13 +161,14 @@ def get_order_details():
 def get_all_order():
     try:
         orders = Order().orders
+        fmt_str = '{:<15}{:<15}{:<10}{:<10}{:<10}'
         print('_'*60)
-        print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
+        print(fmt_str.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
         print('_'*60)
         if(orders):
             for order in orders:
                 print(
-                    '{:<15}{:<15}{:<10}{:<10}{:<10}'.format(
+                    fmt_str.format(
                         order['date'],
                         order['mobile_no'],
                         order['id'],
@@ -175,3 +180,23 @@ def get_all_order():
             print('order record not found')
     except Exception as error:
         print(error)
+
+def get_order_staff_wise():
+    users = User().users
+    orders = Order().orders
+    fmt_str = '{:<20}{:<20}{:<15}{:<15}'
+    print(fmt_str.format('NAME', 'EMAIL', 'TOTAL ORDER', 'ORDER VALUE'))
+    print('_'*70)
+    for user in users:
+        if(user['role'] == 'staff'):
+            total_order_value = 0
+            total_order = 0
+
+            for order in orders:
+                if(order['create_by'] == user['email']):
+                    total_order_value += order['grand_total']
+                    total_order += 1
+        
+            print(fmt_str.format(user['name'], user['email'], total_order, total_order_value))
+
+    #staff name, email, total order, order value,

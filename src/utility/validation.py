@@ -77,3 +77,29 @@ def validate_dob(dob):
     except Exception as error:
         return False
 
+def validate_blank(s):
+    pattern = r'^(?!\s*$).+'
+    if(re.match(pattern, s)):
+        return s.lower()
+    else:
+        return False
+    
+def validate_size(s):
+    if(s.lower() == 'f'):
+        return 'full_price'
+    elif(s.lower() == 'h'):
+        return 'half_price'
+    elif(s.lower() == 'q'):
+        return 'quarter_price'
+    else:
+        return False
+    
+def validate_method(m):
+    if(m.lower() == 'a'):
+        return 'cash'
+    elif(m.lower() == 'b'):
+        return 'card'
+    elif(m.lower() == 'c'):
+        return 'online'
+    else:
+        return False

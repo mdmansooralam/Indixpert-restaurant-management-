@@ -38,5 +38,25 @@
         ],
         "password": "Staff@123",
         "gender": "male"
+    },
+    {
+        "id": "0160e073-0",
+        "name": "second staff",
+        "date_of_birth": "01-01-1990",
+        "email": "second@staff.com",
+        "mobile_number": "8936049838",
+        "address": "Darbhanga bihar",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "09-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Second@123",
+        "gender": "male"
     }
 ]

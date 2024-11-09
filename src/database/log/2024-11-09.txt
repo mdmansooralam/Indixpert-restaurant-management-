@@ -1,0 +1,3 @@
+'created_by'|src.controllers.auth_controller.auth
+please enter a valid password|from auth :: login
+Please Enter a valid Email|from auth :: login

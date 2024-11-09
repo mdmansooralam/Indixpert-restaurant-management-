@@ -11,11 +11,11 @@ from src.controllers.order_controller.order_report import view_invoice, get_orde
 
 def display_order_by_date():
     date = input('Order Date : ')
-    get_order_by_date(date)
+    get_order_by_date()
 
 def display_order_by_days():
     days = int(input('enter the days : '))
-    get_order_by_day(days)
+    get_order_by_day()
 
 def pay_bill():
     id = validate_id(input('Order Id : '))

@@ -117,7 +117,7 @@ def display_category():
         print(error)
         
 def take_item_price(category):
-    if(category == 'MAIN COURSE'or category == 'STARTER'):
+    if(category == 'MAIN COURSE'):
         full_price = validate_price(input('Full Price : '))
         if(not full_price):
             return 
@@ -137,7 +137,7 @@ def take_item_price(category):
         }
         return sale_price
 
-    elif(category == 'DRINK'):
+    elif(category == 'DRINK'or category == 'STARTER'):
         price = validate_price(input('Price : '))
         if(not price):
             return

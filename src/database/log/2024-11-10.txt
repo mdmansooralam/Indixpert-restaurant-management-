@@ -1,0 +1,30 @@
+||auth time 
+ 15:49:05 You chose an invalid option. Please choose a valid option
+NoneType: None
+||auth time 
+ 15:50:55 You enterd an invalid email. Please enter a valid email
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\UI\auth_ui\auth.py", line 12, in login
+    raise Exception(err_msg.invalid_email)
+Exception: You enterd an invalid email. Please enter a valid email
+||auth time 
+ 15:52:16 You chose an invalid option. Please choose a valid option
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\staff_dashboard.py", line 30, in staff_dashboard
+    raise Exception(err_msg.invalid_option)
+Exception: You chose an invalid option. Please choose a valid option
+||auth time 
+ 15:53:33 You chose an invalid option. Please choose a valid option
+NoneType: None
+||staff@staff.com 
+ 15:59:33 You chose an invalid option. Please choose a valid option
+Traceback (most recent call last):
+  File "d:\Indixpert-restaurant-management-\src\dashboard\staff_dashboard.py", line 30, in staff_dashboard
+    raise Exception(err_msg.invalid_option)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 17:06:56 You enterd an invalid email. Please enter a valid email
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\UI\auth_ui\auth.py", line 12, in login
+    raise Exception(err_msg.invalid_email)
+Exception: You enterd an invalid email. Please enter a valid email

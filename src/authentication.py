@@ -3,9 +3,12 @@
 
 from src.dashboard.UI.auth_ui.auth import login, signup
 from src.utility.validation import validate_int
+from src.utility.error_message import ErrorMessage
+from src.utility.get_input import get_input
+from src.utility.log_error import LogError
 
 def authentication():
-
+    err_msg = ErrorMessage()
     while True:
         print('**********USER AUTHENTICATION***********')
         print('1 LOGIN')
@@ -13,11 +16,11 @@ def authentication():
         print('3 EXIT')
 
 
-        choice = validate_int(input('choose a option : '))
+        choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
         if(not choice):
-            print('please choose valid option')
-            continue
-
+            LogError().err.exception(err_msg.invalid_option)
+            break
+        
         if(choice == 1):
             login()
         elif(choice == 2):
@@ -25,4 +28,4 @@ def authentication():
         elif(choice == 3):
             break
         else:
-            print('Please choose a valid option')
+            print(err_msg.invalid_option)

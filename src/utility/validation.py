@@ -103,3 +103,15 @@ def validate_method(m):
         return 'online'
     else:
         return False
+    
+def validate_address(address):
+    if(len(address) > 10):
+        return address
+    else:
+        return False
+    
+def validate_gender(gen):
+    if(gen.lower() == 'male' or gen.lower() == 'female'):
+        return gen.lower()
+    else:
+        return False

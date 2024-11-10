@@ -7,7 +7,7 @@
         "date": "09-11-2024",
         "time_slot": "12:30 PM TO 01:30 PM",
         "persons": 2,
-        "status": "reserved"
+        "status": "cancelled"
     },
     {
         "id": "85EA",
@@ -38,5 +38,15 @@
         "time_slot": "08:00 PM TO 09:00 PM",
         "persons": 1,
         "status": "cancelled"
+    },
+    {
+        "id": "F12D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "table_id": "DK65",
+        "date": "09-11-2024",
+        "time_slot": "10:00 AM TO 11:00 AM",
+        "persons": 4,
+        "status": "reserved"
     }
 ]

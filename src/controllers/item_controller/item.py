@@ -3,7 +3,7 @@ import uuid
 from src.controllers.user_controller.user_state import UserState
 from src.models.item_model import ItemModel
 from src.database.collections.item import Item
-from src.utility.log_error import log_error
+from src.utility.log_error import LogError
 
 def create_item(name, category, sale_price, quantity):
     try:

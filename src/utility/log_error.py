@@ -1,18 +1,20 @@
 
-import os
 from src.database.collections.path import LOG_FILE
+import logging
+from src.controllers.user_controller.user_state import UserState
 
-def log_error(msg, source):
-    try:
-        if os.path.exists(LOG_FILE):
-            with open(LOG_FILE, 'a') as file:
-                error_msg = f'\n{msg}|{source}'
-                file.write(error_msg)
-        else:
-            with open(LOG_FILE, 'w') as file:
-                error_msg = f'{msg}|{source}'
-                file.write(error_msg)
-    except Exception as error:
-        print(error)
+
+class LogError:
+    def __init__(self):
+        self.email = UserState().get_state()['email'] if UserState().get_state() else None
+        self.err = logging
+        
+        logging.basicConfig(
+            filemode='a',
+            filename=LOG_FILE,
+            datefmt='%H:%M:%S',
+            format=f'||{self.email if self.email else 'auth time'} \n {"%(asctime)s"} {"%(message)s"}')
+        
+
 
 

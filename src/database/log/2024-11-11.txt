@@ -1,0 +1,6 @@
+||staff@staff.com 
+ 14:32:43 You entered an invalid id. Please enter a valid id
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\UI\order_ui\order.py", line 26, in pay_bill
+    raise Exception(err_msg.invalid_id)
+Exception: You entered an invalid id. Please enter a valid id

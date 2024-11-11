@@ -43,7 +43,7 @@ def get_item_by_category(category):
         if(category=='DRINK' or category== 'STARTER'):
             print(f'\n**************{category}************\n')
             items = Item().items
-            fm_str = '{:<5}{:<10}{:<20}{:<20}'
+            fm_str = '{:<10}{:<10}{:<25}{:<20}'
             print(fm_str.format('S NO.','ID' ,'NAME', 'RATE'))
             print('-'*40)
             items_count = 1
@@ -54,7 +54,7 @@ def get_item_by_category(category):
         else:
             print(f'\n**************{category}************\n')
             items = Item().items
-            fm_str = '{:<5}{:<10}{:<20}{:<10}{:<10}{:<10}'
+            fm_str = '{:<10}{:<10}{:<25}{:<10}{:<10}{:<10}'
             print(fm_str.format('S NO.','ID', 'NAME', 'FULL', 'HALF', 'QUARTER'))
             print('-'*65)
             items_count = 1

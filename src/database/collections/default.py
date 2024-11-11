@@ -2,6 +2,7 @@ import os
 import json
 
 from src.database.collections.path import DEFAULT_FILE
+from src.utility.log_error import LogError
 
 class Default:
     def __init__(self):
@@ -15,15 +16,17 @@ class Default:
             else:
                 return {}
         except Exception as error:
-            print(f'{error} error from Default :: load_default')
-    
+            print(error)
+            LogError().err.exception(error)
+
     def save_default(self):
         try:
             with open(DEFAULT_FILE, 'w') as file:
                 default = self.__default
                 json.dump(default, file, indent=4)
         except Exception as error:
-            print(f'{error} error form Default :: save_default')
+            print(error)
+            LogError().err.exception(error)
 
     @property
     def role(self):

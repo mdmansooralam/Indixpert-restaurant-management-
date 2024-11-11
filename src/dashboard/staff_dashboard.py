@@ -8,11 +8,9 @@ from src.dashboard.UI.pages.profile_update_page import profile_update_page
 from src.dashboard.UI.pages.order_page import order_page
 from src.dashboard.UI.pages.reservation_page import reservation_page
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
 from src.utility.get_input import get_input
 
 def staff_dashboard():
-    try:
         err_msg = ErrorMessage()
         while True:
             print('*****************Welcome to staff Dashboard ***********************')
@@ -27,7 +25,8 @@ def staff_dashboard():
 
             choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
             if(not choice):
-                raise Exception(err_msg.invalid_option)
+                print(err_msg.invalid_option)
+                continue
             if(choice == 1):
                 menu()
                 if(ask_for_dashboard()):
@@ -58,21 +57,14 @@ def staff_dashboard():
                     break
             elif(choice == 7):
                 profile_update_page()
-                if(ask_for_dashboard()):
-                    continue
-                else:
-                    break
             elif(choice == 8):
                 break
             else:
-                print('please choose a valid option ')
+                print(err_msg.invalid_option)
                 if(ask_for_dashboard()):
                     continue
                 else:
                     break
-    except Exception as error:
-        print(error)
-        LogError().err.exception(error)
 
 
 

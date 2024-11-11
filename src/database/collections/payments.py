@@ -2,6 +2,7 @@ import os
 import json
 
 from src.database.collections.path import PAYMENT_FILE
+from src.utility.log_error import LogError
 
 class Payment:
     def __init__(self):
@@ -15,7 +16,8 @@ class Payment:
             else:
                 return []
         except Exception as error:
-            print(f'{error} error from Payment :: load_payment')
+            print(error)
+            LogError().err.exception(error)
     
     def save_payment(self):
         try:
@@ -23,4 +25,5 @@ class Payment:
                 payments = [payment for payment in self.payments]
                 json.dump(payments, file, indent=4)
         except Exception as error:
-            print(f'{error} error form Payment :: save_payment')
+            print(error)
+            LogError().err.exception(error)

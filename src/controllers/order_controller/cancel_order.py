@@ -3,6 +3,8 @@ from src.database.collections.order import Order
 from src.controllers.user_controller.user_state import UserState
 from src.utility.validation import validate_id
 from src.utility.error_message import ErrorMessage
+from src.utility.get_input import get_input
+from src.utility.log_error import LogError
 
 
 def cancel_order():
@@ -11,7 +13,7 @@ def cancel_order():
         ORDER = Order()
         user_state = UserState().get_state()
 
-        order_id = validate_id(input('Enter Order Id : '))
+        order_id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
         if(not order_id):
             raise Exception(err_msg.invalid_id)
         
@@ -21,15 +23,16 @@ def cancel_order():
                     if(order['status'] == 'process'):
                         order['status'] = 'cancel'
                         ORDER.save_order()
-                        print('Order cancel successful ')
+                        print(err_msg.order_cancel_success)
                         return
                     elif(order['status']  == 'cancel'):
-                        print('order already cancelled')
+                        print(err_msg.order_already_cancel)
                         return
                     elif(order['status'] == 'paid'):
-                        print('complete order can not be cancel')
+                        print(err_msg.order_cannot_cancel)
                         return
             else:
-                print('order not found')
+                print(err_msg.order_not_found)
     except Exception as error:
+        LogError().err.exception(error)
         print(error)

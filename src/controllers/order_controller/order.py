@@ -1,21 +1,19 @@
 import uuid
 from datetime import date
-
 from src.utility.get_item import get_item
 from src.utility.validation import validate_name, validate_int, validate_quantity, validate_mobile, validate_id, validate_blank, validate_size
 from src.utility.error_message import ErrorMessage
 from src.utility.get_order import get_order
 from src.utility.check_order import check_order
-
 from src.controllers.user_controller.user_state import UserState
 from src.controllers.payment_gateway_controller.payment_gateway import pay
 from src.controllers.reservation_controller.reservation import auto_reserve
-
 from src.database.collections.order import Order
 from src.database.collections.default import Default
 from src.database.collections.item import Item
-
 from src.models.order_model import OrderModel
+from src.utility.get_input import get_input
+from src.utility.log_error import LogError
 
 
 def take_order():
@@ -23,10 +21,9 @@ def take_order():
         err_msg = ErrorMessage()
         order = []
         while True:
-                choice = validate_blank(input('Enter the Item that you like to order ("Done" to finish) : '))
+                choice = get_input(validate_blank, err_msg.enter_order_item, err_msg.invalid_item )
                 if(not choice):
-                    print(err_msg.invalid_item)
-                    continue
+                    break
                         
                 if choice == 'done':
                     break
@@ -34,15 +31,15 @@ def take_order():
                 item = get_item(choice)
                 if(item):
                     if(item['category'] == 'DRINK' or item['category'] == 'STARTER'):
-                        quantity = validate_quantity(input(f'how many {choice} would you like : '))
+                        quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
                         if(not quantity):
                             print(err_msg.invalid_quantity)
-                            continue
+                            break
 
                         if(item['quantity'] >= quantity):
                             item['quantity'] = quantity
                             order.append(item)
-                            print(f'{item['name']} added to your order')
+                            print(f'{item['name']} {err_msg.added_to_order}')
                                         
                         else:
                             print(f'Only {item['quantity']} {item['name']} available')
@@ -50,31 +47,32 @@ def take_order():
                         print('F. Full')
                         print('H. Half')
                         print('Q. QUARTER')
-                        size = validate_size(input('choose a option : '))
+                        size = get_input(validate_size, err_msg.choose_option, err_msg.invalid_option)
                         if(not size):
                             print(err_msg.invalid_option)
                             continue
 
-                        quantity = validate_quantity(input(f'how many {choice} would you like : '))
+                        quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
                         if(not quantity):
                             print(err_msg.invalid_quantity)
-                            continue
+                            break
 
                         if(item['quantity'] >= quantity):
                             item['quantity'] = quantity
                             item['sale_price'] = item['sale_price'][size]
                             item['name'] += f' ({size.split("_")[0].upper()})'
                             order.append(item)
-                            print(f'{item['name']} added to your order')
+                            print(f'{item['name']} {err_msg.added_to_order}')
                                         
                         else:
                             print(f'Only {item['quantity']} {item['name']} available')
                         pass
                 else:
-                    print(f'Sorry we do not have {choice} in menu')
+                    print(err_msg.do_not_have_in_menu)
 
         return order
     except Exception as error:
+        LogError().err.exception(error)
         print(error)
 
 def finalize_order(order):
@@ -83,39 +81,33 @@ def finalize_order(order):
         ITEM = Item()
         err_msg = ErrorMessage()
 
-        name = validate_name(input('Customer Name : '))
+        name = get_input(validate_name, err_msg.enter_customer_name, err_msg.invalid_name)
         if(not name):
-            print('please enter a valid name')
             return
         
-        mobile_no = validate_mobile(input('Customer Mobile Number : '))
-
+        mobile_no = get_input(validate_mobile, err_msg.enter_mobile_number, err_msg.invalid_mobile_number)
         if(not mobile_no):
-            print('please enter a valid mobile number')
             return
         
-        print('Do you want to book a table ?')
+        print(err_msg.ask_for_table_booking)
         print('1 YES')
         print('2 NO')
-        option = validate_int(input('Choose a option : '))
+        option = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
         if(not option):
-            print(err_msg.invalid_option)
             return
         
         if(option == 1):
-            persons = validate_int(input('Number of Person : '))
+            persons = get_input(validate_int, err_msg.number_of_person, err_msg.invalid_number_of_person)
             if(not persons):
-                print('invalid person')
                 return
             
             res = auto_reserve(name, mobile_no, persons)
             if(not res):
-                print('Do you want to continue your order without table booking')
+                print(err_msg.continue_booking_without_table)
                 print('1 YES')
                 print('2 NO')
-                action = validate_int(input('Choose a option : '))
+                action = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
                 if(not action):
-                    print(err_msg.invalid_option)
                     return
                 
                 if(action == 2):
@@ -145,34 +137,38 @@ def finalize_order(order):
             new_order = OrderModel(id,name, mobile_no, order_date, order, total, create_by, status, tax, tax_percent, discount, grand_total).__dict__
             ORDER.orders.append(new_order)
             ORDER.save_order()
-            print('order save successful')
+            print(err_msg.order_saved)
             return new_order['id']
         
         else:
-            print('No items in your order to save')
+            print(err_msg.no_item_in_order_list)
     except Exception as error:
+        LogError().err.exception(error)
         print(error)
 
 def review_order(order):
     try:
+        err_msg = ErrorMessage()
         if(order):
             total = 0
-            print('{:<20}{:<10}{:<10}{:<10}'.format('NAME', 'RATE', 'QTY', 'TOTAL'))
+            fmt_str = '{:<20}{:<10}{:<10}{:<10}'
+            print(fmt_str.format('NAME', 'RATE', 'QTY', 'TOTAL'))
             print('-'*50)
             for item in order:
                 sum = item['sale_price'] * item['quantity']
                 total += sum
-                print('{:<20}{:<10}{:<10}{:<10}'.format(item['name'], item['sale_price'], item['quantity'], sum))
+                print(fmt_str.format(item['name'], item['sale_price'], item['quantity'], sum))
 
             print(f'TOTAL : {total}')
         else:
-            print('items not available to review') 
+            print(err_msg.item_not_found) 
     except Exception as error:
+        LogError().err.exception(error)
         print(error)
 
 def payment_proceed(order_id):
     try:
-
+        err_msg = ErrorMessage()
         if(check_order(order_id)):
             ORDER = Order()
             for order in ORDER.orders:
@@ -182,12 +178,13 @@ def payment_proceed(order_id):
                         if(is_paid == 'success'):
                             order['status'] = 'paid'
                             ORDER.save_order()
-                            print('payment successful')
+                            print(err_msg.payment_success)
                     else:
-                        print('Order not in process or paid')
+                        print(err_msg.order_not_found)
         else:
-            print('order not found')
+            print(err_msg.order_not_found)
     except Exception as error:
+        LogError().err.exception(error)
         print(error)
 
 def update_order():
@@ -221,15 +218,16 @@ def update_order():
                 
                 print('P. Pay')
                 print('press any key to save')
-                action = input('Choose a option : ')
+                action = input(err_msg.choose_option).lower()
 
                 if(action.lower() == 'p'):
                     payment_proceed(id)
                 else:
-                    print('your order has been saved and  in process')
+                    print(err_msg.order_saved)
             else:
-                print('order already completed now you cannot update')
+                print(err_msg.order_already_complete)
         else:
             print(err_msg.invalid_id)
     except Exception as error:
         print(error)
+        LogError().err.exception(error)

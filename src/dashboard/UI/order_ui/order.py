@@ -8,37 +8,47 @@ from src.controllers.order_controller.order_report import get_order_by_date, get
 from src.utility.validation import validate_id
 from src.controllers.order_controller.order import payment_proceed
 from src.controllers.order_controller.order_report import view_invoice, get_order_details
+from src.utility.get_input import get_input
+from src.utility.error_message import ErrorMessage
+from src.utility.log_error import LogError
 
 def display_order_by_date():
-    date = input('Order Date : ')
     get_order_by_date()
 
 def display_order_by_days():
-    days = int(input('enter the days : '))
     get_order_by_day()
 
 def pay_bill():
-    id = validate_id(input('Order Id : '))
-    if(not id):
-        print('you enter a wrong id please try again : ')
-        return
-    payment_proceed(id)
+    try:
+        err_msg = ErrorMessage()
+        id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
+        if(not id):
+            raise Exception(err_msg.invalid_id)
+        payment_proceed(id)
+    except Exception as error:
+        print(error)
+        LogError().err.exception(error)
 
 def invoice():
-    order_id = validate_id(input('Order Id : '))
-    if(not order_id):
-        print('invalid order id')
-        return
-    view_invoice(order_id)
+    try:
+        err_msg = ErrorMessage()
+        order_id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
+        if(not order_id):
+            raise Exception(err_msg.invalid_id)
+        view_invoice(order_id)
+    except Exception as error:
+        print(error)
+        LogError().err.exception(error)
 
 def view_order_details():
     try:
-        order_id = validate_id(input('Order Id : '))
+        err_msg = ErrorMessage()
+        order_id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
         if(not order_id):
-            print('invalid order id')
-            return
+            raise Exception(err_msg.invalid_id)
         get_order_details(order_id)
     
     except Exception as error:
         print(error)
+        LogError().err.exception(error)
 

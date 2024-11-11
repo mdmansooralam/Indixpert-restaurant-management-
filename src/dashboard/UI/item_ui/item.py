@@ -8,19 +8,21 @@ from src.utility.verify_item_category import verify_item_category
 from src.controllers.item_controller.item import add_stock
 from src.utility.error_message import ErrorMessage
 from src.database.collections.default import Default
+from src.utility.get_input import get_input
+from src.utility.log_error import LogError
 
 def create():
     try:
         err_msg = ErrorMessage()
-        name = validate_name(input('Item Name : '))
+        name = get_input(validate_name, err_msg.enter_order_item, err_msg.invalid_order_item)
         if(not name):
-            raise Exception(err_msg.invalid_item)
+            raise Exception(err_msg.invalid_order_item)
                     
         if(check_item(name)):
             raise Exception(err_msg.item_exist)
         
         display_category()    
-        category = verify_item_category(input('Choose a Option : '))
+        category = get_input(verify_item_category, err_msg.choose_option, err_msg.invalid_option)
         if(not category):
             raise Exception(err_msg.invalid_option)
 
@@ -28,7 +30,7 @@ def create():
         if(not sale_price):
             raise Exception(err_msg.invalid_price)
 
-        quantity = validate_quantity(input('Quantity : '))
+        quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
         if(not quantity):
             raise Exception(err_msg.invalid_quantity)
 
@@ -36,11 +38,12 @@ def create():
 
     except Exception as error:
         print(error)
+        LogError().err.exception(error)
 
 def delete():
     try:
         err_msg = ErrorMessage()
-        id = validate_id(input('Enter item Id  : '))
+        id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
         if(not id):
             raise Exception(err_msg.invalid_id)
         
@@ -48,6 +51,7 @@ def delete():
 
     except Exception as error:
         print(error)
+        LogError().err.exception(error)
 
 def display_item_by_category():
     try:
@@ -94,19 +98,22 @@ def update():
         print(error)
 
 def stock():
-    err_msg = ErrorMessage()
-    item_id = validate_id(input('Item Id : '))
-    if(not item_id):
-        print(err_msg.invalid_id)
-        return
+    try:
+        err_msg = ErrorMessage()
+        item_id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
+        if(not item_id):
+            raise Exception(err_msg.invalid_id)
+        
+        qty = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
+        if(not qty):
+            raise Exception(err_msg.invalid_quantity)
     
-    qty = validate_quantity(input('Quantity : '))
-    if(not qty):
-        print(err_msg.invalid_quantity)
-        return
-    
-    add_stock(item_id, qty)
+        add_stock(item_id, qty)
 
+    except Exception as error:
+        print(error)
+        LogError().err.exception(error)
+    
 def display_category():
     try:
         category_list = Default().item_category
@@ -115,30 +122,36 @@ def display_category():
 
     except Exception as error:
         print(error)
+        LogError().err.exception(error)
         
 def take_item_price(category):
-    if(category == 'MAIN COURSE'):
-        full_price = validate_price(input('Full Price : '))
-        if(not full_price):
-            return 
-        
-        half_price = validate_price(input('Half Price : '))
-        if(not half_price):
-            return
-        
-        quarter_price = validate_price(input('Quarter Price : '))
-        if(not quarter_price):
-            return
-        
-        sale_price = {
-            "full_price": full_price,
-            "half_price": half_price,
-            "quarter_price": quarter_price
-        }
-        return sale_price
+    try:
+        err_msg = ErrorMessage()
+        if(category == 'MAIN COURSE'):
+            full_price = get_input(validate_price, "Enter full price : ", err_msg.invalid_price)
+            if(not full_price):
+                raise Exception(err_msg.invalid_price)
+            
+            half_price = get_input(validate_price, 'Half Price : ', err_msg.invalid_price)
+            if(not half_price):
+                raise Exception(err_msg.invalid_price)
+            
+            quarter_price = get_input(validate_price, 'Quarter Price : ', err_msg.invalid_price)
+            if(not quarter_price):
+                raise Exception(err_msg.invalid_price)
+            
+            sale_price = {
+                "full_price": full_price,
+                "half_price": half_price,
+                "quarter_price": quarter_price
+            }
+            return sale_price
 
-    elif(category == 'DRINK'or category == 'STARTER'):
-        price = validate_price(input('Price : '))
-        if(not price):
-            return
-        return price
+        elif(category == 'DRINK'or category == 'STARTER'):
+            price = get_input(validate_price, 'Enter price : ', err_msg.invalid_price)
+            if(not price):
+                raise Exception(err_msg.invalid_price)
+            return price
+    except Exception as error:
+        print(error)
+        LogError().err.exception(error)

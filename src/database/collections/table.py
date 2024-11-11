@@ -2,7 +2,7 @@ import os
 import json
 
 from src.database.collections.path import TABLE_FILE
-
+from src.utility.log_error import LogError
 
 class Table:
     def __init__(self):
@@ -15,8 +15,9 @@ class Table:
                     return json.load(file)
             else:
                 return []
-        except Exception as errro:
-            print(errro)
+        except Exception as error:
+            print(error)
+            LogError().err.exception(error)
 
     def save_table(self):
         try:
@@ -25,3 +26,4 @@ class Table:
                 json.dump(tables, file, indent=4)
         except Exception as error:
             print(error)
+            LogError().err.exception(error)

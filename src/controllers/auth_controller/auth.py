@@ -9,6 +9,7 @@ from src.controllers.user_controller.user_state import UserState
 from src.dashboard.manage_dashboard import dashboard
 from src.utility.log_error import LogError
 from src.utility.error_message import ErrorMessage
+from src.database.collections.default import Default
 
 
 
@@ -18,17 +19,19 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address, ge
             err_msg = ErrorMessage()
             USER = User()
             user = check_user(email)
+            default = Default()
+            
             if(user):
                 print(err_msg.email_already_resister)     
             else:
                 id = str(uuid.uuid4())[:10]
-                role = 'staff'
-                employment_type = 'full time'
-                shift_preferences = 'day'
-                benefits = ['health insurance', 'meals']
+                role = default.role
+                employment_type = default.employment_type
+                shift_preferences = default.shift_preferences
+                benefits = default.benefits
                 date_of_joining = date.today().strftime("%d-%m-%Y")
-                status = 'active'
-                salary = 18000
+                status = default.user_status
+                salary = default.salary
                 
 
                 new_user = UserModel(
@@ -55,7 +58,6 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address, ge
         except Exception as error:
              LogError().err.exception(error)
              print(error)
-
 
 def user_login(email, password):
         try:

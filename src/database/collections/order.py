@@ -3,6 +3,7 @@ import json
 
 
 from src.database.collections.path import ORDER_FILE
+from src.utility.log_error import LogError
 
 class Order:
     def __init__(self):
@@ -17,7 +18,8 @@ class Order:
             else:
                 return []
         except Exception as error:
-            print(f'{error} error form Order :: load_order')
+            print(error)
+            LogError().err.exception(error)
 
 
     def save_order(self):
@@ -26,4 +28,5 @@ class Order:
                 orders = [order for order in self.orders]
                 json.dump(orders, file, indent=4)
         except Exception as error:
-            print(f'{error} error from Order :: save_user')
+            print(error)
+            LogError().err.exception(error)

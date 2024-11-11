@@ -6,7 +6,7 @@ from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.validation import validate_int
 from src.utility.error_message import ErrorMessage
 from src.controllers.order_controller.order_report import get_order_staff_wise, get_all_order, get_order_by_date, get_order_by_day
-
+from src.utility.get_input import get_input
 
 
 
@@ -22,7 +22,7 @@ def report_page():
         print('4 STAFF WISE')
         print('5 BACK')
 
-        choice = validate_int(input("please choose a option : "))
+        choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
             print(err_msg.invalid_option)
@@ -58,3 +58,4 @@ def report_page():
                 continue
             else:
                 break
+

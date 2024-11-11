@@ -2,6 +2,7 @@ import os
 import json
 
 from src.database.collections.path import ITEM_FILE
+from src.utility.log_error import LogError
 
 class Item:
     def __init__(self):
@@ -15,7 +16,8 @@ class Item:
             else:
                 return []
         except Exception as error:
-            print(f'{error} error from Item :: load_item')
+            print(error)
+            LogError().err.exception(error)
     
     def save_item(self):
         try:
@@ -23,4 +25,5 @@ class Item:
                 items = [item for item in self.items]
                 json.dump(items, file, indent=4)
         except Exception as error:
-            print(f'{error} error form Item :: save_item')
+            print(error)
+            LogError().err.exception(error)

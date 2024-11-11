@@ -6,6 +6,7 @@ from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.controllers.item_controller.item import view_stock
 from src.dashboard.UI.item_ui.item import stock
 from src.utility.error_message import ErrorMessage
+from src.utility.get_input import get_input
 
 
 def stock_page():
@@ -16,7 +17,7 @@ def stock_page():
         print('2 ADD STOCK')
         print('3 BACK')
 
-        choice = validate_int(input("please choose a option : "))
+        choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
             print(err_msg.invalid_option)

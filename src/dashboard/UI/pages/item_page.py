@@ -7,6 +7,7 @@ from src.utility.validation import validate_int
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.dashboard.UI.item_ui.item import create, update, delete
 from src.utility.error_message import ErrorMessage
+from src.utility.get_input import get_input
 
 
 def item_page():
@@ -18,7 +19,7 @@ def item_page():
         print('3 DELETE ITEM')
         print('4 BACK')
 
-        choice = validate_int(input("please choose a option : "))
+        choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
             print(err_msg.invalid_option)

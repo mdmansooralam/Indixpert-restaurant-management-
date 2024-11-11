@@ -2,6 +2,7 @@ import os
 import json
 
 from src.database.collections.path import RESERVATION_FILE
+from src.utility.log_error import LogError
 
 class Reservation:
     def __init__(self):
@@ -16,6 +17,7 @@ class Reservation:
                 return []
         except Exception as error:
             print(error)
+            LogError().err.exception(error)
 
     def save_reservation(self):
         try:
@@ -25,3 +27,4 @@ class Reservation:
                 
         except Exception as error:
             print(error)
+            LogError().err.exception(error)

@@ -2,10 +2,12 @@
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.validation import validate_int
 from src.controllers.user_controller.user import make_admin, make_staff, get_all_user, remove_user
+from src.utility.get_input import get_input
+from src.utility.error_message import ErrorMessage
 
 def super_admin_dashboard():
 
-
+    err_msg = ErrorMessage()
     while True:
         print('\n*****************welcome to super admin dashboard*******************')
         print('1 MAKE ADMIN')
@@ -15,9 +17,10 @@ def super_admin_dashboard():
         print('5 LOGOUT')
 
         
-        choice = validate_int(input('choose a option : '))
+        choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
         if(not choice):
-            print('please enter a valid integer option')
+            print(err_msg.invalid_option)
+            continue
         else:
             if(choice == 1):
                 make_admin()
@@ -25,7 +28,7 @@ def super_admin_dashboard():
                     continue
                 else:
                     break
-            if(choice == 2):
+            elif(choice == 2):
                 make_staff()
                 if(ask_for_dashboard()):
                     continue
@@ -46,5 +49,5 @@ def super_admin_dashboard():
             elif(choice == 5):
                 break
             else:
-                print('please choose a valid option')
+                print(err_msg.invalid_option)
 

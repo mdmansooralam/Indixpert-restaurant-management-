@@ -177,5 +177,28 @@
         "tax_percent": 18,
         "discount": 0,
         "grand_total": 224
+    },
+    {
+        "id": "5A67",
+        "name": "shaiqua",
+        "mobile_no": "7979941442",
+        "date": "10-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 200.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 200.0,
+        "create_by": "staff@staff.com",
+        "status": "process",
+        "tax": 36.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 236
     }
 ]

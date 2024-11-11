@@ -9,6 +9,7 @@ from src.controllers.order_controller.cancel_order import cancel_order
 from src.controllers.order_controller.order_report import get_all_order, get_order_details
 from src.utility.error_message import ErrorMessage
 from src.controllers.user_controller.user_state import UserState
+from src.utility.get_input import get_input
 
 
 def order_page():
@@ -64,7 +65,7 @@ def order_page():
             print('4 BACK')
 
 
-            choice = validate_int(input("please choose a option : "))
+            choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
             if(not choice):
                 print(err_msg.invalid_option)
                 continue
@@ -89,7 +90,7 @@ def order_page():
             elif(choice == 4):
                 break
             else:
-                print('please choose a valid option ')
+                print(err_msg.invalid_option)
                 if(ask_for_dashboard()):
                     continue
                 else:

@@ -2,6 +2,7 @@ import os
 import json
 
 from src.database.collections.path import USER_FILE
+from src.utility.log_error import LogError
 
 class User:
     def __init__(self):
@@ -15,7 +16,8 @@ class User:
             else:
                 return []
         except Exception as error:
-            print(f'{error} error from User :: load_user')
+            print(error)
+            LogError().err.exception(error)
         
     def save_user(self):
         try:
@@ -23,6 +25,7 @@ class User:
                 users = [user for user in self.users]
                 json.dump(users, file, indent=4)
         except Exception as error:
-            print(f'{error} error from User :: save_user')
+            print(error)
+            LogError().err.exception(error)
 
             

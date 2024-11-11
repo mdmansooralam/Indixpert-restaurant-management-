@@ -115,3 +115,15 @@ def validate_gender(gen):
         return gen.lower()
     else:
         return False
+    
+def validate_date(enter_date):
+    try:
+        current_date = datetime.today()
+        input_date = datetime.strptime(enter_date, '%d-%m-%Y')
+
+        if(current_date <= input_date):
+            return enter_date
+        else:
+            return False
+    except Exception as error:
+        return False

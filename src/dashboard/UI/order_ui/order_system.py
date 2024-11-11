@@ -8,6 +8,7 @@ from src.controllers.order_controller.order import payment_proceed
 from src.utility.error_message import ErrorMessage
 
 from src.utility.validation import validate_name
+from src.utility.get_input import get_input
 
 
 def order_system():
@@ -19,9 +20,10 @@ def order_system():
             print('S. Save')
             print('B. Billing')
             print('Q. Quit')
-            action = validate_name(input(f'Choose a option : '))
+            action = get_input(validate_name, err_msg.choose_option, err_msg.invalid_option)
             if(not action):
                 print(err_msg.invalid_option)
+                break
             else:
                 if(action == 'q'):
                     print('Thank You !')

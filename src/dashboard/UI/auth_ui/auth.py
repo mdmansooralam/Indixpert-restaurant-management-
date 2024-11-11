@@ -1,6 +1,6 @@
 
 from src.controllers.auth_controller.auth import user_login, user_signup
-from src.utility.validation import validate_email, validate_password, validate_name, validate_mobile, validate_dob
+from src.utility.validation import validate_email,validate_gender, validate_address, validate_password, validate_name, validate_mobile, validate_dob
 from src.utility.log_error import LogError
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
@@ -27,9 +27,9 @@ def signup():
           if(not name):
                raise Exception(err_msg.invalid_name)
           
-          gender = input('Gender (Male / Female) :')
-          if(not (gender.lower() == 'male' or gender.lower() == 'female')):
-               raise Exception('Invalid gender ')
+          gender = get_input(validate_gender, err_msg.enter_gender, err_msg.invalid_gender)
+          if(not gender):
+               raise Exception(err_msg.invalid_gender)
             
           email = get_input(validate_email, err_msg.enter_email, err_msg.invalid_email)
           if(not email):
@@ -47,11 +47,12 @@ def signup():
           if(not mobile_number):
                raise Exception(err_msg.invalid_mobile_number)
             
-          address = input(err_msg.enter_address)
-          if(len(address) <4):
+          address = get_input(validate_address, err_msg.enter_address, err_msg.invalid_address)
+          if(not address):
                raise Exception(err_msg.invalid_address)
 
           user_signup(name, email, password, date_of_birth, mobile_number, address, gender)
 
      except Exception as error:
           print(error)
+          LogError().err.exception(error)

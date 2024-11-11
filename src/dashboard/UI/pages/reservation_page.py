@@ -6,6 +6,7 @@ from src.dashboard.UI.reservation_ui.reserve_table import table_reserve
 from src.dashboard.UI.reservation_ui.cancel_reservation import cancel
 from src.controllers.reservation_controller.reservation import get_reservation, get_all_reservaiton
 from src.utility.error_message import ErrorMessage
+from src.utility.get_input import get_input
 
 def reservation_page():
     err_msg = ErrorMessage()
@@ -13,11 +14,11 @@ def reservation_page():
         print('*****************Reservation Dashboard ***********************')
         print('1 BOOK TABLE')
         print('2 CANCEL BOOKING')
-        print('3 VIEW BOOKING DETAILS')
+        print('3 SEARCH BOOKING')
         print('4 VIEW ALL BOOKING')
         print('5 BACK')
 
-        choice = validate_int(input("please choose a option : "))
+        choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
             print(err_msg.invalid_option)
@@ -48,7 +49,7 @@ def reservation_page():
         elif(choice == 5):
             break
         else:
-            print('please choose a valid option ')
+            print(err_msg.invalid_option)
             if(ask_for_dashboard()):
                 continue
             else:

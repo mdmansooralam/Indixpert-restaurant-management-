@@ -48,5 +48,15 @@
         "time_slot": "10:00 AM TO 11:00 AM",
         "persons": 4,
         "status": "reserved"
+    },
+    {
+        "id": "C1F4",
+        "name": "mazda",
+        "mobile_no": "7979941442",
+        "table_id": "DK65",
+        "date": "11-11-2024",
+        "time_slot": "05:30 PM TO 06:30 PM",
+        "persons": 4,
+        "status": "cancelled"
     }
 ]

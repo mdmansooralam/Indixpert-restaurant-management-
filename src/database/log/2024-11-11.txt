@@ -4,3 +4,21 @@ Traceback (most recent call last):
   File "D:\Indixpert-restaurant-management-\src\dashboard\UI\order_ui\order.py", line 26, in pay_bill
     raise Exception(err_msg.invalid_id)
 Exception: You entered an invalid id. Please enter a valid id
+||staff@staff.com 
+ 14:50:03 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 14, in get_input
+    raise Exception(err_msg)
+Exception: You entered an invalid item name. Please enter a valid item name
+||staff@staff.com 
+ 14:51:53 5
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 14, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 14:52:16 abcderflkjsdf
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 14, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option

@@ -14,6 +14,9 @@ from src.utility.get_input import get_input
 def order_system():
     order = take_order()
     err_msg = ErrorMessage()
+    if(not order):
+        print('Thank you!')
+        return
     while True:
             print('A. Add')
             print('R. Review')

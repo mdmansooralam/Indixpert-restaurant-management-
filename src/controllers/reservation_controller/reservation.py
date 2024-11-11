@@ -4,11 +4,13 @@ from datetime import datetime
 from src.models.reservation_model import ReservationModel
 from src.database.collections.reservation import Reservation
 from src.database.collections.table import Table
-from src.utility.validation import validate_id
+from src.utility.validation import validate_id, validate_int
 from src.database.collections.default import Default
 from src.utility.error_message import ErrorMessage
 from src.utility.log_error import LogError
 from src.utility.get_input import get_input
+from src.utility.time_slot import validate_time_slot_id
+from src.dashboard.UI.reservation_ui.display_time_slot import display_time_slot
 
 
 def find_table(time_slot, persons):
@@ -138,5 +140,30 @@ def auto_reserve(name, mobile_no, persons):
         LogError().err.exception(error)
         return False
 
+def get_available_table():
+    try:
+        err_msg = ErrorMessage()
+        display_time_slot()
+        time_slot = get_input(validate_time_slot_id, err_msg.choose_option, err_msg.invalid_option)
+        if(not time_slot):
+            raise Exception(err_msg.invalid_option)
+        
+        persons = get_input(validate_int, err_msg.number_of_person, err_msg.invalid_number_of_person)
+        if(not persons):
+            raise Exception(err_msg.invalid_number_of_person)
 
+        reservations = Reservation().reservations
+        date = str(datetime.today().strftime("%d-%m-%Y"))
+        tables = Table().tables
+        reserved_table = [res['table_id'] for res in reservations if res['date'] == date and res['time_slot'] == time_slot and res['status'] == 'reserved']
+
+        fmt_str = '{:<10}{:<20}'
+        print(fmt_str.format('Table Id', 'Capacity'))
+        for table in tables:
+            if table['seating_capacity'] >= persons and table['id'] not in reserved_table:
+                print(fmt_str.format(table['id'], table['seating_capacity']))
+                
+    except Exception as error:
+        print(error)
+        LogError().err.exception(error)
 

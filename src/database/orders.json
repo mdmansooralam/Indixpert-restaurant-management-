@@ -195,10 +195,143 @@
         ],
         "total": 200.0,
         "create_by": "staff@staff.com",
-        "status": "process",
+        "status": "paid",
         "tax": 36.0,
         "tax_percent": 18,
         "discount": 0,
         "grand_total": 236
+    },
+    {
+        "id": "22E7",
+        "name": "rahul",
+        "mobile_no": "7979941442",
+        "date": "11-11-2024",
+        "items": [
+            {
+                "id": "2458",
+                "name": "paneer tikka (QUARTER)",
+                "category": "MAIN COURSE",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0889",
+                "name": "tea",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0889",
+                "name": "tea",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 220.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 39.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 260
+    },
+    {
+        "id": "B14D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "11-11-2024",
+        "items": [
+            {
+                "id": "2458",
+                "name": "paneer tikka (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 180.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "757E",
+                "name": "butter chicken (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 200.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 450.0,
+        "create_by": "second@staff.com",
+        "status": "paid",
+        "tax": 81.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 531
+    },
+    {
+        "id": "5199",
+        "name": "rahul singh",
+        "mobile_no": "7979941442",
+        "date": "11-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 4,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 920.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 165.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 1086
     }
 ]

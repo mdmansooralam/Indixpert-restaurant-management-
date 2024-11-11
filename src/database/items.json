@@ -8,7 +8,7 @@
             "half_price": 100.0,
             "quarter_price": 50.0
         },
-        "quantity": 50,
+        "quantity": 47,
         "added_by": "admin@admin.com"
     },
     {
@@ -80,7 +80,7 @@
             "half_price": 200.0,
             "quarter_price": 180.0
         },
-        "quantity": 47,
+        "quantity": 44,
         "added_by": "admin@admin.com"
     },
     {
@@ -172,7 +172,7 @@
         "name": "water",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 42,
+        "quantity": 35,
         "added_by": "admin@admin.com"
     },
     {
@@ -180,7 +180,7 @@
         "name": "coffee",
         "category": "DRINK",
         "sale_price": 50.0,
-        "quantity": 47,
+        "quantity": 44,
         "added_by": "admin@admin.com"
     },
     {
@@ -188,7 +188,7 @@
         "name": "tea",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 50,
+        "quantity": 46,
         "added_by": "admin@admin.com"
     },
     {

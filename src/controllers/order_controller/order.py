@@ -81,6 +81,9 @@ def finalize_order(order):
         ITEM = Item()
         err_msg = ErrorMessage()
 
+        if(not order):
+            raise Exception(err_msg.order_not_found)
+
         name = get_input(validate_name, err_msg.enter_customer_name, err_msg.invalid_name)
         if(not name):
             return
@@ -151,7 +154,7 @@ def review_order(order):
         err_msg = ErrorMessage()
         if(order):
             total = 0
-            fmt_str = '{:<20}{:<10}{:<10}{:<10}'
+            fmt_str = '{:<30}{:<10}{:<10}{:<10}'
             print(fmt_str.format('NAME', 'RATE', 'QTY', 'TOTAL'))
             print('-'*50)
             for item in order:

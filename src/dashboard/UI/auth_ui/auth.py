@@ -1,4 +1,4 @@
-
+import maskpass
 from src.controllers.auth_controller.auth import user_login, user_signup
 from src.utility.validation import validate_email,validate_gender, validate_address, validate_password, validate_name, validate_mobile, validate_dob
 from src.utility.log_error import LogError
@@ -11,7 +11,8 @@ def login():
             if(not email):
                  raise Exception(err_msg.invalid_email)
             
-            password = get_input(validate_password, err_msg.enter_password, err_msg.invalid_password)
+          #   password = get_input(validate_password, err_msg.enter_password, err_msg.invalid_password)
+            password = validate_password(maskpass.askpass(err_msg.enter_password, '*'))
             if(not password):
                  raise Exception(err_msg.invalid_password)
             

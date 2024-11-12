@@ -333,5 +333,36 @@
         "tax_percent": 18,
         "discount": 0,
         "grand_total": 1086
+    },
+    {
+        "id": "2ABC",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "12-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 140.0,
+        "create_by": "staff@staff.com",
+        "status": "process",
+        "tax": 25.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 165
     }
 ]

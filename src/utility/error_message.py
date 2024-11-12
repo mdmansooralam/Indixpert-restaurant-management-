@@ -17,7 +17,7 @@ class ErrorMessage:
         self.enter_email = 'Enter your email : '
         self.enter_order_item  = 'Enter the item name or id that you like to order ("Done" to finish) : '
         self.invalid_order_item = 'Invalid item name or id'
-        self.enter_password = 'Enter you password : '
+        self.enter_password = 'Enter your password : '
         self.enter_name = 'Enter your name : '
         self.enter_item_name = 'Enter item name : '
         self.item_created = 'Item created sucessful'
@@ -67,6 +67,7 @@ class ErrorMessage:
         self.payment_success = 'Payment Success'
         self.role_changed = 'role has been changed '
         self.order_already_complete = 'Order already completed now you cannot update'
+        self.order_already_paid = 'Order already paid'
         self.oder_in_process = 'Order in process now'
         self.invoice_not_found = 'Invoice not found '
         self.user_not_found = "User not found"

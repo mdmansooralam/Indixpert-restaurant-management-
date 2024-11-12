@@ -182,6 +182,8 @@ def payment_proceed(order_id):
                             order['status'] = 'paid'
                             ORDER.save_order()
                             print(err_msg.payment_success)
+                    elif(order['status'] == 'paid'):
+                        print(err_msg.order_already_paid)
                     else:
                         print(err_msg.order_not_found)
         else:

@@ -172,7 +172,7 @@
         "name": "water",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 35,
+        "quantity": 33,
         "added_by": "admin@admin.com"
     },
     {
@@ -180,7 +180,7 @@
         "name": "coffee",
         "category": "DRINK",
         "sale_price": 50.0,
-        "quantity": 44,
+        "quantity": 42,
         "added_by": "admin@admin.com"
     },
     {

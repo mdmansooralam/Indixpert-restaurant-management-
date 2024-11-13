@@ -40,3 +40,63 @@ Traceback (most recent call last):
   File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
     raise Exception(err_msg)
 Exception: Invalid days
+||staff@staff.com 
+ 14:58:03 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You entered an invalid id. Please enter a valid id
+||staff@staff.com 
+ 14:58:05 eix
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You entered an invalid id. Please enter a valid id
+||staff@staff.com 
+ 14:58:08 You entered an invalid id. Please enter a valid id
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\UI\order_ui\order.py", line 26, in pay_bill
+    raise Exception(err_msg.invalid_id)
+Exception: You entered an invalid id. Please enter a valid id
+||staff@staff.com 
+ 14:58:30 1
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 14:59:03 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: Invalid name. Please enter a valid name
+||staff@staff.com 
+ 14:59:05 Invalid name. Please enter a valid name
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\controllers\user_controller\update_profile.py", line 18, in update_name
+    raise Exception(err_msg.invalid_name)
+Exception: Invalid name. Please enter a valid name
+||staff@staff.com 
+ 14:59:44 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 14:59:45 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 14:59:56 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You entered an invalid id. Please enter a valid id
+||staff@staff.com 
+ 14:59:58 d5f4sdf
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You entered an invalid id. Please enter a valid id

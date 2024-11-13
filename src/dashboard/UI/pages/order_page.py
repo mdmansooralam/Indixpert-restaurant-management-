@@ -23,8 +23,8 @@ def order_page():
             print(f'{bcolors.OKBLUE}1 CREATE ORDER')
             print('2 UPDATE ORDER')
             print('3 VIEW ORDER IN PROCESS')
-            print('3 VIEW TODAY ORDER')
-            print('4 BACK')
+            print('4 VIEW TODAY ORDER')
+            print('5 BACK')
 
 
             choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)

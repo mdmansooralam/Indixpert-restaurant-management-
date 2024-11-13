@@ -68,19 +68,22 @@ def display_item_by_category():
 def update():
     try:
         err_msg = ErrorMessage()
-        id = validate_id(input('Enter Item Id : '))
+        # id = validate_id(input('Enter Item Id : '))
+        id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
         if(not id):
             raise Exception(err_msg.invalid_id)
         
-        name = validate_name(input('Enter item name : '))
+        # name = validate_name(input('Enter item name : '))
+        name = get_input(validate_name, err_msg.enter_item_name, err_msg.invalid_item)
         if(not name):
             raise Exception(err_msg.invalid_item)
 
         if(check_item(name)):
             raise Exception(err_msg.item_exist)
 
-        display_category()    
-        category = verify_item_category(input('Choose a option : '))
+        display_category() 
+        category = get_input(verify_item_category, err_msg.choose_option, err_msg.invalid_option)   
+        # category = verify_item_category(input('Choose a option : '))
         if(not category):
             raise Exception(err_msg.invalid_option)
 

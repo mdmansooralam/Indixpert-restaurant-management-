@@ -4,13 +4,14 @@ from src.utility.validation import validate_int
 from src.controllers.user_controller.user import make_admin, make_staff, get_all_user, remove_user
 from src.utility.get_input import get_input
 from src.utility.error_message import ErrorMessage
+from src.utility.colors import bcolors
 
 def super_admin_dashboard():
 
     err_msg = ErrorMessage()
     while True:
-        print('\n*****************welcome to super admin dashboard*******************')
-        print('1 MAKE ADMIN')
+        print(f'{bcolors.HEADER}\n*****************welcome to super admin dashboard*******************')
+        print(f'{bcolors.OKBLUE}1 MAKE ADMIN')
         print('2 MAKE STAFF')
         print('3 VIEW ALL USERS')
         print('4 REMOVE USER')
@@ -19,7 +20,7 @@ def super_admin_dashboard():
         
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
         if(not choice):
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
             continue
         else:
             if(choice == 1):
@@ -49,5 +50,5 @@ def super_admin_dashboard():
             elif(choice == 5):
                 break
             else:
-                print(err_msg.invalid_option)
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
 

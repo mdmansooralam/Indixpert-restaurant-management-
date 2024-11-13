@@ -15,7 +15,7 @@ class ErrorMessage:
         self.invalid_number_of_person = 'Invalid number of person. Please enter a valid number'
         self.enter_id = 'Enter id : '
         self.enter_email = 'Enter your email : '
-        self.enter_order_item  = 'Enter the item name or id that you like to order ("Done" to finish) : '
+        self.enter_order_item  = '"Done" for Finish \nEnter the item name or id that you like to order : '
         self.invalid_order_item = 'Invalid item name or id'
         self.enter_password = 'Enter your password : '
         self.enter_name = 'Enter your name : '

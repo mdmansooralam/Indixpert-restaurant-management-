@@ -4,6 +4,7 @@ from src.utility.validation import validate_email,validate_gender, validate_addr
 from src.utility.log_error import LogError
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 def login():    
         try:
             err_msg = ErrorMessage()
@@ -19,7 +20,7 @@ def login():
             user_login(email, password)
         except Exception as error:
             LogError().err.exception(error)
-            print(error)
+            print(f'{bcolors.FAIL}{error}')
 
 def signup():
      try:
@@ -55,5 +56,5 @@ def signup():
           user_signup(name, email, password, date_of_birth, mobile_number, address, gender)
 
      except Exception as error:
-          print(error)
+          print(f'{bcolors.FAIL}{error}')
           LogError().err.exception(error)

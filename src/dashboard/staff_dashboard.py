@@ -9,12 +9,13 @@ from src.dashboard.UI.pages.order_page import order_page
 from src.dashboard.UI.pages.reservation_page import reservation_page
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 
 def staff_dashboard():
         err_msg = ErrorMessage()
         while True:
-            print('*****************Welcome to staff Dashboard ***********************')
-            print('1 MENU')
+            print(f'{bcolors.HEADER}*****************Welcome to staff Dashboard ***********************')
+            print(f'{bcolors.OKBLUE}1 MENU')
             print('2 ORDER')
             print('3 BILLING')
             print('4 VIEW INVOICE')
@@ -25,7 +26,7 @@ def staff_dashboard():
 
             choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
             if(not choice):
-                print(err_msg.invalid_option)
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
                 continue
             if(choice == 1):
                 menu()
@@ -60,7 +61,7 @@ def staff_dashboard():
             elif(choice == 8):
                 break
             else:
-                print(err_msg.invalid_option)
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
                 if(ask_for_dashboard()):
                     continue
                 else:

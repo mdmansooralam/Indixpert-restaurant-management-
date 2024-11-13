@@ -117,9 +117,9 @@ def view_invoice(order_id):
                     print(fmt_4.format('Mobile Number :', order['mobile_no'], 'Date :',order['date']))
                     print(fmt_4.format('Status :', order['status'], 'Order Id :', order['id']))
 
-                    print('_'*65)
+                    print('_'*70)
                     print(fmt_5.format('S.No.', 'ITEM', 'RATE', 'QTY', 'TOTAL'))
-                    print('_'*65)
+                    print('_'*70)
                     item_count = 1
                     for item in order['items']:
                         print(fmt_5.format(item_count, item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
@@ -227,3 +227,35 @@ def get_order_staff_wise():
     except Exception as error:
         print(error)
         LogError().err.exception(error)
+
+def today_order():
+    try:
+        err_msg = ErrorMessage()
+        orders = Order().orders
+        # date = get_input(validate_date, err_msg.enter_date, err_msg.invalid_date)
+        date = datetime.today().strftime("%d-%m-%Y")
+        if(not date):
+            raise Exception(err_msg.invalid_date)
+        order_found = False
+        fmt_str = '{:<15}{:<15}{:<10}{:<10}{:<10}'
+        print('_'*60)
+        print(fmt_str.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
+        print('_'*60)
+        for order in orders:
+            if(order['date'] == date):
+                print(
+                        fmt_str.format(
+                            order['date'],
+                            order['mobile_no'],
+                            order['id'],
+                            order['grand_total'],
+                            order['status']
+                        )
+                    )
+                order_found = True
+
+        if(not order_found):
+            print(err_msg.order_not_found)
+    except Exception as error:
+        LogError().err.exception(error)
+        print(error)

@@ -8,6 +8,7 @@ from src.utility.validation import validate_id
 from src.utility.error_message import ErrorMessage
 from src.utility.log_error import LogError
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 
 
 def cancel():
@@ -21,5 +22,5 @@ def cancel():
         cancel_reservaiton(id)
 
     except Exception as error:
-        print(error)
+        print(f'{bcolors.FAIL}{error}')
         LogError().err.exception(error)

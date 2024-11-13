@@ -7,12 +7,13 @@ from src.dashboard.UI.reservation_ui.cancel_reservation import cancel
 from src.controllers.reservation_controller.reservation import get_reservation, get_all_reservaiton, get_available_table
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 
 def reservation_page():
     err_msg = ErrorMessage()
     while True:
-        print('*****************Reservation Dashboard ***********************')
-        print('1 BOOK TABLE')
+        print(f'{bcolors.HEADER}*****************Reservation Page ***********************')
+        print(f'{bcolors.OKBLUE}1 BOOK TABLE')
         print('2 CANCEL BOOKING')
         print('3 SEARCH BOOKING')
         print('4 VIEW ALL BOOKING')
@@ -22,7 +23,7 @@ def reservation_page():
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
         elif(choice == 1):
             table_reserve()
             if(ask_for_dashboard("Back")):
@@ -56,7 +57,7 @@ def reservation_page():
         elif(choice == 6):
             break
         else:
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
             if(ask_for_dashboard()):
                 continue
             else:

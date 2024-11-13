@@ -11,16 +11,17 @@ from src.dashboard.UI.pages.report_page import report_page
 from src.dashboard.UI.pages.profile_update_page import profile_update_page
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 
 def admin_dashboard():
     err_msg = ErrorMessage()
 
     while True:
-        print('\n***************welcome to RMS*****************')
-        print('1 ITEM')
+        print(f'{bcolors.HEADER}\n***************welcome to RMS*****************')
+        print(f'{bcolors.OKBLUE}1 ITEM')
         print('2 STOCK')
         print('3 ORDER')
-        print('4 REPORTS')#all orders, orders by date, order by days
+        print('4 REPORTS')
         print('5 STAFF')
         print('6 MY PROFILE')
         print('7 UPDATE PROFILE')
@@ -29,7 +30,7 @@ def admin_dashboard():
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
 
         elif(choice == 1):
             item_page()
@@ -52,5 +53,5 @@ def admin_dashboard():
         elif(choice == 8):
             break
         else:
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
 

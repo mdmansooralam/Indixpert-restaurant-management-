@@ -6,12 +6,13 @@ from src.utility.validation import validate_int
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
 from src.utility.log_error import LogError
+from src.utility.colors import bcolors
 
 def authentication():
     err_msg = ErrorMessage()
     while True:
-        print('**********USER AUTHENTICATION***********')
-        print('1 LOGIN')
+        print(f'{bcolors.HEADER}**********USER AUTHENTICATION***********')
+        print(f'{bcolors.OKBLUE}1 LOGIN')
         print('2 SIGNUP')
         print('3 EXIT')
 
@@ -28,4 +29,4 @@ def authentication():
         elif(choice == 3):
             break
         else:
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')

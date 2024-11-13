@@ -3,6 +3,7 @@
 
 from src.database.collections.default import Default
 from src.utility.verify_time_slot  import verify_time_slot
+from src.utility.colors import bcolors
 
 
 def validate_time_slot_id(time_slot_id):
@@ -15,10 +16,10 @@ def validate_time_slot_id(time_slot_id):
                     if(verify_time_slot(ts['slot'])):
                         return ts['slot']
                     else:
-                        print('Please choose a correct time slot')
+                        print(f'{bcolors.FAIL}Please choose a correct time slot')
 
         else:
-            print('some internal issue in time slot')
+            print(f'{bcolors.FAIL}some internal issue in time slot')
             return False
     except:
         return False

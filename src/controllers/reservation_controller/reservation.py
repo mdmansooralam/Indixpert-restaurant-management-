@@ -11,6 +11,7 @@ from src.utility.log_error import LogError
 from src.utility.get_input import get_input
 from src.utility.time_slot import validate_time_slot_id
 from src.dashboard.UI.reservation_ui.display_time_slot import display_time_slot
+from src.utility.colors import bcolors
 
 
 def find_table(time_slot, persons):
@@ -34,17 +35,17 @@ def reserved_table(name, mobile_no, time_slot, persons):
         date = str(datetime.today().strftime("%d-%m-%Y"))
         table = find_table(time_slot, persons)
         if(not table):
-            print(err_msg.table_not_available)
+            print(f'{bcolors.WARNING}{err_msg.table_not_available}')
         elif(table):
             id = str(uuid.uuid4())[:4].upper()
             status = 'reserved'
             new_reservation = ReservationModel(id, table['id'], date, time_slot, persons, name, mobile_no, status).__dict__
             RESERVATION.reservations.append(new_reservation)
             RESERVATION.save_reservation()
-            print(f'table reserved successful table Id : {table['id']} reservation id : {new_reservation['id']}')
+            print(f'{bcolors.OKGREEN}table reserved successful table Id : {table['id']} reservation id : {new_reservation['id']}')
             return True
     except Exception as error:
-        print(error)
+        print(f'{bcolors.FAIL}{error}')
         LogError().err.exception(error)
 
 def cancel_reservaiton(id):
@@ -57,15 +58,15 @@ def cancel_reservaiton(id):
                 if(res['status'] == 'reserved'):
                     res['status'] = 'cancelled'
                     RESERVATION.save_reservation()
-                    print(err_msg.reservation_canceled)
+                    print(f'{bcolors.OKGREEN}{err_msg.reservation_canceled}')
                     return
                 else:
-                    print(err_msg.reservation_already_cancel)
+                    print(f'{bcolors.FAIL}{err_msg.reservation_already_cancel}')
                     return
         else:
-            print(err_msg.reservation_not_found)
+            print(f'{bcolors.FAIL}{err_msg.reservation_not_found}')
     except Exception as error:
-        print(error)
+        print(f'{bcolors.FAIL}{error}')
         LogError().err.exception(error)
 
 def get_reservation():

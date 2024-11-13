@@ -1,0 +1,42 @@
+||auth time 
+ 10:30:49 kdf
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||auth time 
+ 10:47:17 Invalid password. Please enter a valid password
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\UI\auth_ui\auth.py", line 18, in login
+    raise Exception(err_msg.invalid_password)
+Exception: Invalid password. Please enter a valid password
+||staff@staff.com 
+ 11:15:45 
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You entered an invalid item name. Please enter a valid item name
+||staff@staff.com 
+ 11:42:17 1
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 11:42:47 2
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 12:11:04 ;
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||admin@admin.com 
+ 12:25:10 0
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 15, in get_input
+    raise Exception(err_msg)
+Exception: Invalid days

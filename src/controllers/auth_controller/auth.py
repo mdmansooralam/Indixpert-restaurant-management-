@@ -10,6 +10,7 @@ from src.dashboard.manage_dashboard import dashboard
 from src.utility.log_error import LogError
 from src.utility.error_message import ErrorMessage
 from src.database.collections.default import Default
+from src.utility.colors import bcolors
 
 
 
@@ -22,7 +23,7 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address, ge
             default = Default()
             
             if(user):
-                print(err_msg.email_already_resister)     
+                print(f'{bcolors.FAIL}{err_msg.email_already_resister}')     
             else:
                 id = str(uuid.uuid4())[:10]
                 role = default.role
@@ -54,10 +55,10 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address, ge
                 ).__dict__
                 USER.users.append(new_user)
                 USER.save_user()
-                print(err_msg.signup_success)
+                print(f'{bcolors.OKGREEN}{err_msg.signup_success}')
         except Exception as error:
              LogError().err.exception(error)
-             print(error)
+             print(f'{bcolors.FAIL}{error}')
 
 def user_login(email, password):
         try:
@@ -68,7 +69,7 @@ def user_login(email, password):
             else:
                 user = check_user(email)
                 if(not user):
-                    print(err_msg.user_not_exist)
+                    print(f'{bcolors.FAIL}{err_msg.user_not_exist}')
                 else:
                     for user in USER.users:
                         if(user['email'] == email):
@@ -77,10 +78,10 @@ def user_login(email, password):
                                     UserState().update_state(user)
                                     dashboard()
                                 else:
-                                    print(err_msg.wrong_credential)
+                                    print(f'{bcolors.FAIL}{err_msg.wrong_credential}')
                             else:
-                                 print(err_msg.account_deactive)
+                                 print(f'{bcolors.FAIL}{err_msg.account_deactive}')
         except Exception as error:
             LogError().err.exception(error)
-            print(error)
+            print(f'{bcolors.FAIL}{error}')
              

@@ -6,10 +6,11 @@ from src.dashboard.UI.order_ui.order_system import order_system
 from src.controllers.order_controller.order_report import get_unpaid_order
 from src.controllers.order_controller.order import update_order 
 from src.controllers.order_controller.cancel_order import cancel_order
-from src.controllers.order_controller.order_report import get_all_order, get_order_details
+from src.controllers.order_controller.order_report import get_all_order, get_order_details, today_order
 from src.utility.error_message import ErrorMessage
 from src.controllers.user_controller.user_state import UserState
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 
 
 def order_page():
@@ -18,16 +19,17 @@ def order_page():
 
     if(user_state['role'] == 'staff'):
         while True:
-            print('*****************Order Page ***********************')
-            print('1 CREATE ORDER')
+            print(f'{bcolors.HEADER}*****************Order Page ***********************')
+            print(f'{bcolors.OKBLUE}1 CREATE ORDER')
             print('2 UPDATE ORDER')
             print('3 VIEW ORDER IN PROCESS')
+            print('3 VIEW TODAY ORDER')
             print('4 BACK')
 
 
-            choice = validate_int(input("please choose a option : "))
+            choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
             if(not choice):
-                print(err_msg.invalid_option)
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
                 continue
             elif(choice == 1):
                 order_system()
@@ -48,9 +50,15 @@ def order_page():
                 else:
                     break
             elif(choice == 4):
+                today_order()
+                if(ask_for_dashboard("Back")):
+                    continue
+                else:
+                    break
+            elif(choice == 5):
                 break
             else:
-                print('please choose a valid option ')
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
                 if(ask_for_dashboard()):
                     continue
                 else:
@@ -58,8 +66,8 @@ def order_page():
 
     elif(user_state['role'] == 'admin'):
         while True:
-            print('*****************Order Page ***********************')
-            print('1 CANCEL ORDER')
+            print(f'{bcolors.HEADER}*****************Order Page ***********************')
+            print(f'{bcolors.OKBLUE}1 CANCEL ORDER')
             print('2 VIEW ORDER DETAILS')
             print('3 VIEW ALL ORDER')
             print('4 BACK')
@@ -67,7 +75,7 @@ def order_page():
 
             choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
             if(not choice):
-                print(err_msg.invalid_option)
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
                 continue
             elif(choice == 1):
                 cancel_order()
@@ -90,7 +98,7 @@ def order_page():
             elif(choice == 4):
                 break
             else:
-                print(err_msg.invalid_option)
+                print(f'{bcolors.FAIL}{err_msg.invalid_option}')
                 if(ask_for_dashboard()):
                     continue
                 else:

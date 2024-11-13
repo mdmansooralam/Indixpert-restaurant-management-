@@ -4,14 +4,14 @@ from src.controllers.user_controller.update_profile import update_address, updat
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.get_input import get_input
 from src.utility.validation import validate_int
-
+from src.utility.colors import bcolors
 from src.utility.error_message import ErrorMessage
 
 def profile_update_page():
     err_msg = ErrorMessage()
     while True:
-        print('*****************Profile Update Page ***********************')
-        print('1 UPDATE NAME')
+        print(f'{bcolors.HEADER}*****************Profile Update Page ***********************')
+        print(f'{bcolors.OKBLUE}1 UPDATE NAME')
         print('2 UPDATE DATE OF BIRTH')
         print('3 UPDATE ADDRESS')
         print('4 UPDATE MOBILE NUMBER')
@@ -22,7 +22,7 @@ def profile_update_page():
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
         if(not choice):
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
 
         elif(choice == 1):
             update_name()
@@ -63,7 +63,7 @@ def profile_update_page():
         elif(choice == 7):
             break
         else:
-            print(err_msg.invalid_option)
+            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
             if(ask_for_dashboard()):
                 continue
             else:

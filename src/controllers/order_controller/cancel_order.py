@@ -5,6 +5,7 @@ from src.utility.validation import validate_id
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
 from src.utility.log_error import LogError
+from src.utility.colors import bcolors
 
 
 def cancel_order():
@@ -23,13 +24,13 @@ def cancel_order():
                     if(order['status'] == 'process'):
                         order['status'] = 'cancel'
                         ORDER.save_order()
-                        print(err_msg.order_cancel_success)
+                        print(f'{bcolors.OKGREEN}{err_msg.order_cancel_success}')
                         return
                     elif(order['status']  == 'cancel'):
-                        print(err_msg.order_already_cancel)
+                        print(f'{bcolors.FAIL}{err_msg.order_already_cancel}')
                         return
                     elif(order['status'] == 'paid'):
-                        print(err_msg.order_cannot_cancel)
+                        print(f'{bcolors.FAIL}{err_msg.order_cannot_cancel}')
                         return
             else:
                 print(err_msg.order_not_found)

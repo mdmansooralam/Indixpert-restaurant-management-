@@ -1,199 +1,239 @@
-from datetime import datetime
-
-
-
-
-from src.database.collections.order import Order
+import uuid
+from datetime import date
+from src.utility.get_item import get_item
+from src.utility.validation import validate_name, validate_int, validate_quantity, validate_mobile, validate_id, validate_blank, validate_size
+from src.utility.error_message import ErrorMessage
+from src.utility.get_order import get_order
+from src.utility.check_order import check_order
 from src.controllers.user_controller.user_state import UserState
+from src.controllers.payment_gateway_controller.payment_gateway import pay
+from src.controllers.reservation_controller.reservation import auto_reserve
+from src.database.collections.order import Order
+from src.database.collections.default import Default
+from src.database.collections.item import Item
+from src.models.order_model import OrderModel
+from src.utility.get_input import get_input
+from src.utility.log_error import LogError
+from src.utility.colors import bcolors
 
 
-def cancel_order(order_id):
+def take_order():
+    try:
+        err_msg = ErrorMessage()
+        order = []
+        while True:
+                choice = get_input(validate_blank, err_msg.enter_order_item, err_msg.invalid_item )
+                if(not choice):
+                    break
+                        
+                if choice == 'done':
+                    break
+
+                item = get_item(choice)
+                if(item):
+                    if(item['category'] == 'DRINK' or item['category'] == 'STARTER'):
+                        quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
+                        if(not quantity):
+                            print(f'{bcolors.FAIL}{err_msg.invalid_quantity}')
+                            break
+
+                        if(item['quantity'] >= quantity):
+                            item['quantity'] = quantity
+                            order.append(item)
+                            print(f'{bcolors.OKGREEN}{item['name']} {err_msg.added_to_order}')
+                                        
+                        else:
+                            print(f'{bcolors.FAIL}Only {item['quantity']} {item['name']} available')
+                    elif(item['category'] == 'MAIN COURSE'):
+                        print(f'{bcolors.OKBLUE}F. Full')
+                        print('H. Half')
+                        print('Q. QUARTER')
+                        size = get_input(validate_size, err_msg.choose_option, err_msg.invalid_option)
+                        if(not size):
+                            print(f'{bcolors.FAIL}{err_msg.invalid_option}')
+                            continue
+
+                        quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
+                        if(not quantity):
+                            print(f'{bcolors.FAIL}{err_msg.invalid_quantity}')
+                            break
+
+                        if(item['quantity'] >= quantity):
+                            item['quantity'] = quantity
+                            item['sale_price'] = item['sale_price'][size]
+                            item['name'] += f' ({size.split("_")[0].upper()})'
+                            order.append(item)
+                            print(f'{bcolors.OKGREEN}{item['name']} {err_msg.added_to_order}')
+                                        
+                        else:
+                            print(f'{bcolors.FAIL}Only {item['quantity']} {item['name']} available')
+                        pass
+                else:
+                    print(err_msg.do_not_have_in_menu)
+
+        return order
+    except Exception as error:
+        LogError().err.exception(error)
+        print(error)
+
+def finalize_order(order):
     try:
         ORDER = Order()
-        user_state = UserState().get_state()
+        ITEM = Item()
+        err_msg = ErrorMessage()
 
-        if(user_state['role'] == 'admin'):
+        if(not order):
+            raise Exception(err_msg.order_not_found)
+
+        name = get_input(validate_name, err_msg.enter_customer_name, err_msg.invalid_name)
+        if(not name):
+            return
+        
+        mobile_no = get_input(validate_mobile, err_msg.enter_mobile_number, err_msg.invalid_mobile_number)
+        if(not mobile_no):
+            return
+        
+        print(err_msg.ask_for_table_booking)
+        print(f'{bcolors.OKBLUE}1 YES')
+        print('2 NO')
+        option = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
+        if(not option):
+            return
+        
+        if(option == 1):
+            persons = get_input(validate_int, err_msg.number_of_person, err_msg.invalid_number_of_person)
+            if(not persons):
+                return
+            
+            res = auto_reserve(name, mobile_no, persons)
+            if(not res):
+                print(f'{bcolors.HEADER}{err_msg.continue_booking_without_table}')
+                print(f'{bcolors.OKBLUE}1 YES')
+                print('2 NO')
+                action = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
+                if(not action):
+                    return
+                
+                if(action == 2):
+                    print('thank you')
+                    return
+
+
+        total = 0
+        if order:
+            for order_item in order:
+                for item in ITEM.items:
+                    if(item['id'] == order_item['id']):
+                        item['quantity'] -= order_item['quantity']
+                        #add total
+                        total += order_item['sale_price'] * order_item['quantity']
+                        ITEM.save_item()  
+
+            id = str(uuid.uuid4())[:4].upper()
+            order_date = date.today().strftime('%d-%m-%Y')
+            create_by = UserState().get_state()['email']
+            status = 'process'
+            tax_percent = Default().tax_percent
+            tax = round((total / 100 * tax_percent), 2)
+            discount = 0
+            grand_total = round(total + tax - discount)
+
+            new_order = OrderModel(id,name, mobile_no, order_date, order, total, create_by, status, tax, tax_percent, discount, grand_total)._dict_
+            ORDER.orders.append(new_order)
+            ORDER.save_order()
+            print(f'{bcolors.OKGREEN}{err_msg.order_saved}')
+            return new_order['id']
+        
+        else:
+            print(err_msg.no_item_in_order_list)
+    except Exception as error:
+        LogError().err.exception(error)
+        print(f'{bcolors.FAIL}{error}')
+
+def review_order(order):
+    try:
+        err_msg = ErrorMessage()
+        if(order):
+            total = 0
+            fmt_str = '{:<30}{:<10}{:<10}{:<10}'
+            print(f'{bcolors.HEADER}{fmt_str.format('NAME', 'RATE', 'QTY', 'TOTAL')}')
+            print('-'*60)
+            for item in order:
+                sum = item['sale_price'] * item['quantity']
+                total += sum
+                print(f'{bcolors.OKBLUE}{fmt_str.format(item['name'], item['sale_price'], item['quantity'], sum)}')
+
+            print(f'TOTAL : {total}')
+        else:
+            print(f'{bcolors.FAIL}{err_msg.item_not_found}') 
+    except Exception as error:
+        LogError().err.exception(error)
+        print(f'{bcolors.FAIL}{error}')
+
+def payment_proceed(order_id):
+    try:
+        err_msg = ErrorMessage()
+        if(check_order(order_id)):
+            ORDER = Order()
             for order in ORDER.orders:
                 if(order['id'] == order_id):
                     if(order['status'] == 'process'):
-                        order['status'] = 'cancel'
-                        ORDER.save_order()
-                        print('Order cancel successful ')
-                        return
-                    elif(order['status']  == 'cancel'):
-                        print('order already cancelled')
-                        return
+                        is_paid = pay(order_id)
+                        if(is_paid == 'success'):
+                            order['status'] = 'paid'
+                            ORDER.save_order()
+                            print(f'{bcolors.OKGREEN}{err_msg.payment_success}')
                     elif(order['status'] == 'paid'):
-                        print('complete order can not be cancel')
-                        return
-            else:
-                print('order not found')
-    except Exception as error:
-        print(error)
-
-def get_order_by_date(date):
-    try:
-        orders = Order().orders
-
-        order_found = False
-        print('_'*60)
-        print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
-        print('_'*60)
-        for order in orders:
-            if(order['date'] == date):
-                print(
-                        '{:<15}{:<15}{:<10}{:<10}{:<10}'.format(
-                            order['date'],
-                            order['mobile_no'],
-                            order['id'],
-                            order['grand_total'],
-                            order['status']
-                        )
-                    )
-                order_found = True
-
-        if(not order_found):
-            print('order not found')
-    except Exception as error:
-        print(error)
-
-def get_order_by_day(days):
-    try:
-        orders = Order().orders
-        current_date = datetime.today()
-
-        if(orders):
-            print('_'*60)
-            print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
-            print('_'*60)
-            for order in orders:
-                order_date = datetime.strptime(order['date'], '%d-%m-%Y')
-                if((current_date - order_date).days <= days):
-                    print(
-                        '{:<15}{:<15}{:<10}{:<10}{:<10}'.format(
-                            order['date'],
-                            order['mobile_no'],
-                            order['id'],
-                            order['grand_total'],
-                            order['status']
-                        )
-                    )
+                        print(f'{bcolors.FAIL}{err_msg.order_already_paid}')
+                    else:
+                        print(err_msg.order_not_found)
         else:
-            print('order record not available')
+            print(err_msg.order_not_found)
     except Exception as error:
+        LogError().err.exception(error)
         print(error)
 
-def get_unpaid_order():
+def update_order():
     try:
-        orders = Order().orders
-        unpaid_order_found = False
-        print('_'*50)
-        print('{:<15}{:<15}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL'))
-        print('_'*50)
-        for order in orders:
-            if(order['status'] == 'process'):
-                unpaid_order_found = True
-                print(
-                    '{:<15}{:<15}{:<10}{:<10}'.format(
-                        order['date'],
-                        order['mobile_no'],
-                        order['id'],
-                        order['grand_total'],
-                        )
-                    )
-        if(not unpaid_order_found):
-            print('no order in process')
-    except Exception as error:
-        print(error)
+        err_msg = ErrorMessage()
+        id = validate_id(input('enter id :'))
+        if(id):
+            found_order = get_order(id)
+            if(found_order['status'] == 'process'):
+                ORDER = Order()
+                ITEM = Item()
+                new_items = take_order()
+                total = 0
 
-def view_invoice(order_id):
-    try:
-        orders = Order().orders
+                if(new_items):
+                    for new_item in new_items:
+                        for item in ITEM.items:
+                            if(new_item['id'] == item['id']):
+                                item['quantity'] -= new_item['quantity']
+                                total += new_item['sale_price'] * new_item['quantity']
+                                ITEM.save_item()
+                
+                for order in ORDER.orders:
+                    if(order['id'] == id):
+                        order['items'].extend(new_items)
+                        order['total'] += total
+                        order['tax'] += round((total / 100 * Default().tax_percent), 2)
+                        order['grand_total'] = round(order['total'] + order['tax'] - order['discount'])
+                        ORDER.save_order()
+                        break
+                
+                print(f'{bcolors.OKBLUE}P. Pay')
+                print('press any key to save')
+                action = input(err_msg.choose_option).lower()
 
-        for order in orders:
-            if(order['id'] == order_id):
-                if(order['status'] == 'process'):
-                    print('Order still in process invoice not generated now')
-                    return
-                elif(order['status'] == 'cancel' or order['status'] == 'paid'):
-                    print('_____________________________INVOICE_____________________________')
-                    print('\n')
-                    print('{:<15}{:<25}'.format('Name :', order['name']))
-                    print('{:<15}{:<25}{:<10}{:<10}'.format('Mobile Number :', order['mobile_no'], 'Date :',order['date']))
-                    print('{:<15}{:<25}{:<10}{:<10}'.format('Status :', order['status'], 'Order Id :', order['id']))
-
-                    print('_'*65)
-                    print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format('S.No.', 'ITEM', 'RATE', 'QTY', 'TOTAL'))
-                    print('_'*65)
-                    item_count = 1
-                    for item in order['items']:
-                        print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format(item_count, item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
-                        item_count += 1
-                    print('_'*65)
-                    print('{:<40}{:<15}{:<10}'.format(' ', 'TOTAL', order['total']))
-                    print('{:<40}{:<15}{:<10}'.format(' ', f'TAX({order['tax_percent']}%)', order['tax']))
-                    print('\n')
-                    print('{:<40}{:<15}{:<10}'.format(' ', 'GRAND TOTAL', order['grand_total']))
-                    print('\n')
-                    return
+                if(action.lower() == 'p'):
+                    payment_proceed(id)
                 else:
-                    print('server error')
-                    return
+                    print(err_msg.order_saved)
+            else:
+                print(f'{bcolors.FAIL}{err_msg.order_already_complete}')
         else:
-            print('invoice not found')
+            print(err_msg.invalid_id)
     except Exception as error:
-        print(error)
-
-def get_order_details(order_id):
-    try:
-        orders = Order().orders
-
-        for order in orders:
-            if(order['id'] == order_id):
-                    print('__________________________ORDER DETAILS___________________________')
-                    print('\n')
-                    print('{:<15}{:<25}'.format('Name :', order['name']))
-                    print('{:<15}{:<25}{:<10}{:<10}'.format('Mobile Number :', order['mobile_no'], 'Date :',order['date']))
-                    print('{:<15}{:<25}{:<10}{:<10}'.format('Status :', order['status'], 'Order Id :', order['id']))
-
-                    print('_'*60)
-                    print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format('S.No.', 'ITEM', 'RATE', 'QTY', 'TOTAL'))
-                    print('_'*60)
-                    item_count = 1
-                    for item in order['items']:
-                        print('{:<5}{:<30}{:<10}{:<10}{:<10}'.format(item_count, item['name'], item['sale_price'], item['quantity'], item['sale_price'] * item['quantity']))
-                        item_count += 1
-                    print('_'*60)
-                    print('{:<35}{:<15}{:<10}'.format(' ', 'TOTAL', order['total']))
-                    print('{:<35}{:<15}{:<10}'.format(' ', f'TAX({order['tax_percent']}%)', order['tax']))
-                    print('\n')
-                    print('{:<35}{:<15}{:<10}'.format(' ', 'GRAND TOTAL', order['grand_total']))
-                    print('\n')
-
-                    return
-        else:
-            print('order not found')
-    except Exception as error:
-        print(error)
-
-def get_all_order():
-    try:
-        orders = Order().orders
-        print('_'*60)
-        print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
-        print('_'*60)
-        if(orders):
-            for order in orders:
-                print(
-                    '{:<15}{:<15}{:<10}{:<10}{:<10}'.format(
-                        order['date'],
-                        order['mobile_no'],
-                        order['id'],
-                        order['grand_total'],
-                        order['status']
-                    )
-                )
-        else:
-            print('order record not found')
-    except Exception as error:
+        LogError().err.exception(error)
         print(error)

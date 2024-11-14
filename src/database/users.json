@@ -58,5 +58,65 @@
         ],
         "password": "Second@123",
         "gender": "male"
+    },
+    {
+        "id": "35d0ef1d-e",
+        "name": "mazda",
+        "date_of_birth": "01-01-2000",
+        "email": "mazda@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "meerganj, gopalganj",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "14-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Mazda@123",
+        "gender": "female"
+    },
+    {
+        "id": "8b9ba523-b",
+        "name": "shifa",
+        "date_of_birth": "01-01-2000",
+        "email": "shifa@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "rajasthan",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "14-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Shifa@123",
+        "gender": "female"
+    },
+    {
+        "id": "71909039-4",
+        "name": "rahul",
+        "date_of_birth": "01-01-2000",
+        "email": "rahul@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "utrakhand",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "14-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Rahul@123",
+        "gender": "male"
     }
 ]

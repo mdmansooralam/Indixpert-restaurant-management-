@@ -1,17 +1,5 @@
 [
     {
-        "id": "2458",
-        "name": "paneer tikka",
-        "category": "MAIN COURSE",
-        "sale_price": {
-            "full_price": 180.0,
-            "half_price": 100.0,
-            "quarter_price": 50.0
-        },
-        "quantity": 47,
-        "added_by": "admin@admin.com"
-    },
-    {
         "id": "D5AE",
         "name": "kadai paneer",
         "category": "MAIN COURSE",
@@ -172,7 +160,7 @@
         "name": "water",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 29,
+        "quantity": 27,
         "added_by": "admin@admin.com"
     },
     {
@@ -220,7 +208,7 @@
         "name": "chicken wings",
         "category": "STARTER",
         "sale_price": 440.0,
-        "quantity": 49,
+        "quantity": 47,
         "added_by": "admin@admin.com"
     },
     {
@@ -253,6 +241,18 @@
         "category": "STARTER",
         "sale_price": 350.0,
         "quantity": 49,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "87B0",
+        "name": "paneer tikka",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 280.0,
+            "half_price": 150.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 48,
         "added_by": "admin@admin.com"
     }
 ]

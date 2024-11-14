@@ -39,7 +39,7 @@ def signup():
           if(not email):
                raise Exception(err_msg.invalid_email)
             
-          password = get_input(validate_password, err_msg.invalid_password)
+          password = get_input(validate_password,err_msg.enter_password, err_msg.invalid_password)
           if(not password):
                raise Exception(err_msg.invalid_password)
             

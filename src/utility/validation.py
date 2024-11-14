@@ -105,7 +105,7 @@ def validate_method(m):
         return False
     
 def validate_address(address):
-    if(len(address) > 10):
+    if(len(address) > 3):
         return address
     else:
         return False

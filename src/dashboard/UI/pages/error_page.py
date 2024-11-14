@@ -1,4 +1,4 @@
-from src.controllers.error_controller.error import get_all_error, get_error_by_mail
+from src.controllers.error_controller.error import get_all_error, get_error_by_mail, get_error_by_date
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.utility.get_input import get_input
 from src.utility.validation import validate_int
@@ -10,8 +10,9 @@ def error_page():
     while True:
         print(f'{bcolors.HEADER}*****************Error Page ***********************')
         print(f'{bcolors.OKBLUE}1 VIEW ALL ERROR')
-        print('2 SEARCH ERROR')
-        print('3 BACK')
+        print('2 SEARCH ERROR BY EMAIL')
+        print('3 SEARCH ERROR BY DATE')
+        print('4 BACK')
 
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
@@ -31,6 +32,12 @@ def error_page():
             else:
                 break
         elif(choice == 3):
+            get_error_by_date()
+            if(ask_for_dashboard("Back")):
+                continue
+            else:
+                break
+        elif(choice == 4):
             break
         else:
             print(f'{bcolors.FAIL}{err_msg.invalid_option}')

@@ -88,5 +88,14 @@
         "customer_contact": "7979941442",
         "method": "online",
         "status": "success"
+    },
+    {
+        "id": "F9F50F4E-F",
+        "date": "14-11-2024",
+        "amount": 189,
+        "order_id": "2ABC",
+        "customer_contact": "7979941442",
+        "method": "cash",
+        "status": "success"
     }
 ]

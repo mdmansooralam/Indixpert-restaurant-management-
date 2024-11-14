@@ -172,7 +172,7 @@
         "name": "water",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 30,
+        "quantity": 29,
         "added_by": "admin@admin.com"
     },
     {

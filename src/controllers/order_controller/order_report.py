@@ -102,7 +102,7 @@ def view_invoice(order_id):
         orders = Order().orders
 
         fmt_2 = '{:<15}{:<25}'
-        fmt_3 = '{:<40}{:<15}{:<10}'
+        fmt_3 = '{:<45}{:<15}{:<10}'
         fmt_4 = '{:<15}{:<25}{:<10}{:<10}'
         fmt_5 = '{:<10}{:<30}{:<10}{:<10}{:<10}'
         for order in orders:

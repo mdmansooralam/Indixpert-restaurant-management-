@@ -355,15 +355,23 @@
                 "sale_price": 50.0,
                 "quantity": 2,
                 "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
             }
         ],
-        "total": 140.0,
+        "total": 160.0,
         "create_by": "staff@staff.com",
-        "status": "process",
-        "tax": 25.2,
+        "status": "paid",
+        "tax": 28.8,
         "tax_percent": 18,
         "discount": 0,
-        "grand_total": 165
+        "grand_total": 189
     },
     {
         "id": "5625",

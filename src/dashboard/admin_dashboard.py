@@ -2,7 +2,7 @@
 from src.utility.validation import validate_int
 from src.utility.ask_for_dashboard import ask_for_dashboard
 from src.controllers.user_controller.user import get_current_user
-from src.dashboard.UI.user_ui.user import update_user_profile
+from src.dashboard.UI.pages.error_page import error_page
 from src.dashboard.UI.pages.item_page import item_page
 from src.dashboard.UI.pages.stock_page import stock_page
 from src.dashboard.UI.pages.order_page import order_page
@@ -25,7 +25,8 @@ def admin_dashboard():
         print('5 STAFF')
         print('6 MY PROFILE')
         print('7 UPDATE PROFILE')
-        print('8 LOGOUT')
+        print('8 ERROR')
+        print('9 LOGOUT')
 
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
 
@@ -51,6 +52,8 @@ def admin_dashboard():
         elif(choice == 7):
             profile_update_page()
         elif(choice == 8):
+            error_page()
+        elif(choice == 9):
             break
         else:
             print(f'{bcolors.FAIL}{err_msg.invalid_option}')

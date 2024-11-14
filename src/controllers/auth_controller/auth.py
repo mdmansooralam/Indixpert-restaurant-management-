@@ -7,10 +7,11 @@ from src.utility.check_user import check_user
 from src.controllers.user_controller.super_admin import super_admin
 from src.controllers.user_controller.user_state import UserState
 from src.dashboard.manage_dashboard import dashboard
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.utility.error_message import ErrorMessage
 from src.database.collections.default import Default
 from src.utility.colors import bcolors
+import traceback
 
 
 
@@ -57,8 +58,8 @@ def user_signup(name, email, password, date_of_birth, mobile_number, address, ge
                 USER.save_user()
                 print(f'{bcolors.OKGREEN}{err_msg.signup_success}')
         except Exception as error:
-             LogError().err.exception(error)
-             print(f'{bcolors.FAIL}{error}')
+            log(traceback.extract_tb(error.__traceback__)[0], error)
+            print(f'{bcolors.FAIL}{error}')
 
 def user_login(email, password):
         try:
@@ -82,6 +83,6 @@ def user_login(email, password):
                             else:
                                  print(f'{bcolors.FAIL}{err_msg.account_deactive}')
         except Exception as error:
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
             print(f'{bcolors.FAIL}{error}')
              

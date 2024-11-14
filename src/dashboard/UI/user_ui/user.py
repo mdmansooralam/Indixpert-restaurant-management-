@@ -4,7 +4,8 @@ from src.controllers.user_controller.user import update_user
 from src.utility.validation import validate_name, validate_dob,validate_address,  validate_mobile, validate_gender
 from src.utility.get_input import get_input
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import log
+import traceback
 
     
 def update_user_profile():
@@ -33,4 +34,4 @@ def update_user_profile():
 
     except Exception as error:
           print(error)
-          LogError().err.exception(error)
+          log(traceback.extract_tb(error.__traceback__)[0], error)

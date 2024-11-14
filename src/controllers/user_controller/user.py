@@ -1,9 +1,9 @@
-
+import traceback
 from src.database.collections.user import User
 from src.controllers.user_controller.user_state import UserState
 from src.utility.validation import validate_email
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.utility.get_input import get_input
 
 
@@ -26,9 +26,8 @@ def make_admin():
             raise Exception(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         
-
 def make_staff():
     try:
         USER = User()
@@ -48,7 +47,7 @@ def make_staff():
             raise Exception(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def get_all_user():
     try:
@@ -67,7 +66,7 @@ def get_all_user():
 
         if(user_state['role'] == 'admin'):
                 print(fmt_str.format('ID', 'NAME', 'EMAIL', 'ROLE'))
-                print('-'*55)
+                print('-'*65)
                 user_found = False
                 for user in USER.users:
                     if(user['role'] == 'staff'):
@@ -78,7 +77,7 @@ def get_all_user():
                         print(err_msg.user_not_found)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def remove_user():
     try:
@@ -96,7 +95,7 @@ def remove_user():
                         user['status'] = 'deactive'
                         USER.save_user()
                         print(f'{user['name']} {err_msg.user_remove}')
-                        break
+                        return
                     elif(user['role'] == 'admin' or user['role'] == 'super_admin'):
                         raise Exception(err_msg.not_authorized)
             else:
@@ -112,7 +111,7 @@ def remove_user():
             raise Exception(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def get_current_user():
     try:
@@ -137,7 +136,7 @@ def get_current_user():
             print(err_msg.user_not_found)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def get_user():
     try:
@@ -183,8 +182,7 @@ def get_user():
             raise Exception(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
-
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 #this function is no longer in use
 def update_user(

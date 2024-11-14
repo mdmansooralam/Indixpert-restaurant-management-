@@ -1,10 +1,10 @@
-
+import traceback
 from datetime import datetime
 from src.database.collections.order import Order
 from src.utility.validation import validate_id, validate_int, validate_date
 from src.utility.error_message import ErrorMessage
 from src.database.collections.user import User
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.utility.get_input import get_input
 
 
@@ -36,7 +36,7 @@ def get_order_by_date():
         if(not order_found):
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_order_by_day():
@@ -67,7 +67,7 @@ def get_order_by_day():
         else:
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_unpaid_order():
@@ -93,7 +93,7 @@ def get_unpaid_order():
         if(not unpaid_order_found):
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def view_invoice(order_id):
@@ -137,7 +137,7 @@ def view_invoice(order_id):
         else:
             print(err_msg.invoice_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_order_details():
@@ -178,7 +178,7 @@ def get_order_details():
         else:
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_all_order():
@@ -203,7 +203,7 @@ def get_all_order():
         else:
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_order_staff_wise():
@@ -226,7 +226,7 @@ def get_order_staff_wise():
                 print(fmt_str.format(user['name'], user['email'], total_order, total_order_value))
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def today_order():
     try:
@@ -257,5 +257,5 @@ def today_order():
         if(not order_found):
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)

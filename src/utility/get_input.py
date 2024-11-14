@@ -15,4 +15,3 @@ def get_input(validator, msg, err_msg):
                 raise Exception(err_msg)
         except Exception as error:
             print(f'{bcolors.FAIL}{error}')
-            LogError().err.exception(user_input)

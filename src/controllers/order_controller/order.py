@@ -13,9 +13,9 @@ from src.database.collections.default import Default
 from src.database.collections.item import Item
 from src.models.order_model import OrderModel
 from src.utility.get_input import get_input
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.utility.colors import bcolors
-
+import traceback
 
 def take_order():
     try:
@@ -73,7 +73,7 @@ def take_order():
 
         return order
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def finalize_order(order):
@@ -147,7 +147,7 @@ def finalize_order(order):
         else:
             print(err_msg.no_item_in_order_list)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(f'{bcolors.FAIL}{error}')
 
 def review_order(order):
@@ -167,7 +167,7 @@ def review_order(order):
         else:
             print(f'{bcolors.FAIL}{err_msg.item_not_found}') 
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(f'{bcolors.FAIL}{error}')
 
 def payment_proceed(order_id):
@@ -190,7 +190,7 @@ def payment_proceed(order_id):
         else:
             print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def update_order():
@@ -235,6 +235,6 @@ def update_order():
         else:
             print(err_msg.invalid_id)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 

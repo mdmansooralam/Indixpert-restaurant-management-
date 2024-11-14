@@ -6,9 +6,10 @@
 from src.controllers.reservation_controller.reservation import cancel_reservaiton
 from src.utility.validation import validate_id
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import log
 from src.utility.get_input import get_input
 from src.utility.colors import bcolors
+import traceback
 
 
 def cancel():
@@ -23,4 +24,4 @@ def cancel():
 
     except Exception as error:
         print(f'{bcolors.FAIL}{error}')
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)

@@ -9,7 +9,9 @@ from src.controllers.item_controller.item import add_stock
 from src.utility.error_message import ErrorMessage
 from src.database.collections.default import Default
 from src.utility.get_input import get_input
-from src.utility.log_error import LogError
+from src.utility.get_item import get_item
+from src.utility.log_error import LogError, log
+import traceback
 
 def create():
     try:
@@ -38,7 +40,7 @@ def create():
 
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def delete():
     try:
@@ -51,19 +53,20 @@ def delete():
 
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def display_item_by_category():
     try:
         err_msg = ErrorMessage()
         display_category()
-        category = verify_item_category(input('Choose a option : '))
+        category = get_input(verify_item_category, err_msg.choose_option, err_msg.invalid_option)
         if(not category):
             raise Exception(err_msg.invalid_option)
         get_item_by_category(category)
 
     except Exception as error:
         print(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def update():
     try:
@@ -72,7 +75,9 @@ def update():
         id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
         if(not id):
             raise Exception(err_msg.invalid_id)
-        
+        if(not get_item(id)):
+            raise Exception(err_msg.item_not_found)
+
         # name = validate_name(input('Enter item name : '))
         name = get_input(validate_name, err_msg.enter_item_name, err_msg.invalid_item)
         if(not name):
@@ -91,7 +96,8 @@ def update():
         if(not sale_price):
             raise Exception(err_msg.invalid_price)
 
-        quantity = validate_quantity(input('Quantity : '))
+        # quantity = validate_quantity(input('Quantity : '))
+        quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
         if(not quantity):
             raise Exception(err_msg.invalid_quantity)
         
@@ -99,6 +105,7 @@ def update():
 
     except Exception as error:
         print(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def stock():
     try:
@@ -115,7 +122,7 @@ def stock():
 
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
     
 def display_category():
     try:
@@ -125,7 +132,7 @@ def display_category():
 
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         
 def take_item_price(category):
     try:
@@ -157,4 +164,4 @@ def take_item_price(category):
             return price
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)

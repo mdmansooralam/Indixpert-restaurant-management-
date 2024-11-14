@@ -10,7 +10,8 @@ from src.controllers.order_controller.order import payment_proceed
 from src.controllers.order_controller.order_report import view_invoice, get_order_details
 from src.utility.get_input import get_input
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
+import traceback
 
 def display_order_by_date():
     get_order_by_date()
@@ -27,7 +28,7 @@ def pay_bill():
         payment_proceed(id)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def invoice():
     try:
@@ -38,7 +39,7 @@ def invoice():
         view_invoice(order_id)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def view_order_details():
     try:
@@ -50,5 +51,5 @@ def view_order_details():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 

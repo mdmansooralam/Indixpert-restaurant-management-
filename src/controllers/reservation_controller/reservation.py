@@ -7,11 +7,12 @@ from src.database.collections.table import Table
 from src.utility.validation import validate_id, validate_int
 from src.database.collections.default import Default
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.utility.get_input import get_input
 from src.utility.time_slot import validate_time_slot_id
 from src.dashboard.UI.reservation_ui.display_time_slot import display_time_slot
 from src.utility.colors import bcolors
+import traceback
 
 
 def find_table(time_slot, persons):
@@ -26,7 +27,7 @@ def find_table(time_slot, persons):
         return None
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def reserved_table(name, mobile_no, time_slot, persons):
     try:
@@ -46,7 +47,7 @@ def reserved_table(name, mobile_no, time_slot, persons):
             return True
     except Exception as error:
         print(f'{bcolors.FAIL}{error}')
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def cancel_reservaiton(id):
     try:
@@ -67,7 +68,7 @@ def cancel_reservaiton(id):
             print(f'{bcolors.FAIL}{err_msg.reservation_not_found}')
     except Exception as error:
         print(f'{bcolors.FAIL}{error}')
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def get_reservation():
     try:
@@ -95,7 +96,7 @@ def get_reservation():
             print(err_msg.reservation_not_found)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def get_all_reservaiton():
     try:
@@ -118,7 +119,7 @@ def get_all_reservaiton():
             print(err_msg.reservation_not_found)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
     
 def auto_reserve(name, mobile_no, persons):
     try:
@@ -138,7 +139,7 @@ def auto_reserve(name, mobile_no, persons):
                 else:
                     return False
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         return False
 
 def get_available_table():
@@ -166,5 +167,5 @@ def get_available_table():
                 
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 

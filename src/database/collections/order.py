@@ -1,9 +1,9 @@
 import os
 import json
-
+import traceback
 
 from src.database.collections.path import ORDER_FILE
-from src.utility.log_error import LogError
+from src.utility.log_error import log
 
 class Order:
     def __init__(self):
@@ -19,7 +19,7 @@ class Order:
                 return []
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
 
 
     def save_order(self):
@@ -29,4 +29,4 @@ class Order:
                 json.dump(orders, file, indent=4)
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)

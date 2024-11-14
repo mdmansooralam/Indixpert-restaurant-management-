@@ -1,8 +1,8 @@
 import os
 import json
-
+import traceback
 from src.database.collections.path import PAYMENT_FILE
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 
 class Payment:
     def __init__(self):
@@ -17,8 +17,8 @@ class Payment:
                 return []
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
-    
+            log(traceback.extract_tb(error.__traceback__)[0], error)
+
     def save_payment(self):
         try:
             with open(PAYMENT_FILE, 'w') as file:
@@ -26,4 +26,4 @@ class Payment:
                 json.dump(payments, file, indent=4)
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)

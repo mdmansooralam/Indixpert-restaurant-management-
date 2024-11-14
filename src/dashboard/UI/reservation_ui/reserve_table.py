@@ -10,7 +10,8 @@ from src.utility.time_slot import validate_time_slot_id
 from src.dashboard.UI.reservation_ui.display_time_slot import display_time_slot
 from src.utility.get_input import get_input
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import log
+import traceback
 
 def table_reserve():
     try:
@@ -41,4 +42,4 @@ def table_reserve():
         reserved_table(name, mobile_no, time_slot, persons)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)

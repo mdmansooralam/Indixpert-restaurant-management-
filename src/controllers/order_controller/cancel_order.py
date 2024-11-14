@@ -1,10 +1,10 @@
-
+import traceback
 from src.database.collections.order import Order
 from src.controllers.user_controller.user_state import UserState
 from src.utility.validation import validate_id
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
-from src.utility.log_error import LogError
+from src.utility.log_error import log
 from src.utility.colors import bcolors
 
 
@@ -35,5 +35,5 @@ def cancel_order():
             else:
                 print(err_msg.order_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)

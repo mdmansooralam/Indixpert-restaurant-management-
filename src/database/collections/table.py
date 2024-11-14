@@ -1,8 +1,8 @@
 import os
 import json
-
+import traceback
 from src.database.collections.path import TABLE_FILE
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 
 class Table:
     def __init__(self):
@@ -17,7 +17,7 @@ class Table:
                 return []
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
 
     def save_table(self):
         try:
@@ -26,4 +26,4 @@ class Table:
                 json.dump(tables, file, indent=4)
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)

@@ -2,14 +2,14 @@ import uuid
 from datetime import datetime
 
 
-
+import traceback
 from src.models.payment_model import PaymentModel
 from src.database.collections.payments import Payment
 from src.utility.get_order import get_order
 from src.utility.validation import validate_price, validate_method
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
-from src.utility.log_error import LogError
+from src.utility.log_error import log
 
 
 def pay(order_id):
@@ -53,5 +53,5 @@ def pay(order_id):
             return 'failed'
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         return 'failed'

@@ -1,8 +1,8 @@
 import os
 import json
-
+import traceback
 from src.database.collections.path import ITEM_FILE
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 
 class Item:
     def __init__(self):
@@ -17,7 +17,7 @@ class Item:
                 return []
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
     
     def save_item(self):
         try:
@@ -26,4 +26,4 @@ class Item:
                 json.dump(items, file, indent=4)
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)

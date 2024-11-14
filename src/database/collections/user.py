@@ -1,8 +1,8 @@
 import os
 import json
-
+import traceback
 from src.database.collections.path import USER_FILE
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 
 class User:
     def __init__(self):
@@ -17,7 +17,7 @@ class User:
                 return []
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
         
     def save_user(self):
         try:
@@ -26,6 +26,6 @@ class User:
                 json.dump(users, file, indent=4)
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
 
             

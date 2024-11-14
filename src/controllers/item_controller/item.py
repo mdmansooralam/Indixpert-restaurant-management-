@@ -1,9 +1,9 @@
 import uuid
-
+import traceback
 from src.controllers.user_controller.user_state import UserState
 from src.models.item_model import ItemModel
 from src.database.collections.item import Item
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.utility.error_message import ErrorMessage
 
 def create_item(name, category, sale_price, quantity):
@@ -18,7 +18,7 @@ def create_item(name, category, sale_price, quantity):
         print(err_msg.item_created)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def remove_item(id):
     try:
@@ -34,7 +34,7 @@ def remove_item(id):
         else:
             print(err_msg.item_not_found)
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_item_by_category(category):
@@ -71,7 +71,7 @@ def get_item_by_category(category):
                     items_count += 1
 
     except Exception as error:
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
 def get_all_items():
@@ -89,7 +89,7 @@ def get_all_items():
             print(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def add_stock(item_id, qty):
     try:
@@ -111,7 +111,7 @@ def add_stock(item_id, qty):
             print(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def view_stock():
     try:
@@ -128,7 +128,7 @@ def view_stock():
             print(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def update_item(id, name, category, sale_price, quantity):
     try:
@@ -143,9 +143,10 @@ def update_item(id, name, category, sale_price, quantity):
                     item['quantity'] = quantity
                     ITEM.save_item()
                     print(err_msg.item_updated)
-                    break
+                    return
+            raise Exception(err_msg.item_not_found)
         else:
             print(err_msg.not_authorized)
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)

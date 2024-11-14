@@ -1,5 +1,5 @@
 
-from datetime import date
+from datetime import datetime
 
 
 DEFAULT_FILE = 'src/database/default.json'
@@ -10,4 +10,4 @@ RESERVATION_FILE = 'src/database/reservations.json'
 TABLE_FILE = 'src/database/tables.json'
 USER_FILE = 'src/database/users.json'
 
-LOG_FILE = f'src/database/log/{date.today()}.txt'
+LOG_FILE = f'src/database/log/{datetime.now().strftime('%m-%Y')}.txt'

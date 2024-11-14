@@ -1,8 +1,8 @@
 import os
 import json
-
+import traceback
 from src.database.collections.path import RESERVATION_FILE
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 
 class Reservation:
     def __init__(self):
@@ -17,7 +17,7 @@ class Reservation:
                 return []
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)
 
     def save_reservation(self):
         try:
@@ -27,4 +27,4 @@ class Reservation:
                 
         except Exception as error:
             print(error)
-            LogError().err.exception(error)
+            log(traceback.extract_tb(error.__traceback__)[0], error)

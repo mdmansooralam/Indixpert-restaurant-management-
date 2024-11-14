@@ -1,7 +1,7 @@
-
+import traceback
 from src.utility.validation import validate_name, validate_gender, validate_mobile, validate_dob, validate_password, validate_address
 from src.utility.error_message import ErrorMessage
-from src.utility.log_error import LogError
+from src.utility.log_error import LogError, log
 from src.database.collections.user import User
 from src.utility.get_input import get_input
 from src.controllers.user_controller.user_state import UserState
@@ -27,7 +27,7 @@ def update_name():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def update_mobile():
     try:
@@ -49,7 +49,7 @@ def update_mobile():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def update_dob():
     try:
@@ -71,7 +71,7 @@ def update_dob():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
     
 def update_password():
     try:
@@ -93,7 +93,7 @@ def update_password():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def update_address():
     try:
@@ -115,7 +115,7 @@ def update_address():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 def update_gender():
     try:
@@ -137,6 +137,6 @@ def update_gender():
     
     except Exception as error:
         print(error)
-        LogError().err.exception(error)
+        log(traceback.extract_tb(error.__traceback__)[0], error)
 
 

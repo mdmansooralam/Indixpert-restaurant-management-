@@ -5,6 +5,7 @@ from src.models.item_model import ItemModel
 from src.database.collections.item import Item
 from src.utility.log_error import LogError, log
 from src.utility.error_message import ErrorMessage
+from src.utility.colors import bcolors
 
 def create_item(name, category, sale_price, quantity):
     try:
@@ -41,33 +42,33 @@ def get_item_by_category(category):
     try:
 
         if(category=='DRINK' or category== 'STARTER'):
-            print(f'\n**************{category}************\n')
+            print(f'{bcolors.ENDC}\n{'='*33}{category}{'='*33}\n')
             items = Item().items
             fm_str = '{:<10}{:<10}{:<25}{:<20}'
-            print(fm_str.format('S NO.','ID' ,'NAME', 'RATE'))
-            print('-'*40)
-            items_count = 1
-            for item in items:
-                if(item['category'] == category):
-                    print(fm_str.format(items_count, item['id'], item['name'], item['sale_price']))
-                    items_count += 1
-        else:
-            print(f'\n**************{category}************\n')
-            items = Item().items
-            fm_str = '{:<10}{:<10}{:<25}{:<10}{:<10}{:<10}'
-            print(fm_str.format('S NO.','ID', 'NAME', 'FULL', 'HALF', 'QUARTER'))
+            print(f'{bcolors.HEADER}{fm_str.format('S NO.','ID' ,'NAME', 'RATE')}')
             print('-'*65)
             items_count = 1
             for item in items:
                 if(item['category'] == category):
-                    print(fm_str.format(
+                    print(f'{bcolors.OKBLUE}{fm_str.format(items_count, item['id'], item['name'], round(item['sale_price']))}')
+                    items_count += 1
+        else:
+            print(f'{bcolors.ENDC}\n{'='*33}{category}{'='*33}\n')
+            items = Item().items
+            fm_str = '{:<10}{:<10}{:<25}{:<10}{:<10}{:<10}'
+            print(f'{bcolors.HEADER}{fm_str.format('S NO.','ID', 'NAME', 'FULL', 'HALF', 'QUARTER')}')
+            print('-'*75)
+            items_count = 1
+            for item in items:
+                if(item['category'] == category):
+                    print(f'{bcolors.OKBLUE}{fm_str.format(
                         items_count,
                         item['id'],
                         item['name'],
-                        item['sale_price']['full_price'],
-                        item['sale_price']['half_price'],
-                        item['sale_price']['quarter_price'],
-                    ))
+                        round(item['sale_price']['full_price']),
+                        round(item['sale_price']['half_price']),
+                        round(item['sale_price']['quarter_price']),
+                    )}')
                     items_count += 1
 
     except Exception as error:

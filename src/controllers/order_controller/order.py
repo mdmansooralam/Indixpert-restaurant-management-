@@ -163,7 +163,7 @@ def review_order(order):
                 total += sum
                 print(f'{bcolors.OKBLUE}{fmt_str.format(item['name'], item['sale_price'], item['quantity'], sum)}')
 
-            print(f'TOTAL : {total}')
+            print(f'\n{" "*40}TOTAL   : {total}\n')
         else:
             print(f'{bcolors.FAIL}{err_msg.item_not_found}') 
     except Exception as error:

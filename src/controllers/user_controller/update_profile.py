@@ -3,7 +3,7 @@ from src.utility.validation import validate_name, validate_gender, validate_mobi
 from src.utility.error_message import ErrorMessage
 from src.utility.log_error import LogError, log
 from src.database.collections.user import User
-from src.utility.get_input import get_input
+from src.utility.get_input import get_input, get_password
 from src.controllers.user_controller.user_state import UserState
 
 
@@ -79,7 +79,7 @@ def update_password():
         user_state = UserState().get_state()
         USER = User()
 
-        password = get_input(validate_password, err_msg.enter_password, err_msg.invalid_password)
+        password = get_password(validate_password, err_msg.enter_password, err_msg.invalid_password)
         if(not password):
             raise Exception(err_msg.invalid_password)
         

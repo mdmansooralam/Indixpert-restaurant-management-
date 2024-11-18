@@ -406,7 +406,7 @@
         ],
         "total": 540.0,
         "create_by": "staff@staff.com",
-        "status": "process",
+        "status": "paid",
         "tax": 97.2,
         "tax_percent": 18,
         "discount": 0,
@@ -489,5 +489,106 @@
         "tax_percent": 18,
         "discount": 0,
         "grand_total": 1440
+    },
+    {
+        "id": "6237",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "17-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 140.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 25.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 165
+    },
+    {
+        "id": "2B8C",
+        "name": "rahul",
+        "mobile_no": "7979941442",
+        "date": "17-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "757E",
+                "name": "butter chicken (QUARTER)",
+                "category": "MAIN COURSE",
+                "sale_price": 180.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 200.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 36.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 236
+    },
+    {
+        "id": "F493",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 450.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 81.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 531
     }
 ]

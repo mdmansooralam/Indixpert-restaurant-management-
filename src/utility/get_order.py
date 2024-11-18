@@ -10,6 +10,5 @@ def get_order(id):
         if(order['id'] == id):
             order_found = True
             return order
-    else:
-        if(not order_found):
-            return False
+    if(not order_found):
+        return False

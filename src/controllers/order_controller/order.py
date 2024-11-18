@@ -196,22 +196,26 @@ def payment_proceed(order_id):
 def update_order():
     try:
         err_msg = ErrorMessage()
-        id = validate_id(input('enter id :'))
-        if(id):
-            found_order = get_order(id)
-            if(found_order['status'] == 'process'):
-                ORDER = Order()
-                ITEM = Item()
-                new_items = take_order()
-                total = 0
+        id = get_input(validate_id, err_msg.enter_id, err_msg.invalid_id)
+        if(not id):
+            raise Exception(err_msg.invalid_id)
+        found_order = get_order(id)
+        if(not found_order):
+            raise Exception(err_msg.order_not_found)
+        
+        if(found_order['status'] == 'process'):
+            ORDER = Order()
+            ITEM = Item()
+            new_items = take_order()
+            total = 0
 
-                if(new_items):
-                    for new_item in new_items:
-                        for item in ITEM.items:
-                            if(new_item['id'] == item['id']):
-                                item['quantity'] -= new_item['quantity']
-                                total += new_item['sale_price'] * new_item['quantity']
-                                ITEM.save_item()
+            if(new_items):
+                for new_item in new_items:
+                    for item in ITEM.items:
+                        if(new_item['id'] == item['id']):
+                            item['quantity'] -= new_item['quantity']
+                            total += new_item['sale_price'] * new_item['quantity']
+                            ITEM.save_item()
                 
                 for order in ORDER.orders:
                     if(order['id'] == id):
@@ -231,10 +235,10 @@ def update_order():
                 else:
                     print(err_msg.order_saved)
             else:
-                print(f'{bcolors.FAIL}{err_msg.order_already_complete}')
-        else:
-            print(err_msg.invalid_id)
+                print(f'{bcolors.FAIL}{err_msg.item_not_found}')
+        elif(order['status'] == 'paid'):
+            raise Exception(err_msg.order_already_complete)
     except Exception as error:
         log(traceback.extract_tb(error.__traceback__)[0], error)
-        print(error)
+        print(f'{bcolors.FAIL}{error}')
 

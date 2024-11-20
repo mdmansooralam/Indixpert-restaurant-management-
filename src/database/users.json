@@ -118,5 +118,25 @@
         ],
         "password": "Rahul@123",
         "gender": "male"
+    },
+    {
+        "id": "f88bd223-5",
+        "name": "astha",
+        "date_of_birth": "01-01-1995",
+        "email": "astha@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "darbhanga",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "18-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Astha@123",
+        "gender": "female"
     }
 ]

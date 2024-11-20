@@ -6,6 +6,7 @@ from src.utility.error_message import ErrorMessage
 from src.database.collections.user import User
 from src.utility.log_error import LogError, log
 from src.utility.get_input import get_input
+from src.utility.colors import bcolors
 
 
 def get_order_by_date():
@@ -17,11 +18,15 @@ def get_order_by_date():
             raise Exception(err_msg.invalid_date)
         order_found = False
         fmt_str = '{:<15}{:<15}{:<10}{:<10}{:<10}'
+        total_order = 0
+        total_order_value = 0
         print('_'*60)
         print(fmt_str.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
         print('_'*60)
         for order in orders:
             if(order['date'] == date):
+                total_order += 1
+                total_order_value += order['grand_total']
                 print(
                         fmt_str.format(
                             order['date'],
@@ -32,6 +37,7 @@ def get_order_by_date():
                         )
                     )
                 order_found = True
+        print(f'\n{bcolors.OKGREEN}Total Order : {total_order}, Total order value : {total_order_value}\n')
 
         if(not order_found):
             print(err_msg.order_not_found)
@@ -52,9 +58,13 @@ def get_order_by_day():
             print('_'*60)
             print('{:<15}{:<15}{:<10}{:<10}{:<10}'.format('DATE', 'MOBILE NO', 'ORDER ID', 'TOTAL', 'STATUS'))
             print('_'*60)
+            total_order = 0
+            total_order_value = 0
             for order in orders:
                 order_date = datetime.strptime(order['date'], '%d-%m-%Y')
                 if((current_date - order_date).days <= days):
+                    total_order += 1
+                    total_order_value += order['grand_total']
                     print(
                         '{:<15}{:<15}{:<10}{:<10}{:<10}'.format(
                             order['date'],
@@ -64,6 +74,8 @@ def get_order_by_day():
                             order['status']
                         )
                     )
+            
+            print(f'\n{bcolors.OKGREEN}Total Order : {total_order}, Total order value : {total_order_value}\n')
         else:
             print(err_msg.order_not_found)
     except Exception as error:

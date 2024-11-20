@@ -4,7 +4,7 @@ from datetime import datetime
 from src.models.reservation_model import ReservationModel
 from src.database.collections.reservation import Reservation
 from src.database.collections.table import Table
-from src.utility.validation import validate_id, validate_int
+from src.utility.validation import validate_id, validate_int, validate_name, validate_mobile
 from src.database.collections.default import Default
 from src.utility.error_message import ErrorMessage
 from src.utility.log_error import LogError, log
@@ -44,7 +44,7 @@ def reserved_table(name, mobile_no, time_slot, persons):
             RESERVATION.reservations.append(new_reservation)
             RESERVATION.save_reservation()
             print(f'{bcolors.OKGREEN}table reserved successful table Id : {table['id']} reservation id : {new_reservation['id']}')
-            return True
+            return new_reservation
     except Exception as error:
         print(f'{bcolors.FAIL}{error}')
         log(traceback.extract_tb(error.__traceback__)[0], error)
@@ -121,8 +121,21 @@ def get_all_reservaiton():
         print(error)
         log(traceback.extract_tb(error.__traceback__)[0], error)
     
-def auto_reserve(name, mobile_no, persons):
+def auto_reserve():
     try:
+        err_msg = ErrorMessage()
+        name = get_input(validate_name, err_msg.enter_name, err_msg.invalid_name)
+        if(not name):
+            raise Exception(err_msg.invalid_name)
+        
+        mobile_no = get_input(validate_mobile, err_msg.enter_mobile_number, err_msg.invalid_mobile_number)
+        if(not mobile_no):
+            raise Exception(err_msg.invalid_mobile_number)
+
+        persons = get_input(validate_int, err_msg.number_of_person, err_msg.invalid_number_of_person)
+        if(not persons):
+            raise Exception(err_msg.invalid_number_of_person)
+
         time = str(datetime.now().strftime('%H:%M'))
         #checking for slot
         time_slots = Default().time_slot
@@ -135,7 +148,7 @@ def auto_reserve(name, mobile_no, persons):
             if(datetime.strptime(time, "%H:%M") <= datetime.strptime(slot_time, "%H:%M")):
                 res = reserved_table(name, mobile_no, time_slot['slot'], persons)
                 if(res):
-                    return True
+                    return res
                 else:
                     return False
     except Exception as error:

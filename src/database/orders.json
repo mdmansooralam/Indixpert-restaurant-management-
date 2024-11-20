@@ -590,5 +590,160 @@
         "tax_percent": 18,
         "discount": 0,
         "grand_total": 531
+    },
+    {
+        "id": "22FD",
+        "name": "astha",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "D858",
+                "name": "mutter paneer (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 150.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "4284",
+                "name": "spring roll",
+                "category": "STARTER",
+                "sale_price": 100.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 520.0,
+        "create_by": "astha@gmail.com",
+        "status": "paid",
+        "tax": 93.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 614
+    },
+    {
+        "id": "749D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 20.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 3.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 24
+    },
+    {
+        "id": "EAEB",
+        "name": "mazda",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "D559",
+                "name": "paneer samosa",
+                "category": "STARTER",
+                "sale_price": 30.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 300.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 54.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 354
+    },
+    {
+        "id": "D40D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "19-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 120.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 21.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 142
+    },
+    {
+        "id": "EEB5",
+        "name": "mazda",
+        "mobile_no": "7979941442",
+        "date": "19-11-2024",
+        "items": [
+            {
+                "id": "FEDF",
+                "name": "aloo samosa",
+                "category": "STARTER",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 40.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 7.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 47
     }
 ]

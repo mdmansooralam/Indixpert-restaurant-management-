@@ -13,3 +13,4 @@ def menu():
     
     get_item_by_category('DRINK')
 
+    get_item_by_category('ROTI')

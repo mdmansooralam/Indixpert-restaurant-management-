@@ -10,6 +10,7 @@ from src.utility.validation import validate_price, validate_method
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
 from src.utility.log_error import log
+from src.utility.colors import bcolors
 
 
 def pay(order_id):
@@ -32,12 +33,14 @@ def pay(order_id):
                 
             if(method == 'cash' or method == 'card' or method == 'online'):
                 print(f'You have to pay {amount} Rupees')
-                amt = get_input(validate_price, 'Enter Amount : ', 'Invalid Amount')
-                if(amt == amount):
-                    status = 'success'
-                else:
-                    print('payment failed : you enter a wrong amount')
-                    status = 'failed'
+                while True:
+                    amt = get_input(validate_price, 'Enter Amount : ', 'Invalid Amount')
+                    if(amt == amount):
+                        status = 'success'
+                        break
+                    else:
+                        print(f'{bcolors.FAIL}payment failed : you enter a wrong amount')
+                        status = 'failed'
 
                 new_payment = PaymentModel(id, date, amount, order_id, customer_contact, method, status).__dict__
                 PAYMENT.payments.append(new_payment)

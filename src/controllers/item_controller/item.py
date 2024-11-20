@@ -41,7 +41,7 @@ def remove_item(id):
 def get_item_by_category(category):
     try:
 
-        if(category=='DRINK' or category== 'STARTER'):
+        if(category=='DRINK' or category== 'STARTER' or category == 'ROTI'):
             print(f'{bcolors.ENDC}\n{'='*33}{category}{'='*33}\n')
             items = Item().items
             fm_str = '{:<10}{:<10}{:<25}{:<20}'

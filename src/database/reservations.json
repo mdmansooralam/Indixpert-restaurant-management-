@@ -128,5 +128,45 @@
         "time_slot": "10:00 AM TO 11:00 AM",
         "persons": 2,
         "status": "reserved"
+    },
+    {
+        "id": "4991",
+        "name": "astha",
+        "mobile_no": "7979941442",
+        "table_id": "DK65",
+        "date": "18-11-2024",
+        "time_slot": "04:15 PM TO 05:15 PM",
+        "persons": 3,
+        "status": "reserved"
+    },
+    {
+        "id": "094A",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "table_id": "DE85",
+        "date": "19-11-2024",
+        "time_slot": "11:15 AM TO 12:15 PM",
+        "persons": 5,
+        "status": "reserved"
+    },
+    {
+        "id": "1667",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "table_id": "DK65",
+        "date": "19-11-2024",
+        "time_slot": "12:30 PM TO 01:30 PM",
+        "persons": 3,
+        "status": "reserved"
+    },
+    {
+        "id": "4EBE",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "table_id": "DE85",
+        "date": "19-11-2024",
+        "time_slot": "12:30 PM TO 01:30 PM",
+        "persons": 5,
+        "status": "reserved"
     }
 ]

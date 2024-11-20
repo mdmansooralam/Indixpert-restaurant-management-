@@ -16,9 +16,9 @@ import traceback
 def create():
     try:
         err_msg = ErrorMessage()
-        name = get_input(validate_name, err_msg.enter_order_item, err_msg.invalid_order_item)
+        name = get_input(validate_name, err_msg.enter_item_name, err_msg.invalid_item)
         if(not name):
-            raise Exception(err_msg.invalid_order_item)
+            raise Exception(err_msg.invalid_item)
                     
         if(check_item(name)):
             raise Exception(err_msg.item_exist)
@@ -157,7 +157,7 @@ def take_item_price(category):
             }
             return sale_price
 
-        elif(category == 'DRINK'or category == 'STARTER'):
+        elif(category == 'DRINK'or category == 'STARTER' or category == 'ROTI'):
             price = get_input(validate_price, 'Enter price : ', err_msg.invalid_price)
             if(not price):
                 raise Exception(err_msg.invalid_price)

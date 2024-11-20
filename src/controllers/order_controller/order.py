@@ -31,7 +31,7 @@ def take_order():
 
                 item = get_item(choice)
                 if(item):
-                    if(item['category'] == 'DRINK' or item['category'] == 'STARTER'):
+                    if(item['category'] == 'DRINK' or item['category'] == 'STARTER' or item['category'] == 'ROTI'):
                         quantity = get_input(validate_quantity, err_msg.enter_quantity, err_msg.invalid_quantity)
                         if(not quantity):
                             print(f'{bcolors.FAIL}{err_msg.invalid_quantity}')
@@ -76,7 +76,7 @@ def take_order():
         log(traceback.extract_tb(error.__traceback__)[0], error)
         print(error)
 
-def finalize_order(order):
+def finalize_order(order, name=None, mobile_no = None):
     try:
         ORDER = Order()
         ITEM = Item()
@@ -84,41 +84,15 @@ def finalize_order(order):
 
         if(not order):
             raise Exception(err_msg.order_not_found)
-
-        name = get_input(validate_name, err_msg.enter_customer_name, err_msg.invalid_name)
         if(not name):
-            return
-        
-        mobile_no = get_input(validate_mobile, err_msg.enter_mobile_number, err_msg.invalid_mobile_number)
+            name = get_input(validate_name, err_msg.enter_customer_name, err_msg.invalid_name)
+            if(not name):
+                return
         if(not mobile_no):
-            return
-        
-        print(err_msg.ask_for_table_booking)
-        print(f'{bcolors.OKBLUE}1 YES')
-        print('2 NO')
-        option = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
-        if(not option):
-            return
-        
-        if(option == 1):
-            persons = get_input(validate_int, err_msg.number_of_person, err_msg.invalid_number_of_person)
-            if(not persons):
+            mobile_no = get_input(validate_mobile, err_msg.enter_mobile_number, err_msg.invalid_mobile_number)
+            if(not mobile_no):
                 return
             
-            res = auto_reserve(name, mobile_no, persons)
-            if(not res):
-                print(f'{bcolors.HEADER}{err_msg.continue_booking_without_table}')
-                print(f'{bcolors.OKBLUE}1 YES')
-                print('2 NO')
-                action = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
-                if(not action):
-                    return
-                
-                if(action == 2):
-                    print('thank you')
-                    return
-
-
         total = 0
         if order:
             for order_item in order:

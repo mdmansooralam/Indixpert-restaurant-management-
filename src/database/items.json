@@ -32,7 +32,7 @@
             "half_price": 80.0,
             "quarter_price": 40.0
         },
-        "quantity": 50,
+        "quantity": 48,
         "added_by": "admin@admin.com"
     },
     {
@@ -160,7 +160,7 @@
         "name": "water",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 20,
+        "quantity": 14,
         "added_by": "admin@admin.com"
     },
     {
@@ -168,7 +168,7 @@
         "name": "coffee",
         "category": "DRINK",
         "sale_price": 50.0,
-        "quantity": 37,
+        "quantity": 32,
         "added_by": "admin@admin.com"
     },
     {
@@ -232,7 +232,7 @@
         "name": "spring roll",
         "category": "STARTER",
         "sale_price": 100.0,
-        "quantity": 50,
+        "quantity": 48,
         "added_by": "admin@admin.com"
     },
     {
@@ -253,6 +253,138 @@
             "quarter_price": 80.0
         },
         "quantity": 48,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "6C77",
+        "name": "rice",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 160.0,
+            "half_price": 80.0,
+            "quarter_price": 50.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "94E5",
+        "name": "chicken biryani",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 240.0,
+            "half_price": 130.0,
+            "quarter_price": 70.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "F9B6",
+        "name": "mutton biryani",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 320.0,
+            "half_price": 180.0,
+            "quarter_price": 100.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "AA5B",
+        "name": "veg pakora",
+        "category": "STARTER",
+        "sale_price": 90.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "8EAE",
+        "name": "aloo tikki",
+        "category": "STARTER",
+        "sale_price": 60.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "4FAA",
+        "name": "dahi puri",
+        "category": "STARTER",
+        "sale_price": 130.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "42FD",
+        "name": "pani puri",
+        "category": "STARTER",
+        "sale_price": 40.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "FEDF",
+        "name": "aloo samosa",
+        "category": "STARTER",
+        "sale_price": 20.0,
+        "quantity": 48,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "D559",
+        "name": "paneer samosa",
+        "category": "STARTER",
+        "sale_price": 30.0,
+        "quantity": 47,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "DFB8",
+        "name": "plain tawa roti",
+        "category": "ROTI",
+        "sale_price": 10.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "4B3B",
+        "name": "butter tawa roti",
+        "category": "ROTI",
+        "sale_price": 15.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "6962",
+        "name": "plain tandoori",
+        "category": "ROTI",
+        "sale_price": 15.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "918C",
+        "name": "butter tandoori",
+        "category": "ROTI",
+        "sale_price": 20.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "2255",
+        "name": "butter naan",
+        "category": "ROTI",
+        "sale_price": 30.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "3B81",
+        "name": "missi roti",
+        "category": "ROTI",
+        "sale_price": 15.0,
+        "quantity": 50,
         "added_by": "admin@admin.com"
     }
 ]

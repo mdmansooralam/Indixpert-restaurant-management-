@@ -745,5 +745,91 @@
         "tax_percent": 18,
         "discount": 0,
         "grand_total": 47
+    },
+    {
+        "id": "EC52",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "20-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "6C77",
+                "name": "rice (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 160.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 910.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 163.8,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 1074
+    },
+    {
+        "id": "9A1D",
+        "name": "aastha",
+        "mobile_no": "7979941442",
+        "date": "20-11-2024",
+        "items": [
+            {
+                "id": "87B0",
+                "name": "paneer tikka (QUARTER)",
+                "category": "MAIN COURSE",
+                "sale_price": 80.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "DFB8",
+                "name": "plain tawa roti",
+                "category": "ROTI",
+                "sale_price": 10.0,
+                "quantity": 14,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "DFB8",
+                "name": "plain tawa roti",
+                "category": "ROTI",
+                "sale_price": 10.0,
+                "quantity": 7,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 510.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 91.8,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 602
     }
 ]

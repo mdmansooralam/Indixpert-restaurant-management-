@@ -120,7 +120,7 @@ def view_stock():
         items = Item().items
         user_state = UserState().get_state()
         if(user_state['role'] == 'admin'):
-            fmt_str = '{:<20}{:<20}{:<10}'
+            fmt_str = '{:<20}{:<30}{:<10}'
             print(fmt_str.format('ID', 'NAME', 'STOCK'))
             print('-'*50)
             for item in items:
@@ -131,14 +131,13 @@ def view_stock():
         print(error)
         log(traceback.extract_tb(error.__traceback__)[0], error)
 
-def update_item(id, name, category, sale_price, quantity):
+def update_item(id, category, sale_price, quantity):
     try:
         err_msg = ErrorMessage()
         ITEM = Item()
         if(UserState().get_state()['role'] == 'admin'):
             for item in ITEM.items:
                 if(item['id'] == id):
-                    item['name'] = name
                     item['category'] = category
                     item['sale_price'] = sale_price
                     item['quantity'] = quantity

@@ -33,3 +33,5 @@
 ||auth time 
  11:26:26 You chose an invalid option. Please choose a valid option
 NoneType: None
+|{'date_time': '2024-11-20 15:59:31.016091', 'email': 'staff@staff.com', 'path': 'D:\\Indixpert-restaurant-management-\\src\\controllers\\reservation_controller\\reservation.py', 'line': '80', 'fn_name': 'get_reservation', 'err': 'raise Exception(err_msg.invalid_id)', 'msg': 'You entered an invalid id. Please enter a valid id'}
+|{'date_time': '2024-11-20 16:10:27.063840', 'email': 'admin@admin.com', 'path': 'D:\\Indixpert-restaurant-management-\\src\\controllers\\user_controller\\update_profile.py', 'line': '62', 'fn_name': 'update_dob', 'err': 'raise Exception(err_msg.invalid_dob)', 'msg': 'Invalid date of birth. Please enter a valid date of birth'}

@@ -4,9 +4,9 @@
         "name": "kadai paneer",
         "category": "MAIN COURSE",
         "sale_price": {
-            "full_price": 160.0,
-            "half_price": 90.0,
-            "quarter_price": 50.0
+            "full_price": 240.0,
+            "half_price": 130.0,
+            "quarter_price": 70.0
         },
         "quantity": 60,
         "added_by": "admin@admin.com"
@@ -68,7 +68,7 @@
             "half_price": 200.0,
             "quarter_price": 180.0
         },
-        "quantity": 39,
+        "quantity": 38,
         "added_by": "admin@admin.com"
     },
     {
@@ -160,7 +160,7 @@
         "name": "water",
         "category": "DRINK",
         "sale_price": 20.0,
-        "quantity": 14,
+        "quantity": 8,
         "added_by": "admin@admin.com"
     },
     {
@@ -252,7 +252,7 @@
             "half_price": 150.0,
             "quarter_price": 80.0
         },
-        "quantity": 48,
+        "quantity": 45,
         "added_by": "admin@admin.com"
     },
     {
@@ -264,7 +264,7 @@
             "half_price": 80.0,
             "quarter_price": 50.0
         },
-        "quantity": 50,
+        "quantity": 47,
         "added_by": "admin@admin.com"
     },
     {
@@ -344,7 +344,7 @@
         "name": "plain tawa roti",
         "category": "ROTI",
         "sale_price": 10.0,
-        "quantity": 50,
+        "quantity": 29,
         "added_by": "admin@admin.com"
     },
     {

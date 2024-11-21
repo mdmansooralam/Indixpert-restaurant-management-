@@ -78,14 +78,6 @@ def update():
         if(not get_item(id)):
             raise Exception(err_msg.item_not_found)
 
-        # name = validate_name(input('Enter item name : '))
-        name = get_input(validate_name, err_msg.enter_item_name, err_msg.invalid_item)
-        if(not name):
-            raise Exception(err_msg.invalid_item)
-
-        if(check_item(name)):
-            raise Exception(err_msg.item_exist)
-
         display_category() 
         category = get_input(verify_item_category, err_msg.choose_option, err_msg.invalid_option)   
         # category = verify_item_category(input('Choose a option : '))
@@ -101,7 +93,7 @@ def update():
         if(not quantity):
             raise Exception(err_msg.invalid_quantity)
         
-        update_item(id, name, category, sale_price, quantity)
+        update_item(id, category, sale_price, quantity)
 
     except Exception as error:
         print(error)

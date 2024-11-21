@@ -2,6 +2,7 @@
 from src.database.collections.path import LOG_FILE
 import logging
 from src.controllers.user_controller.user_state import UserState
+from datetime import datetime
 
 
 class LogError:
@@ -16,7 +17,6 @@ class LogError:
             format=f'||{self.email if self.email else "auth time"} \n {"%(asctime)s"} {"%(message)s"}')
         
 
-from datetime import datetime
 
 def log(tb, msg=None):
     try:

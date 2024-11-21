@@ -168,5 +168,25 @@
         "time_slot": "12:30 PM TO 01:30 PM",
         "persons": 5,
         "status": "reserved"
+    },
+    {
+        "id": "66B6",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "table_id": "DK65",
+        "date": "20-11-2024",
+        "time_slot": "04:15 PM TO 05:15 PM",
+        "persons": 3,
+        "status": "reserved"
+    },
+    {
+        "id": "3ADE",
+        "name": "ashta",
+        "mobile_no": "7979941442",
+        "table_id": "GF20",
+        "date": "20-11-2024",
+        "time_slot": "04:15 PM TO 05:15 PM",
+        "persons": 7,
+        "status": "reserved"
     }
 ]

@@ -214,5 +214,23 @@
         "customer_contact": "7979941442",
         "method": "online",
         "status": "success"
+    },
+    {
+        "id": "BF7B8CA9-8",
+        "date": "20-11-2024",
+        "amount": 1074,
+        "order_id": "EC52",
+        "customer_contact": "7979941442",
+        "method": "online",
+        "status": "success"
+    },
+    {
+        "id": "C7CE6B84-5",
+        "date": "20-11-2024",
+        "amount": 602,
+        "order_id": "9A1D",
+        "customer_contact": "7979941442",
+        "method": "cash",
+        "status": "success"
     }
 ]

@@ -1,0 +1,70 @@
+{
+    "time_slot":[
+        {
+            "id":1,
+            "slot":"10:00 AM TO 11:00 AM"
+        },
+        {
+            "id":2,
+            "slot":"11:15 AM TO 12:15 PM"
+        },
+        {
+            "id":3,
+            "slot":"12:30 PM TO 01:30 PM"
+        },
+        {
+            "id":4,
+            "slot":"01:45 PM TO 02:45 PM"
+        },
+        {
+            "id":5,
+            "slot":"03:00 PM TO 04:00 AM"
+        },
+        {
+            "id":6,
+            "slot":"04:15 PM TO 05:15 PM"
+        },
+        {
+            "id":7,
+            "slot":"05:30 PM TO 06:30 PM"
+        },
+        {
+            "id":8,
+            "slot":"06:45 PM TO 07:45 PM"
+        },
+        {
+            "id":9,
+            "slot":"08:00 PM TO 09:00 PM"
+        },
+        {
+            "id":10,
+            "slot":"09:15 PM TO 10:15 PM"
+        }
+    ],
+    "tax_percent":18,
+    "restaurant_status":"open",
+    "role":"staff",
+    "salary":18000,
+    "employment_type":"full time",
+    "shift_preferences":"day",
+    "benefits":["health insurance", "meals"],
+    "user_status":"active",
+    "item_category":[
+        {
+            "id":1,
+            "name":"MAIN COURSE"
+        },
+        {
+            "id":2,
+            "name":"STARTER"
+        },
+        {
+            "id":3,
+            "name":"DRINK"
+        },
+        {
+            "id":4,
+            "name":"ROTI"
+        }
+    ]
+}

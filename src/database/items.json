@@ -1,0 +1,390 @@
+[
+    {
+        "id": "D5AE",
+        "name": "kadai paneer",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 240.0,
+            "half_price": 130.0,
+            "quarter_price": 70.0
+        },
+        "quantity": 60,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "A920",
+        "name": "butter paneer masala",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 150.0,
+            "half_price": 80.0,
+            "quarter_price": 40.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "D858",
+        "name": "mutter paneer",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 150.0,
+            "half_price": 80.0,
+            "quarter_price": 40.0
+        },
+        "quantity": 48,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "73F7",
+        "name": "mix veg",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 120.0,
+            "half_price": 60.0,
+            "quarter_price": 30.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "2933",
+        "name": "dal makhni",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 150.0,
+            "half_price": 80.0,
+            "quarter_price": 40.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "757E",
+        "name": "butter chicken",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 370.0,
+            "half_price": 200.0,
+            "quarter_price": 180.0
+        },
+        "quantity": 38,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "42AC",
+        "name": "kadai chicken",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 280.0,
+            "half_price": 150.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "FBC2",
+        "name": "chicken tikka masala",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 280.0,
+            "half_price": 150.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "F1D3",
+        "name": "egg curry",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 120.0,
+            "half_price": 80.0,
+            "quarter_price": 50.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "FCC5",
+        "name": "chicken curry",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 350.0,
+            "half_price": 220.0,
+            "quarter_price": 120.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "6684",
+        "name": "mutton curry",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 280.0,
+            "half_price": 140.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 49,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "D08D",
+        "name": "fish curry",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 250.0,
+            "half_price": 140.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "CEC3",
+        "name": "mutton keema",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 250.0,
+            "half_price": 140.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "F8F3",
+        "name": "water",
+        "category": "DRINK",
+        "sale_price": 20.0,
+        "quantity": 8,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "0E87",
+        "name": "coffee",
+        "category": "DRINK",
+        "sale_price": 50.0,
+        "quantity": 32,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "0889",
+        "name": "tea",
+        "category": "DRINK",
+        "sale_price": 20.0,
+        "quantity": 46,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "C1EB",
+        "name": "mojito",
+        "category": "DRINK",
+        "sale_price": 150.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "B74E",
+        "name": "red bull",
+        "category": "DRINK",
+        "sale_price": 120.0,
+        "quantity": 47,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "67A0",
+        "name": "sprite",
+        "category": "DRINK",
+        "sale_price": 40.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "858D",
+        "name": "chicken wings",
+        "category": "STARTER",
+        "sale_price": 440.0,
+        "quantity": 47,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "9DE3",
+        "name": "chilly paneer",
+        "category": "STARTER",
+        "sale_price": 150.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "E6B2",
+        "name": "chicken kabab",
+        "category": "STARTER",
+        "sale_price": 80.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "4284",
+        "name": "spring roll",
+        "category": "STARTER",
+        "sale_price": 100.0,
+        "quantity": 48,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "7C12",
+        "name": "chicken lollypop",
+        "category": "STARTER",
+        "sale_price": 350.0,
+        "quantity": 49,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "87B0",
+        "name": "paneer tikka",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 280.0,
+            "half_price": 150.0,
+            "quarter_price": 80.0
+        },
+        "quantity": 45,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "6C77",
+        "name": "rice",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 160.0,
+            "half_price": 80.0,
+            "quarter_price": 50.0
+        },
+        "quantity": 47,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "94E5",
+        "name": "chicken biryani",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 240.0,
+            "half_price": 130.0,
+            "quarter_price": 70.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "F9B6",
+        "name": "mutton biryani",
+        "category": "MAIN COURSE",
+        "sale_price": {
+            "full_price": 320.0,
+            "half_price": 180.0,
+            "quarter_price": 100.0
+        },
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "AA5B",
+        "name": "veg pakora",
+        "category": "STARTER",
+        "sale_price": 90.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "8EAE",
+        "name": "aloo tikki",
+        "category": "STARTER",
+        "sale_price": 60.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "4FAA",
+        "name": "dahi puri",
+        "category": "STARTER",
+        "sale_price": 130.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "42FD",
+        "name": "pani puri",
+        "category": "STARTER",
+        "sale_price": 40.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "FEDF",
+        "name": "aloo samosa",
+        "category": "STARTER",
+        "sale_price": 20.0,
+        "quantity": 48,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "D559",
+        "name": "paneer samosa",
+        "category": "STARTER",
+        "sale_price": 30.0,
+        "quantity": 47,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "DFB8",
+        "name": "plain tawa roti",
+        "category": "ROTI",
+        "sale_price": 10.0,
+        "quantity": 29,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "4B3B",
+        "name": "butter tawa roti",
+        "category": "ROTI",
+        "sale_price": 15.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "6962",
+        "name": "plain tandoori",
+        "category": "ROTI",
+        "sale_price": 15.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "918C",
+        "name": "butter tandoori",
+        "category": "ROTI",
+        "sale_price": 20.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "2255",
+        "name": "butter naan",
+        "category": "ROTI",
+        "sale_price": 30.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    },
+    {
+        "id": "3B81",
+        "name": "missi roti",
+        "category": "ROTI",
+        "sale_price": 15.0,
+        "quantity": 50,
+        "added_by": "admin@admin.com"
+    }
+]

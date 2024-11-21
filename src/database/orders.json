@@ -1,0 +1,835 @@
+[
+    {
+        "id": "9437",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "09-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "B74E",
+                "name": "red bull",
+                "category": "DRINK",
+                "sale_price": 120.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 280.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 50.4,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 330
+    },
+    {
+        "id": "7403",
+        "name": "rahul",
+        "mobile_no": "8936049838",
+        "date": "09-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 880.0,
+        "create_by": "second@staff.com",
+        "status": "paid",
+        "tax": 158.4,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 1038
+    },
+    {
+        "id": "8746",
+        "name": "rahul singh",
+        "mobile_no": "7979941442",
+        "date": "09-11-2024",
+        "items": [
+            {
+                "id": "858D",
+                "name": "chicken wings",
+                "category": "STARTER",
+                "sale_price": 440.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "6684",
+                "name": "mutton curry (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 140.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 620.0,
+        "create_by": "second@staff.com",
+        "status": "paid",
+        "tax": 111.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 732
+    },
+    {
+        "id": "F85D",
+        "name": "alam",
+        "mobile_no": "7979941442",
+        "date": "09-11-2024",
+        "items": [
+            {
+                "id": "7C12",
+                "name": "chicken lollypop",
+                "category": "STARTER",
+                "sale_price": 350.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 370.0,
+        "create_by": "second@staff.com",
+        "status": "paid",
+        "tax": 66.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 437
+    },
+    {
+        "id": "E537",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "09-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "B74E",
+                "name": "red bull",
+                "category": "DRINK",
+                "sale_price": 120.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 190.0,
+        "create_by": "second@staff.com",
+        "status": "paid",
+        "tax": 34.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 224
+    },
+    {
+        "id": "5A67",
+        "name": "shaiqua",
+        "mobile_no": "7979941442",
+        "date": "10-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 200.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 200.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 36.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 236
+    },
+    {
+        "id": "22E7",
+        "name": "rahul",
+        "mobile_no": "7979941442",
+        "date": "11-11-2024",
+        "items": [
+            {
+                "id": "2458",
+                "name": "paneer tikka (QUARTER)",
+                "category": "MAIN COURSE",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0889",
+                "name": "tea",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0889",
+                "name": "tea",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 220.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 39.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 260
+    },
+    {
+        "id": "B14D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "11-11-2024",
+        "items": [
+            {
+                "id": "2458",
+                "name": "paneer tikka (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 180.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "757E",
+                "name": "butter chicken (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 200.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 450.0,
+        "create_by": "second@staff.com",
+        "status": "paid",
+        "tax": 81.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 531
+    },
+    {
+        "id": "5199",
+        "name": "rahul singh",
+        "mobile_no": "7979941442",
+        "date": "11-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 4,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 920.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 165.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 1086
+    },
+    {
+        "id": "2ABC",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "12-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 160.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 28.8,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 189
+    },
+    {
+        "id": "5625",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "13-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 200.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 540.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 97.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 637
+    },
+    {
+        "id": "63AC",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "13-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 200.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 270.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 48.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 319
+    },
+    {
+        "id": "7288",
+        "name": "rahul",
+        "mobile_no": "7979941442",
+        "date": "14-11-2024",
+        "items": [
+            {
+                "id": "87B0",
+                "name": "paneer tikka (HALF)",
+                "category": "MAIN COURSE",
+                "sale_price": 150.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "858D",
+                "name": "chicken wings",
+                "category": "STARTER",
+                "sale_price": 440.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 1220.0,
+        "create_by": "rahul@gmail.com",
+        "status": "paid",
+        "tax": 219.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 1440
+    },
+    {
+        "id": "6237",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "17-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 140.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 25.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 165
+    },
+    {
+        "id": "2B8C",
+        "name": "rahul",
+        "mobile_no": "7979941442",
+        "date": "17-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "757E",
+                "name": "butter chicken (QUARTER)",
+                "category": "MAIN COURSE",
+                "sale_price": 180.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 200.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 36.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 236
+    },
+    {
+        "id": "F493",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 450.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 81.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 531
+    },
+    {
+        "id": "22FD",
+        "name": "astha",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "D858",
+                "name": "mutter paneer (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 150.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "4284",
+                "name": "spring roll",
+                "category": "STARTER",
+                "sale_price": 100.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 520.0,
+        "create_by": "astha@gmail.com",
+        "status": "paid",
+        "tax": 93.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 614
+    },
+    {
+        "id": "749D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 20.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 3.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 24
+    },
+    {
+        "id": "EAEB",
+        "name": "mazda",
+        "mobile_no": "7979941442",
+        "date": "18-11-2024",
+        "items": [
+            {
+                "id": "D559",
+                "name": "paneer samosa",
+                "category": "STARTER",
+                "sale_price": 30.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 300.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 54.0,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 354
+    },
+    {
+        "id": "D40D",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "19-11-2024",
+        "items": [
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "0E87",
+                "name": "coffee",
+                "category": "DRINK",
+                "sale_price": 50.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 120.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 21.6,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 142
+    },
+    {
+        "id": "EEB5",
+        "name": "mazda",
+        "mobile_no": "7979941442",
+        "date": "19-11-2024",
+        "items": [
+            {
+                "id": "FEDF",
+                "name": "aloo samosa",
+                "category": "STARTER",
+                "sale_price": 20.0,
+                "quantity": 2,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 40.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 7.2,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 47
+    },
+    {
+        "id": "EC52",
+        "name": "mansoor",
+        "mobile_no": "7979941442",
+        "date": "20-11-2024",
+        "items": [
+            {
+                "id": "757E",
+                "name": "butter chicken (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 370.0,
+                "quantity": 1,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "6C77",
+                "name": "rice (FULL)",
+                "category": "MAIN COURSE",
+                "sale_price": 160.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 910.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 163.8,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 1074
+    },
+    {
+        "id": "9A1D",
+        "name": "aastha",
+        "mobile_no": "7979941442",
+        "date": "20-11-2024",
+        "items": [
+            {
+                "id": "87B0",
+                "name": "paneer tikka (QUARTER)",
+                "category": "MAIN COURSE",
+                "sale_price": 80.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "F8F3",
+                "name": "water",
+                "category": "DRINK",
+                "sale_price": 20.0,
+                "quantity": 3,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "DFB8",
+                "name": "plain tawa roti",
+                "category": "ROTI",
+                "sale_price": 10.0,
+                "quantity": 14,
+                "added_by": "admin@admin.com"
+            },
+            {
+                "id": "DFB8",
+                "name": "plain tawa roti",
+                "category": "ROTI",
+                "sale_price": 10.0,
+                "quantity": 7,
+                "added_by": "admin@admin.com"
+            }
+        ],
+        "total": 510.0,
+        "create_by": "staff@staff.com",
+        "status": "paid",
+        "tax": 91.8,
+        "tax_percent": 18,
+        "discount": 0,
+        "grand_total": 602
+    }
+]

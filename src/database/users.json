@@ -1,0 +1,142 @@
+[
+    {
+        "id": "f8d12d67-d",
+        "name": "admin",
+        "date_of_birth": "01-01-1996",
+        "email": "admin@admin.com",
+        "mobile_number": "8936049838",
+        "address": "Darbhanga Bihar",
+        "role": "admin",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "31-10-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Admin@123",
+        "gender": "male"
+    },
+    {
+        "id": "57ffa756-c",
+        "name": "staff name",
+        "date_of_birth": "01-01-2000",
+        "email": "staff@staff.com",
+        "mobile_number": "7979941442",
+        "address": "Darbhanga Bihar",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "31-10-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Staff@123",
+        "gender": "male"
+    },
+    {
+        "id": "0160e073-0",
+        "name": "second staff",
+        "date_of_birth": "01-01-1990",
+        "email": "second@staff.com",
+        "mobile_number": "8936049838",
+        "address": "Darbhanga bihar",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "09-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Second@123",
+        "gender": "male"
+    },
+    {
+        "id": "35d0ef1d-e",
+        "name": "mazda",
+        "date_of_birth": "01-01-2000",
+        "email": "mazda@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "meerganj, gopalganj",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "14-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Mazda@123",
+        "gender": "female"
+    },
+    {
+        "id": "8b9ba523-b",
+        "name": "shifa",
+        "date_of_birth": "01-01-2000",
+        "email": "shifa@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "rajasthan",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "14-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Shifa@123",
+        "gender": "female"
+    },
+    {
+        "id": "71909039-4",
+        "name": "rahul",
+        "date_of_birth": "01-01-2000",
+        "email": "rahul@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "utrakhand",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "14-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Rahul@123",
+        "gender": "male"
+    },
+    {
+        "id": "f88bd223-5",
+        "name": "astha",
+        "date_of_birth": "01-01-1995",
+        "email": "astha@gmail.com",
+        "mobile_number": "7979941442",
+        "address": "darbhanga",
+        "role": "staff",
+        "salary": 18000,
+        "employment_type": "full time",
+        "date_of_joining": "18-11-2024",
+        "shift_preferences": "day",
+        "status": "active",
+        "benefits": [
+            "health insurance",
+            "meals"
+        ],
+        "password": "Astha@123",
+        "gender": "female"
+    }
+]

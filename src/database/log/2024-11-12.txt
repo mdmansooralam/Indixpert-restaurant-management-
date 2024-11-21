@@ -1,0 +1,30 @@
+||staff@staff.com 
+ 11:35:44 You chose an invalid option. Please choose a valid option
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\controllers\payment_gateway_controller\payment_gateway.py", line 31, in pay
+    raise Exception(err_msg.invalid_option)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 14:58:19 4
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 14, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 15:00:32 1
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\utility\get_input.py", line 14, in get_input
+    raise Exception(err_msg)
+Exception: You chose an invalid option. Please choose a valid option
+||staff@staff.com 
+ 15:01:21 You chose an invalid option. Please choose a valid option
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\controllers\reservation_controller\reservation.py", line 149, in get_available_table
+    raise Exception(err_msg.invalid_option)
+Exception: You chose an invalid option. Please choose a valid option
+||auth time 
+ 15:29:50 Invalid password. Please enter a valid password
+Traceback (most recent call last):
+  File "D:\Indixpert-restaurant-management-\src\dashboard\UI\auth_ui\auth.py", line 17, in login
+    raise Exception(err_msg.invalid_password)
+Exception: Invalid password. Please enter a valid password

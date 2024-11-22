@@ -30,8 +30,6 @@
 |{'date_time': '2024-11-19 11:36:39.656025', 'email': 'staff@staff.com', 'path': 'D:\\Indixpert-restaurant-management-\\src\\controllers\\auth_controller\\auth.py', 'line': '80', 'fn_name': 'user_login', 'err': 'dashboard()', 'msg': "'NoneType' object is not subscriptable"}
 |{'date_time': '2024-11-19 18:34:43.615767', 'email': 'staff@staff.com', 'path': 'd:\\Indixpert-restaurant-management-\\src\\dashboard\\UI\\order_ui\\order.py', 'line': '27', 'fn_name': 'pay_bill', 'err': 'raise Exception(err_msg.invalid_id)', 'msg': 'You entered an invalid id. Please enter a valid id'}
 |{'date_time': '2024-11-20 11:26:22.729835', 'email': 'known', 'path': 'D:\\Indixpert-restaurant-management-\\src\\dashboard\\UI\\auth_ui\\auth.py', 'line': '19', 'fn_name': 'login', 'err': 'raise Exception(err_msg.invalid_password)', 'msg': 'Invalid password. Please enter a valid password'}
-||auth time 
- 11:26:26 You chose an invalid option. Please choose a valid option
-NoneType: None
 |{'date_time': '2024-11-20 15:59:31.016091', 'email': 'staff@staff.com', 'path': 'D:\\Indixpert-restaurant-management-\\src\\controllers\\reservation_controller\\reservation.py', 'line': '80', 'fn_name': 'get_reservation', 'err': 'raise Exception(err_msg.invalid_id)', 'msg': 'You entered an invalid id. Please enter a valid id'}
 |{'date_time': '2024-11-20 16:10:27.063840', 'email': 'admin@admin.com', 'path': 'D:\\Indixpert-restaurant-management-\\src\\controllers\\user_controller\\update_profile.py', 'line': '62', 'fn_name': 'update_dob', 'err': 'raise Exception(err_msg.invalid_dob)', 'msg': 'Invalid date of birth. Please enter a valid date of birth'}
+|{'date_time': '2024-11-22 10:52:25.581842', 'email': 'admin@admin.com', 'path': 'D:\\Indixpert-restaurant-management-\\src\\controllers\\error_controller\\error.py', 'line': '15', 'fn_name': 'get_all_error', 'err': 'errors = Errors().errors', 'msg': 'invalid syntax (<unknown>, line 1)'}

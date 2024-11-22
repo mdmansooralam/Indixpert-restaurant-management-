@@ -5,7 +5,6 @@ from src.dashboard.UI.auth_ui.auth import login, signup
 from src.utility.validation import validate_int
 from src.utility.error_message import ErrorMessage
 from src.utility.get_input import get_input
-from src.utility.log_error import LogError
 from src.utility.colors import bcolors
 
 def authentication():
@@ -19,7 +18,7 @@ def authentication():
 
         choice = get_input(validate_int, err_msg.choose_option, err_msg.invalid_option)
         if(not choice):
-            LogError().err.exception(err_msg.invalid_option)
+            print(err_msg.invalid_option)
             break
         
         if(choice == 1):
